@@ -459,7 +459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = eu.ezytarget.MobileAppPlaygroundTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileAppPlayground.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MobileAppPlayground";
 			};
@@ -478,7 +478,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = eu.ezytarget.MobileAppPlaygroundTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileAppPlayground.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MobileAppPlayground";
 			};
@@ -495,7 +495,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = eu.ezytarget.MobileAppPlaygroundUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MobileAppPlayground;
 			};
@@ -512,7 +512,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = eu.ezytarget.MobileAppPlaygroundUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MobileAppPlayground;
 			};
