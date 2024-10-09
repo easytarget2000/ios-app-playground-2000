@@ -10,6 +10,9 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            if viewModel.showLoadingIndicator {
+                ProgressView()
+            }
             Text(viewModel.copy)
             Button(viewModel.buttonTitle) {
                 Task {

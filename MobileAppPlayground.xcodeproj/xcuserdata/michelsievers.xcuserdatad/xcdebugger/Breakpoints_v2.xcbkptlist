@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "541BD5BA-5CC9-48F1-A443-1898767160DB"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ACC68EAA-B3F3-4469-B291-B19F05ECA435"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MobileAppPlayground/ContentViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "onButtonPress()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F845EBCC-98C2-441B-AE3E-7CCEF32FDA95"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MobileAppPlayground/ContentViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "onButtonPress()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F845EBCC-98C2-441B-AE3E-7CCEF32FDA95 - 15fc0009d7d41399"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 () async throws -&gt; () in MobileAppPlayground.DefaultContentViewModel.onButtonPress() async throws -&gt; ()"
+                  moduleName = "MobileAppPlayground.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michelsievers/Desktop/Playgrounds/MobileAppPlayground/MobileAppPlayground/ContentViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42">
+               </Location>
+               <Location
+                  uuid = "F845EBCC-98C2-441B-AE3E-7CCEF32FDA95 - 50c62ad00655a9aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 () async throws -&gt; () in MobileAppPlayground.DefaultContentViewModel.onButtonPress() async throws -&gt; ()"
+                  moduleName = "MobileAppPlayground.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michelsievers/Desktop/Playgrounds/MobileAppPlayground/MobileAppPlayground/ContentViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42">
+               </Location>
+               <Location
+                  uuid = "F845EBCC-98C2-441B-AE3E-7CCEF32FDA95 - a3ade916498b577c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 () async throws -&gt; () in MobileAppPlayground.DefaultContentViewModel.onButtonPress() async throws -&gt; ()"
+                  moduleName = "MobileAppPlayground.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michelsievers/Desktop/Playgrounds/MobileAppPlayground/MobileAppPlayground/ContentViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41">
+               </Location>
+               <Location
+                  uuid = "F845EBCC-98C2-441B-AE3E-7CCEF32FDA95 - a3ade916498b579b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 () async throws -&gt; () in MobileAppPlayground.DefaultContentViewModel.onButtonPress() async throws -&gt; ()"
+                  moduleName = "MobileAppPlayground.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michelsievers/Desktop/Playgrounds/MobileAppPlayground/MobileAppPlayground/ContentViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42">
+               </Location>
+               <Location
+                  uuid = "F845EBCC-98C2-441B-AE3E-7CCEF32FDA95 - 676beacf89ff97b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 () async throws -&gt; () in MobileAppPlayground.DefaultContentViewModel.onButtonPress() async throws -&gt; ()"
+                  moduleName = "MobileAppPlayground.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michelsievers/Desktop/Playgrounds/MobileAppPlayground/MobileAppPlayground/ContentViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41">
+               </Location>
+               <Location
+                  uuid = "F845EBCC-98C2-441B-AE3E-7CCEF32FDA95 - 676beacf89ff99c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 () async throws -&gt; () in MobileAppPlayground.DefaultContentViewModel.onButtonPress() async throws -&gt; ()"
+                  moduleName = "MobileAppPlayground.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michelsievers/Desktop/Playgrounds/MobileAppPlayground/MobileAppPlayground/ContentViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
