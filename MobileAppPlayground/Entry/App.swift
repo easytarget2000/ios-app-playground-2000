@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct MobileAppPlaygroundApp: App {
+struct App: SwiftUI.App {
     var body: some Scene {
         WindowGroup {
             RoutingView()
