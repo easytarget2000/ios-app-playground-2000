@@ -40,7 +40,15 @@ final class ContentViewFactory {
         .init(viewModel: viewModel)
     }
     
-    @MainActor static func build(interactor: any ContentInteractor) -> ContentView {
-        .init(viewModel: ContentViewModelFactory.buildDefault(interactor: interactor))
+    @MainActor static func build(
+        router: any Router,
+        interactor: any ContentInteractor
+    ) -> ContentView {
+        .init(
+            viewModel: ContentViewModelFactory.buildDefault(
+                router: router,
+                interactor: interactor
+            )
+        )
     }
 }

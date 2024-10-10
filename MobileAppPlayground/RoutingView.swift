@@ -9,16 +9,17 @@ import SwiftUI
 
 struct RoutingView: View {
     
-    @State private var navigationPath: [NavigationItem] = [.content]
+    @State private var router: any Router
+    private let contentInteractor: any ContentInteractor
     
-    private let contentInteractor: some ContentInteractor = DefaultContentInteractor()
-    
-    init() {
+    init(router: some Router, contentInteractor: some ContentInteractor) {
+        self.router = router
+        self.contentInteractor = contentInteractor
         NSLog("RoutingView initialized.")
     }
     
     var body: some View {
-        NavigationStack(path: $navigationPath) {
+        NavigationStack(path: router.navigationPath) {
             EmptyView()
                 .navigationDestination(
                     for: NavigationItem.self,
@@ -30,13 +31,16 @@ struct RoutingView: View {
     private func viewDestination(for navigationItem: NavigationItem) -> some View {
         switch navigationItem {
         case .content:
-            ContentViewFactory.build(interactor: contentInteractor)
+            ContentViewFactory.build(router: router, interactor: contentInteractor)
         }
     }
 }
 
 #Preview {
-    RoutingView()
+    RoutingView(
+        router: PreviewRouter(),
+        contentInteractor: PreviewContentInteractor()
+    )
 }
 
 

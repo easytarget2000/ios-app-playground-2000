@@ -25,6 +25,7 @@ final class PreviewContentViewModel: ContentViewModel {
 }
 
 @Observable final class DefaultContentViewModel: ContentViewModel {
+    let router: any Router
     let interactor: any ContentInteractor
     
     var content: String = "Lorem ipsum."
@@ -32,7 +33,8 @@ final class PreviewContentViewModel: ContentViewModel {
     let navigationButtonTitle: String = "Navigate"
     var showLoadingIndicator: Bool = false
             
-    init(interactor: any ContentInteractor) {
+    init(router: any Router, interactor: any ContentInteractor) {
+        self.router = router
         self.interactor = interactor
         NSLog("DefaultContentViewModel initialized.")
     }
@@ -44,14 +46,15 @@ final class PreviewContentViewModel: ContentViewModel {
     }
     
     func onNavigationButtonPress() async throws {
-        
+        router.navigate(to: .content)
     }
 }
 
 final class ContentViewModelFactory {
     static func buildDefault(
+        router: any Router = RouterFactory.build(),
         interactor: any ContentInteractor = ContentInteractorFactory.build()
     ) -> DefaultContentViewModel {
-        .init(interactor: interactor)
+        .init(router: router, interactor: interactor)
     }
 }

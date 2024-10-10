@@ -3,11 +3,12 @@ import SwiftUI
 @main
 struct MobileAppPlaygroundApp: App {
     
-    private let contentInteractor: DefaultContentInteractor = DefaultContentInteractor()
+    private let router: some Router = DefaultRouter()
+    private let contentInteractor: some ContentInteractor = DefaultContentInteractor()
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: DefaultContentViewModel(interactor: contentInteractor))
+            RoutingView(router: router, contentInteractor: contentInteractor)
         }
     }
 }

@@ -4,6 +4,12 @@ protocol ContentInteractor: Sendable {
     func loadContent(for currentContent: String) async throws -> String
 }
 
+final class PreviewContentInteractor: ContentInteractor {
+    func loadContent(for currentContent: String) async throws -> String {
+        return currentContent + " (preview)"
+    }
+}
+
 final actor DefaultContentInteractor: ContentInteractor {
     init () {
         NSLog("DefaultContentInteractor initialized.")
