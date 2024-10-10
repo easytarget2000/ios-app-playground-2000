@@ -22,8 +22,9 @@ protocol ContentViewModel {
     
     // MARK: Properties
     
-    let router: any Router
-    let interactor: any ContentInteractor
+    private let router: any Router
+    private let interactor: any ContentInteractor
+    private let logger: any Logger
     
     var content: String? {
         return if shouldShowContent {
@@ -45,14 +46,15 @@ protocol ContentViewModel {
     
     // MARK: Lifecycle
             
-    init(router: any Router, interactor: any ContentInteractor) {
+    init(router: any Router, interactor: any ContentInteractor, logger: some Logger = LifecycleLogger()) {
         self.router = router
         self.interactor = interactor
-        NSLog("DefaultContentViewModel initialized.")
+        self.logger = logger
+        logger.debug("DefaultContentViewModel initialized.")
     }
     
     deinit {
-        NSLog("DefaultContentViewModel deinitialized.")
+        logger.debug("DefaultContentViewModel deinitialized.")
     }
     
     // MARK: Interaction
@@ -89,7 +91,6 @@ final class PreviewContentViewModel: ContentViewModel {
     let content: String?
     let addContentButtonTitle: String = "Perform something (Preview)"
     let navigateButtonTitle: String = "Navigate (Preview)"
-
     
     init(
         shouldShowLoadingIndicator: Bool = true,
@@ -97,8 +98,6 @@ final class PreviewContentViewModel: ContentViewModel {
     ) {
         self.shouldShowLoadingIndicator = shouldShowLoadingIndicator
         self.content = content
-        
-        NSLog("PreviewContentViewModel initialized.")
     }
     
     func onAppear() {}
