@@ -14,3 +14,9 @@ final actor DefaultContentInteractor: ContentInteractor {
         return currentContent + currentContent
     }
 }
+
+final class ContentInteractorFactory {
+    static func build() -> DefaultContentInteractor {
+        .init()
+    }
+}

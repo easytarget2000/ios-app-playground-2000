@@ -9,10 +9,12 @@ import SwiftUI
 
 struct RoutingView: View {
     
-    @State private var navigationPath: [NavigationItem] = [.home]
+    @State private var navigationPath: [NavigationItem] = [.content]
+    
+    private let contentInteractor: some ContentInteractor = DefaultContentInteractor()
     
     init() {
-        NSLog("RouteView initialized.")
+        NSLog("RoutingView initialized.")
     }
     
     var body: some View {
@@ -27,8 +29,8 @@ struct RoutingView: View {
     
     private func viewDestination(for navigationItem: NavigationItem) -> some View {
         switch navigationItem {
-        case .home:
-            ContentView(viewModel: DefaultContentViewModel(interactor: DefaultContentInteractor()))
+        case .content:
+            ContentViewFactory.build(interactor: contentInteractor)
         }
     }
 }
@@ -39,5 +41,5 @@ struct RoutingView: View {
 
 
 enum NavigationItem: Hashable {
-    case home
+    case content
 }
