@@ -4,10 +4,11 @@ import Observation
 // MARK: - Protocol
 
 protocol ContentViewModel {
-    var content: String { get }
+    var content: String? { get }
     var performanceButtonTitle: String { get }
     var navigationButtonTitle: String { get }
     var showLoadingIndicator: Bool { get }
+    @MainActor func onAppear()
     @MainActor func onPerformanceButtonPress()
     @MainActor func onNavigationButtonPress()
 }
@@ -18,7 +19,7 @@ protocol ContentViewModel {
     let router: any Router
     let interactor: any ContentInteractor
     
-    var content: String = "Lorem ipsum."
+    var content: String?
     let performanceButtonTitle: String = "Perform Something"
     let navigationButtonTitle: String = "Navigate"
     var showLoadingIndicator: Bool = false
@@ -33,12 +34,24 @@ protocol ContentViewModel {
         NSLog("DefaultContentViewModel deinitialized.")
     }
     
+    func onAppear() {
+        Task {
+            self.showLoadingIndicator = true
+            self.setContent(from: try await interactor.fetchContent())
+            self.showLoadingIndicator = false
+        }
+    }
+    
     func onPerformanceButtonPress() {
         Task {
-            showLoadingIndicator = true
-            content = try await interactor.loadContent(for: content)
-            showLoadingIndicator = false
+            self.showLoadingIndicator = true
+            self.setContent(from: try await interactor.addContent())
+            self.showLoadingIndicator = false
         }
+    }
+    
+    private func setContent(from int: Int) {
+        self.content = .init(int)
     }
     
     func onNavigationButtonPress() {
@@ -49,7 +62,7 @@ protocol ContentViewModel {
 // MARK: - Preview Implementation
 
 final class PreviewContentViewModel: ContentViewModel {
-    let content: String = "Lorem ipsum. (Preview)"
+    let content: String? = "Lorem ipsum. (Preview)"
     let performanceButtonTitle: String = "Perform something (Preview)"
     let navigationButtonTitle: String = "Navigate (Preview)"
     var showLoadingIndicator: Bool = true
@@ -58,6 +71,7 @@ final class PreviewContentViewModel: ContentViewModel {
         NSLog("PreviewContentViewModel initialized.")
     }
     
+    func onAppear() {}
     func onPerformanceButtonPress() {}
     func onNavigationButtonPress() {}
 }

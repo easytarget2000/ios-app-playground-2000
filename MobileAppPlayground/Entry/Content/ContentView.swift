@@ -26,7 +26,7 @@ struct ContentView: View {
             if viewModel.showLoadingIndicator {
                 ProgressView()
             }
-            Text(viewModel.content)
+            Text(viewModel.content ?? "")
             Button(viewModel.performanceButtonTitle) {
                 viewModel.onPerformanceButtonPress()
             }
@@ -35,6 +35,9 @@ struct ContentView: View {
             }
         }
         .padding()
+        .task {
+            viewModel.onAppear()
+        }
     }
 }
 
