@@ -10,24 +10,26 @@ protocol ContentInteractor: Sendable {
 // MARK: - Default Implementation
 
 final actor DefaultContentInteractor: ContentInteractor {
+    private let lifecycleLogger: Logger
     private var currentContent: Int = 0
     
-    init () {
-        NSLog("DefaultContentInteractor initialized.")
+    init (lifecycleLogger: Logger = LifecycleLogger()) {
+        self.lifecycleLogger = lifecycleLogger
+        self.lifecycleLogger.debug("DefaultContentInteractor initialized.")
     }
     
     deinit {
-        NSLog("DefaultContentInteractor deinitialized.")
+        self.lifecycleLogger.debug("DefaultContentInteractor deinitialized.")
     }
     
     func fetchContent() async throws -> Int {
         try await Task.sleep(for: .seconds(2))
-        return currentContent
+        return self.currentContent
     }
     
     func addContent() async throws -> Int {
-        let newContent = currentContent + 1
-        defer { currentContent = newContent }
+        let newContent = self.currentContent + 1
+        defer { self.currentContent = newContent }
         
         try await Task.sleep(for: .seconds(2))
         return newContent

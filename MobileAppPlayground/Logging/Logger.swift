@@ -3,7 +3,7 @@ import os
 
 // MARK: - Protocol
 
-protocol Logger {
+protocol Logger: Sendable {
     func debug(_ message: String)
 }
 

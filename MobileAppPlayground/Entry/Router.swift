@@ -21,14 +21,16 @@ enum NavigationItem: Hashable {
         var navigationPath: [NavigationItem] = [.content1]
     }
     
+    private let lifecycleLogger: Logger
     @MainActor private var state: State = .init()
     
-    init() {
-        NSLog("DefaultRouter initialized.")
+    init(lifecycleLogger: Logger = LifecycleLogger()) {
+        self.lifecycleLogger = lifecycleLogger
+        self.lifecycleLogger.debug("DefaultRouter initialized.")
     }
     
     deinit {
-        NSLog("DefaultRouter deinitialized.")
+        self.lifecycleLogger.debug("DefaultRouter deinitialized.")
     }
     
     var navigationPath: Binding<[NavigationItem]> {
@@ -36,7 +38,7 @@ enum NavigationItem: Hashable {
     }
     
     func navigate(to item: NavigationItem) {
-        state.navigationPath.append(item)
+        self.state.navigationPath.append(item)
     }
 }
 

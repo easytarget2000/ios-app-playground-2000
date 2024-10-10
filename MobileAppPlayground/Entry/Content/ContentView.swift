@@ -9,8 +9,8 @@ struct ContentViewInjector: View {
     var body: some View {
         ContentView(
             viewModel: DefaultContentViewModel(
-                router: router,
-                interactor: contentInteractor
+                router: self.router,
+                interactor: self.contentInteractor
             )
         )
     }
@@ -23,20 +23,20 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            if viewModel.shouldShowLoadingIndicator {
+            if self.viewModel.shouldShowLoadingIndicator {
                 ProgressView()
             }
-            Text(viewModel.content ?? "")
-            Button(viewModel.addContentButtonTitle) {
-                viewModel.onAddContentSelected()
+            Text(self.viewModel.content ?? "")
+            Button(self.viewModel.addContentButtonTitle) {
+                self.viewModel.onAddContentSelected()
             }
             Button(viewModel.navigateButtonTitle) {
-                viewModel.onNavigateSelected()
+                self.viewModel.onNavigateSelected()
             }
         }
         .padding()
         .task {
-            viewModel.onAppear()
+            self.viewModel.onAppear()
         }
     }
 }

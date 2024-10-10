@@ -7,10 +7,10 @@ import Observation
     
     private let router: any Router
     private let interactor: any ContentInteractor
-    private let logger: any Logger
+    private let lifecycleLogger: any Logger
     
     var content: String? {
-        return if shouldShowContent {
+        return if self.shouldShowContent {
             self.innerContent
         } else {
             nil
@@ -22,22 +22,22 @@ import Observation
     var shouldShowLoadingIndicator: Bool = false
     
     private var shouldShowContent: Bool {
-        !shouldShowLoadingIndicator
+        !self.shouldShowLoadingIndicator
     }
     
     private var innerContent: String?
     
     // MARK: - Lifecycle
             
-    init(router: any Router, interactor: any ContentInteractor, logger: some Logger = LifecycleLogger()) {
+    init(router: any Router, interactor: any ContentInteractor, lifecycleLogger: some Logger = LifecycleLogger()) {
         self.router = router
         self.interactor = interactor
-        self.logger = logger
-        logger.debug("DefaultContentViewModel initialized.")
+        self.lifecycleLogger = lifecycleLogger
+        self.lifecycleLogger.debug("DefaultContentViewModel initialized.")
     }
     
     deinit {
-        logger.debug("DefaultContentViewModel deinitialized.")
+        self.lifecycleLogger.debug("DefaultContentViewModel deinitialized.")
     }
     
     // MARK: - Interaction
@@ -59,7 +59,7 @@ import Observation
     }
     
     func onNavigateSelected() {
-        router.navigate(to: .content2)
+        self.router.navigate(to: .content2)
     }
     
     // MARK: Implementation
