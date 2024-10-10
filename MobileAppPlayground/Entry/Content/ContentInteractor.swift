@@ -1,14 +1,12 @@
 import Foundation
 
+// MARK: - Protocol
+
 protocol ContentInteractor: Sendable {
     func loadContent(for currentContent: String) async throws -> String
 }
 
-final class PreviewContentInteractor: ContentInteractor {
-    func loadContent(for currentContent: String) async throws -> String {
-        return currentContent + " (preview)"
-    }
-}
+// MARK: - Default Implementation
 
 final actor DefaultContentInteractor: ContentInteractor {
     init () {
@@ -25,8 +23,10 @@ final actor DefaultContentInteractor: ContentInteractor {
     }
 }
 
-final class ContentInteractorFactory {
-    static func build() -> DefaultContentInteractor {
-        .init()
+// MARK: - Preview Implementation
+
+final class PreviewContentInteractor: ContentInteractor {
+    func loadContent(for currentContent: String) async throws -> String {
+        return currentContent + " (preview)"
     }
 }

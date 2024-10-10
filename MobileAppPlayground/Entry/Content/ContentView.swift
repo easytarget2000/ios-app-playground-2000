@@ -1,6 +1,8 @@
 import SwiftUI
 
-struct WrappedContentView: View {
+// MARK: - Injector
+
+struct ContentViewInjector: View {
     @Environment(\.router) private var router: any Router
     @Environment(\.contentInteractor) private var contentInteractor: any ContentInteractor
     
@@ -14,6 +16,8 @@ struct WrappedContentView: View {
     }
 }
 
+// MARK: - View
+
 struct ContentView: View {
     @State var viewModel: ContentViewModel
     
@@ -24,40 +28,18 @@ struct ContentView: View {
             }
             Text(viewModel.content)
             Button(viewModel.performanceButtonTitle) {
-                Task {
-                    try await viewModel.onPerformanceButtonPress()
-                }
+                viewModel.onPerformanceButtonPress()
             }
             Button(viewModel.navigationButtonTitle) {
-                Task {
-                    try await viewModel.onNavigationButtonPress()
-                }
+                viewModel.onNavigationButtonPress()
             }
         }
         .padding()
     }
 }
 
+// MARK: - Preview
+
 #Preview {
     ContentView(viewModel: PreviewContentViewModel())
 }
-
-//final class ContentViewFactory {
-//    @MainActor static func build(
-//        viewModel: any ContentViewModel = ContentViewModelFactory.buildDefault()
-//    ) -> ContentView {
-//        .init(viewModel: viewModel)
-//    }
-//    
-//    @MainActor static func build(
-//        router: any Router,
-//        interactor: any ContentInteractor
-//    ) -> ContentView {
-//        .init(
-//            viewModel: ContentViewModelFactory.buildDefault(
-//                router: router,
-//                interactor: interactor
-//            )
-//        )
-//    }
-//}

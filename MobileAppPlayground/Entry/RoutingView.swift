@@ -16,20 +16,16 @@ struct RoutingView: View {
     @ViewBuilder private func viewDestination(for navigationItem: NavigationItem) -> some View {
         switch navigationItem {
         case .content1:
-            WrappedContentView()
+            ContentViewInjector()
         case .content2:
-            Color.blue
+            ContentViewInjector()
         }
     }
 }
 
+// MARK: - Preview
+
 #Preview {
     RoutingView()
         .environment(\.router, PreviewRouter())
-}
-
-
-enum NavigationItem: Hashable {
-    case content1
-    case content2
 }
