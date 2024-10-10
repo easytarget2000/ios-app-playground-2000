@@ -27,11 +27,11 @@ struct ContentView: View {
                 ProgressView()
             }
             Text(viewModel.content ?? "")
-            Button(viewModel.performanceButtonTitle) {
-                viewModel.onPerformanceButtonPress()
+            Button(viewModel.addContentButtonTitle) {
+                viewModel.onAddContentSelected()
             }
-            Button(viewModel.navigationButtonTitle) {
-                viewModel.onNavigationButtonPress()
+            Button(viewModel.navigateButtonTitle) {
+                viewModel.onNavigateSelected()
             }
         }
         .padding()

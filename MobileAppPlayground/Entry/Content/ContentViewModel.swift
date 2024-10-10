@@ -5,12 +5,12 @@ import Observation
 
 protocol ContentViewModel {
     var content: String? { get }
-    var performanceButtonTitle: String { get }
-    var navigationButtonTitle: String { get }
+    var addContentButtonTitle: String { get }
+    var navigateButtonTitle: String { get }
     var showLoadingIndicator: Bool { get }
     @MainActor func onAppear()
-    @MainActor func onPerformanceButtonPress()
-    @MainActor func onNavigationButtonPress()
+    @MainActor func onAddContentSelected()
+    @MainActor func onNavigateSelected()
 }
 
 // MARK: - Default Implementation
@@ -20,8 +20,8 @@ protocol ContentViewModel {
     let interactor: any ContentInteractor
     
     var content: String?
-    let performanceButtonTitle: String = "Perform Something"
-    let navigationButtonTitle: String = "Navigate"
+    let addContentButtonTitle: String = "Add Content"
+    let navigateButtonTitle: String = "Navigate"
     var showLoadingIndicator: Bool = false
             
     init(router: any Router, interactor: any ContentInteractor) {
@@ -37,15 +37,15 @@ protocol ContentViewModel {
     func onAppear() {
         Task {
             self.showLoadingIndicator = true
-            self.setContent(from: try await interactor.fetchContent())
+            self.setContent(from: try await self.interactor.fetchContent())
             self.showLoadingIndicator = false
         }
     }
     
-    func onPerformanceButtonPress() {
+    func onAddContentSelected() {
         Task {
             self.showLoadingIndicator = true
-            self.setContent(from: try await interactor.addContent())
+            self.setContent(from: try await self.interactor.addContent())
             self.showLoadingIndicator = false
         }
     }
@@ -54,7 +54,7 @@ protocol ContentViewModel {
         self.content = .init(int)
     }
     
-    func onNavigationButtonPress() {
+    func onNavigateSelected() {
         router.navigate(to: .content2)
     }
 }
@@ -63,8 +63,8 @@ protocol ContentViewModel {
 
 final class PreviewContentViewModel: ContentViewModel {
     let content: String? = "Lorem ipsum. (Preview)"
-    let performanceButtonTitle: String = "Perform something (Preview)"
-    let navigationButtonTitle: String = "Navigate (Preview)"
+    let addContentButtonTitle: String = "Perform something (Preview)"
+    let navigateButtonTitle: String = "Navigate (Preview)"
     var showLoadingIndicator: Bool = true
     
     init() {
@@ -72,6 +72,6 @@ final class PreviewContentViewModel: ContentViewModel {
     }
     
     func onAppear() {}
-    func onPerformanceButtonPress() {}
-    func onNavigationButtonPress() {}
+    func onAddContentSelected() {}
+    func onNavigateSelected() {}
 }
