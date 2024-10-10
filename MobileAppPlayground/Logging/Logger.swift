@@ -9,13 +9,24 @@ protocol Logger: Sendable {
 
 fileprivate let subsystem: String = Bundle.main.bundleIdentifier!
 
-// MARK: - Lifecycle Logger
+// MARK: - Default Implementation
 
-final class LifecycleLogger: Logger {
-    private let osLogger: os.Logger = .init(subsystem: subsystem, category: "Lifecycle")
+final class DefaultLogger: Logger {
+    private let osLogger: os.Logger
+    
+    init(subsystemSuffix: String, category: String) {
+        let completeSubsystem: String = "\(subsystem).\(subsystemSuffix)"
+        self.osLogger = .init(subsystem: completeSubsystem, category: category)
+    }
     
     func debug(_ message: String) {
         osLogger.debug("\(message)")
+    }
+}
+
+extension Logger where Self == DefaultLogger {
+    static func lifecycle(subsystemSuffix: String) -> DefaultLogger {
+        .init(subsystemSuffix: subsystemSuffix, category: "lifecycle")
     }
 }
 

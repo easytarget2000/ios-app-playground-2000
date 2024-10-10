@@ -24,7 +24,7 @@ enum NavigationItem: Hashable {
     private let lifecycleLogger: Logger
     @MainActor private var state: State = .init()
     
-    init(lifecycleLogger: Logger = LifecycleLogger()) {
+    init(lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Router")) {
         self.lifecycleLogger = lifecycleLogger
         self.lifecycleLogger.debug("DefaultRouter initialized.")
     }

@@ -13,7 +13,7 @@ final actor DefaultContentInteractor: ContentInteractor {
     private let lifecycleLogger: Logger
     private var currentContent: Int = 0
     
-    init (lifecycleLogger: Logger = LifecycleLogger()) {
+    init(lifecycleLogger: any Logger = .lifecycle(subsystemSuffix: "Content")) {
         self.lifecycleLogger = lifecycleLogger
         self.lifecycleLogger.debug("DefaultContentInteractor initialized.")
     }

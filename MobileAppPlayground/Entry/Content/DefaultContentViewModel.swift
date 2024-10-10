@@ -29,7 +29,11 @@ import Observation
     
     // MARK: - Lifecycle
             
-    init(router: any Router, interactor: any ContentInteractor, lifecycleLogger: some Logger = LifecycleLogger()) {
+    init(
+        router: any Router,
+        interactor: any ContentInteractor,
+        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Content")
+    ) {
         self.router = router
         self.interactor = interactor
         self.lifecycleLogger = lifecycleLogger
