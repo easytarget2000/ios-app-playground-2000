@@ -1,6 +1,6 @@
 import SwiftUI
 
-protocol Router: Sendable {
+protocol Router: ObservableObject, Sendable {
     @MainActor var navigationPath: Binding<[NavigationItem]> { get }
     @MainActor func navigate(to: NavigationItem)
 }

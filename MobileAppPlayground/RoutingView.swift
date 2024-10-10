@@ -8,15 +8,7 @@
 import SwiftUI
 
 struct RoutingView: View {
-    
-    @State private var router: any Router
-    private let contentInteractor: any ContentInteractor
-    
-    init(router: some Router, contentInteractor: some ContentInteractor) {
-        self.router = router
-        self.contentInteractor = contentInteractor
-        NSLog("RoutingView initialized.")
-    }
+    @Environment(\.router) private var router: any Router
     
     var body: some View {
         NavigationStack(path: router.navigationPath) {
@@ -31,18 +23,16 @@ struct RoutingView: View {
     @ViewBuilder private func viewDestination(for navigationItem: NavigationItem) -> some View {
         switch navigationItem {
         case .content1:
-            ContentViewFactory.build(router: router, interactor: contentInteractor)
+            Color.red
         case .content2:
-            ContentViewFactory.build(router: router, interactor: contentInteractor)
+            Color.blue
         }
     }
 }
 
 #Preview {
-    RoutingView(
-        router: PreviewRouter(),
-        contentInteractor: PreviewContentInteractor()
-    )
+    RoutingView()
+        .environment(\.router, PreviewRouter())
 }
 
 
