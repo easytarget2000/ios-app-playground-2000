@@ -3,7 +3,7 @@ import SwiftUI
 @main
 struct MobileAppPlaygroundApp: App {
     
-    private let contentInteractor: any ContentInteractor = DefaultContentInteractor()
+    private let contentInteractor: DefaultContentInteractor = DefaultContentInteractor()
     
     var body: some Scene {
         WindowGroup {
@@ -11,3 +11,4 @@ struct MobileAppPlaygroundApp: App {
         }
     }
 }
+

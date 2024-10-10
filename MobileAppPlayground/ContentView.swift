@@ -13,7 +13,7 @@ struct ContentView: View {
             if viewModel.showLoadingIndicator {
                 ProgressView()
             }
-            Text(viewModel.copy)
+            Text(viewModel.content)
             Button(viewModel.buttonTitle) {
                 Task {
                     try await viewModel.onButtonPress()
