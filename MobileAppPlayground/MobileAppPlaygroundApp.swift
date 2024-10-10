@@ -8,7 +8,6 @@ struct MobileAppPlaygroundApp: App {
     var body: some Scene {
         WindowGroup {
             RoutingView()
-//                .environmentObject(contentInteractor)
         }
     }
 }
@@ -21,5 +20,16 @@ extension EnvironmentValues {
     var router: any Router {
         get { self[RouterKey.self] }
         set { self[RouterKey.self] = newValue }
+    }
+}
+
+struct ContentInteractorKey: EnvironmentKey {
+    static let defaultValue: any ContentInteractor = DefaultContentInteractor()
+}
+
+extension EnvironmentValues {
+    var contentInteractor: any ContentInteractor {
+        get { self[ContentInteractorKey.self] }
+        set { self[ContentInteractorKey.self] = newValue }
     }
 }

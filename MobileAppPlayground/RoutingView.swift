@@ -1,10 +1,3 @@
-//
-//  RoutingView.swift
-//  MobileAppPlayground
-//
-//  Created by Michel Sievers  on 2024-10-10.
-//
-
 import SwiftUI
 
 struct RoutingView: View {
@@ -23,7 +16,7 @@ struct RoutingView: View {
     @ViewBuilder private func viewDestination(for navigationItem: NavigationItem) -> some View {
         switch navigationItem {
         case .content1:
-            Color.red
+            WrappedContentView()
         case .content2:
             Color.blue
         }

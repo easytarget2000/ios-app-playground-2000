@@ -1,12 +1,21 @@
 import SwiftUI
 
-struct ContentView: View {
+struct WrappedContentView: View {
+    @Environment(\.router) private var router: any Router
+    @Environment(\.contentInteractor) private var contentInteractor: any ContentInteractor
     
-    @State private var viewModel: ContentViewModel
-    
-    init(viewModel: ContentViewModel) {
-        self.viewModel = viewModel
+    var body: some View {
+        ContentView(
+            viewModel: DefaultContentViewModel(
+                router: router,
+                interactor: contentInteractor
+            )
+        )
     }
+}
+
+struct ContentView: View {
+    @State var viewModel: ContentViewModel
     
     var body: some View {
         VStack {
@@ -33,22 +42,22 @@ struct ContentView: View {
     ContentView(viewModel: PreviewContentViewModel())
 }
 
-final class ContentViewFactory {
-    @MainActor static func build(
-        viewModel: any ContentViewModel = ContentViewModelFactory.buildDefault()
-    ) -> ContentView {
-        .init(viewModel: viewModel)
-    }
-    
-    @MainActor static func build(
-        router: any Router,
-        interactor: any ContentInteractor
-    ) -> ContentView {
-        .init(
-            viewModel: ContentViewModelFactory.buildDefault(
-                router: router,
-                interactor: interactor
-            )
-        )
-    }
-}
+//final class ContentViewFactory {
+//    @MainActor static func build(
+//        viewModel: any ContentViewModel = ContentViewModelFactory.buildDefault()
+//    ) -> ContentView {
+//        .init(viewModel: viewModel)
+//    }
+//    
+//    @MainActor static func build(
+//        router: any Router,
+//        interactor: any ContentInteractor
+//    ) -> ContentView {
+//        .init(
+//            viewModel: ContentViewModelFactory.buildDefault(
+//                router: router,
+//                interactor: interactor
+//            )
+//        )
+//    }
+//}
