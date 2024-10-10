@@ -15,6 +15,10 @@ final actor DefaultContentInteractor: ContentInteractor {
         NSLog("DefaultContentInteractor initialized.")
     }
     
+    deinit {
+        NSLog("DefaultContentInteractor deinitialized.")
+    }
+    
     func loadContent(for currentContent: String) async throws -> String {
         try await Task.sleep(for: .seconds(5))
         return currentContent + currentContent

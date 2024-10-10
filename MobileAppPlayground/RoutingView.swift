@@ -28,9 +28,11 @@ struct RoutingView: View {
         }
     }
     
-    private func viewDestination(for navigationItem: NavigationItem) -> some View {
+    @ViewBuilder private func viewDestination(for navigationItem: NavigationItem) -> some View {
         switch navigationItem {
-        case .content:
+        case .content1:
+            ContentViewFactory.build(router: router, interactor: contentInteractor)
+        case .content2:
             ContentViewFactory.build(router: router, interactor: contentInteractor)
         }
     }
@@ -45,5 +47,6 @@ struct RoutingView: View {
 
 
 enum NavigationItem: Hashable {
-    case content
+    case content1
+    case content2
 }

@@ -5,15 +5,19 @@ protocol Router: Sendable {
     @MainActor func navigate(to: NavigationItem)
 }
 
-final class DefaultRouter: Router {
+@Observable final class DefaultRouter: Router {
     private struct State {
-        var navigationPath: [NavigationItem] = [.content]
+        var navigationPath: [NavigationItem] = [.content1]
     }
     
     @MainActor private var state: State = .init()
     
     init() {
         NSLog("DefaultRouter initialized.")
+    }
+    
+    deinit {
+        NSLog("DefaultRouter deinitialized.")
     }
     
     var navigationPath: Binding<[NavigationItem]> {
@@ -26,7 +30,7 @@ final class DefaultRouter: Router {
 }
 
 final class PreviewRouter: Router {
-    var navigationPath: Binding<[NavigationItem]> = .constant([.content])
+    var navigationPath: Binding<[NavigationItem]> = .constant([.content1])
     
     func navigate(to: NavigationItem) {}
 }

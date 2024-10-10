@@ -39,6 +39,10 @@ final class PreviewContentViewModel: ContentViewModel {
         NSLog("DefaultContentViewModel initialized.")
     }
     
+    deinit {
+        NSLog("DefaultContentViewModel deinitialized.")
+    }
+    
     func onPerformanceButtonPress() async throws {
         showLoadingIndicator = true
         content = try await interactor.loadContent(for: content)
@@ -46,7 +50,7 @@ final class PreviewContentViewModel: ContentViewModel {
     }
     
     func onNavigationButtonPress() async throws {
-        router.navigate(to: .content)
+        router.navigate(to: .content2)
     }
 }
 
