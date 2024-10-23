@@ -1,10 +1,3 @@
-//
-//  MobileAppPlaygroundUITestsLaunchTests.swift
-//  MobileAppPlaygroundUITests
-//
-//  Created by Michel Sievers  on 2024-10-09.
-//
-
 import XCTest
 
 final class MobileAppPlaygroundUITestsLaunchTests: XCTestCase {

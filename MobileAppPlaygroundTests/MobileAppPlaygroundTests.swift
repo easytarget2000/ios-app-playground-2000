@@ -1,10 +1,3 @@
-//
-//  MobileAppPlaygroundTests.swift
-//  MobileAppPlaygroundTests
-//
-//  Created by Michel Sievers  on 2024-10-09.
-//
-
 import Testing
 @testable import MobileAppPlayground
 
