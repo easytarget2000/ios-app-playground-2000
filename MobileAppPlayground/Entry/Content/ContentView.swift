@@ -44,5 +44,5 @@ struct ContentView: View {
 // MARK: - Preview
 
 #Preview {
-    ContentView(viewModel: PreviewContentViewModel())
+    ContentView(viewModel: .preview)
 }

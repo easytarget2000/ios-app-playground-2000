@@ -21,3 +21,9 @@ final class PreviewRouter: Router {
     
     func navigate(to: NavigationItem) {}
 }
+
+extension Router where Self == PreviewRouter {
+    static var preview: Self {
+        .init()
+    }
+}

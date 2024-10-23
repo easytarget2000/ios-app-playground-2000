@@ -16,3 +16,9 @@ final class PreviewContentViewModel: ContentViewModel {
     func onAddContentSelected() {}
     func onNavigateSelected() {}
 }
+
+extension ContentViewModel where Self == PreviewContentViewModel {
+    static var preview: Self {
+        .init()
+    }
+}

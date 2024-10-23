@@ -27,5 +27,5 @@ struct RoutingView: View {
 
 #Preview {
     RoutingView()
-        .environment(\.router, PreviewRouter())
+        .environment(\.router, .preview)
 }
