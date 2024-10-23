@@ -6,6 +6,8 @@ final actor UserDefaultsContentInteractor: ContentInteractor {
     
     static let shared: UserDefaultsContentInteractor = .init()
     
+    var simulateSlowResponse = false
+    
     private let userDefaults: UserDefaults
     private let lifecycleLogger: Logger
     
@@ -28,15 +30,20 @@ final actor UserDefaultsContentInteractor: ContentInteractor {
     // MARK: - Protocol Implementations
     
     func fetchContent() async throws -> Int {
-        try await Task.sleep(for: .seconds(2))
-        return 0
+        if self.simulateSlowResponse {
+            try await Task.sleep(for: .seconds(0.5))
+        }
+        return self.userDefaults.integer(forKey: UserDefaultsKey.content)
     }
     
     func addContent() async throws -> Int {
-//        let newContent = self.currentContent + 1
-//        defer { self.currentContent = newContent }
+        let newContent = try await self.fetchContent() + 1
+        defer { self.userDefaults.set(newContent, forKey: UserDefaultsKey.content) }
         
-        try await Task.sleep(for: .seconds(2))
-        return 0
+        if self.simulateSlowResponse {
+            try await Task.sleep(for: .seconds(1))
+        }
+        
+        return newContent
     }
 }
