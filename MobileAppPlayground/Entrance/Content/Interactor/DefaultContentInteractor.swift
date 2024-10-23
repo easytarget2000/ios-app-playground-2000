@@ -1,11 +1,11 @@
-final actor DefaultContentInteractor: ContentInteractor {
+final actor SimpleContentInteractor: ContentInteractor {
     
     // MARK: - Properties
     
     private let lifecycleLogger: Logger
     private var currentContent: Int = 0
     
-    static let shared: DefaultContentInteractor = .init()
+    static let shared: SimpleContentInteractor = .init()
     
     // MARK: - Constructor/Deconstructor
     
