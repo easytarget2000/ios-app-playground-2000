@@ -1,23 +1,23 @@
-final class PreviewContentViewModel: ContentViewModel {
+final class PreviewCounterViewModel: CounterViewModel {
     var shouldShowLoadingIndicator: Bool
-    let content: String?
-    let addContentButtonTitle: String = "Perform something (Preview)"
+    let counter: String?
+    let addCounterButtonTitle: String = "Perform something (Preview)"
     let navigateButtonTitle: String = "Navigate (Preview)"
     
     init(
         shouldShowLoadingIndicator: Bool = true,
-        content: String? = "Lorem ipsum. (Preview)"
+        counter: String? = "Lorem ipsum. (Preview)"
     ) {
         self.shouldShowLoadingIndicator = shouldShowLoadingIndicator
-        self.content = content
+        self.counter = counter
     }
     
     func onAppear() {}
-    func onAddContentSelected() {}
+    func onAddCounterSelected() {}
     func onNavigateSelected() {}
 }
 
-extension ContentViewModel where Self == PreviewContentViewModel {
+extension CounterViewModel where Self == PreviewCounterViewModel {
     static var preview: Self {
         .init()
     }

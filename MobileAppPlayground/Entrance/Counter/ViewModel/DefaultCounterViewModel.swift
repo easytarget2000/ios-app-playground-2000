@@ -1,7 +1,7 @@
 import Foundation
 import Observation
 
-@Observable final class DefaultContentViewModel: ContentViewModel {
+@Observable final class DefaultCounterViewModel: CounterViewModel {
     
     // MARK: - Properties
     
@@ -9,39 +9,39 @@ import Observation
     private let interactor: any CounterInteractor
     private let lifecycleLogger: any Logger
     
-    var content: String? {
-        return if self.shouldShowContent {
-            self.innerContent
+    var counter: String? {
+        return if self.shouldShowCounter {
+            self.innerCounter
         } else {
             nil
         }
     }
     
-    let addContentButtonTitle: String = "Add Content"
+    let addCounterButtonTitle: String = "Add Counter"
     let navigateButtonTitle: String = "Navigate"
     var shouldShowLoadingIndicator: Bool = false
     
-    private var shouldShowContent: Bool {
+    private var shouldShowCounter: Bool {
         !self.shouldShowLoadingIndicator
     }
     
-    private var innerContent: String?
+    private var innerCounter: String?
     
     // MARK: - Lifecycle
             
     init(
         router: any Router,
         interactor: any CounterInteractor,
-        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Content")
+        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Counter")
     ) {
         self.router = router
         self.interactor = interactor
         self.lifecycleLogger = lifecycleLogger
-        self.lifecycleLogger.debug("DefaultContentViewModel initialized.")
+        self.lifecycleLogger.debug("DefaultCounterViewModel initialized.")
     }
     
     deinit {
-        self.lifecycleLogger.debug("DefaultContentViewModel deinitialized.")
+        self.lifecycleLogger.debug("DefaultCounterViewModel deinitialized.")
     }
     
     // MARK: - Interaction
@@ -49,26 +49,26 @@ import Observation
     func onAppear() {
         Task {
             self.shouldShowLoadingIndicator = true
-            self.setContent(from: try await self.interactor.fetchValue())
+            self.setCounter(from: try await self.interactor.fetchValue())
             self.shouldShowLoadingIndicator = false
         }
     }
     
-    func onAddContentSelected() {
+    func onAddCounterSelected() {
         Task {
             self.shouldShowLoadingIndicator = true
-            self.setContent(from: try await self.interactor.increaseValue())
+            self.setCounter(from: try await self.interactor.increaseValue())
             self.shouldShowLoadingIndicator = false
         }
     }
     
     func onNavigateSelected() {
-        self.router.navigate(to: .content2)
+        self.router.navigate(to: .counter2)
     }
     
     // MARK: Implementation
     
-    private func setContent(from int: Int) {
-        self.innerContent = .init(int)
+    private func setCounter(from int: Int) {
+        self.innerCounter = .init(int)
     }
 }

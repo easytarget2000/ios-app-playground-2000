@@ -10,14 +10,14 @@ protocol Router: ObservableObject, Sendable {
 // MARK: - Other Types
 
 enum NavigationItem: Hashable {
-    case content1
-    case content2
+    case counter1
+    case counter2
 }
 
 // MARK: - Preview Implementation
 
 final class PreviewRouter: Router {
-    var navigationPath: Binding<[NavigationItem]> = .constant([.content1])
+    var navigationPath: Binding<[NavigationItem]> = .constant([.counter1])
     
     func navigate(to: NavigationItem) {}
 }

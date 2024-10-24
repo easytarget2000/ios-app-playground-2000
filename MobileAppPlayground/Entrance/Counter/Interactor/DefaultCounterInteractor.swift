@@ -13,15 +13,15 @@ final actor DefaultCounterInteractor: CounterInteractor {
     
     init(
         valueRepository: any CounterValueRepository,
-        lifecycleLogger: any Logger = .lifecycle(subsystemSuffix: "Content")
+        lifecycleLogger: any Logger = .lifecycle(subsystemSuffix: "Counter")
     ) {
         self.valueRepository = valueRepository
         self.lifecycleLogger = lifecycleLogger
-        self.lifecycleLogger.debug("DefaultContentInteractor initialized.")
+        self.lifecycleLogger.debug("DefaultCounterInteractor initialized.")
     }
     
     deinit {
-        self.lifecycleLogger.debug("DefaultContentInteractor deinitialized.")
+        self.lifecycleLogger.debug("DefaultCounterInteractor deinitialized.")
     }
     
     // MARK: - Protocol Implementations

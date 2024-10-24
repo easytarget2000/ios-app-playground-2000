@@ -1,12 +1,12 @@
-protocol ContentViewModel {
+protocol CounterViewModel {
     var shouldShowLoadingIndicator: Bool { get }
     
-    var content: String? { get }
+    var counter: String? { get }
     
-    var addContentButtonTitle: String { get }
+    var addCounterButtonTitle: String { get }
     var navigateButtonTitle: String { get }
 
     @MainActor func onAppear()
-    @MainActor func onAddContentSelected()
+    @MainActor func onAddCounterSelected()
     @MainActor func onNavigateSelected()
 }

@@ -15,10 +15,10 @@ struct RoutingView: View {
     
     @ViewBuilder private func viewDestination(for navigationItem: NavigationItem) -> some View {
         switch navigationItem {
-        case .content1:
-            ContentViewInjector()
-        case .content2:
-            ContentViewInjector()
+        case .counter1:
+            CounterViewInjector()
+        case .counter2:
+            CounterViewInjector()
         }
     }
 }

@@ -6,7 +6,7 @@ import SwiftUI
     // MARK: - Nested Types
     
     private struct State {
-        var navigationPath: [NavigationItem] = [.content1]
+        var navigationPath: [NavigationItem] = [.counter1]
     }
     
     // MARK: - Properties
