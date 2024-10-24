@@ -1,3 +1,3 @@
 enum UserDefaultsKey {
-    static let content = "content"
+    static let counterValue = "counterValue"
 }

@@ -17,10 +17,8 @@ struct RoutingView: View {
         switch navigationItem {
         case .content1:
             ContentViewInjector()
-                .environment(\.contentInteractor, UserDefaultsContentInteractor.shared)
         case .content2:
             ContentViewInjector()
-                .environment(\.contentInteractor, UserDefaultsContentInteractor.shared)
         }
     }
 }

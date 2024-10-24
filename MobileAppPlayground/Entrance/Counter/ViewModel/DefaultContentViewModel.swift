@@ -6,7 +6,7 @@ import Observation
     // MARK: - Properties
     
     private let router: any Router
-    private let interactor: any ContentInteractor
+    private let interactor: any CounterInteractor
     private let lifecycleLogger: any Logger
     
     var content: String? {
@@ -31,7 +31,7 @@ import Observation
             
     init(
         router: any Router,
-        interactor: any ContentInteractor,
+        interactor: any CounterInteractor,
         lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Content")
     ) {
         self.router = router
@@ -49,7 +49,7 @@ import Observation
     func onAppear() {
         Task {
             self.shouldShowLoadingIndicator = true
-            self.setContent(from: try await self.interactor.fetchContent())
+            self.setContent(from: try await self.interactor.fetchValue())
             self.shouldShowLoadingIndicator = false
         }
     }
@@ -57,7 +57,7 @@ import Observation
     func onAddContentSelected() {
         Task {
             self.shouldShowLoadingIndicator = true
-            self.setContent(from: try await self.interactor.addContent())
+            self.setContent(from: try await self.interactor.increaseValue())
             self.shouldShowLoadingIndicator = false
         }
     }

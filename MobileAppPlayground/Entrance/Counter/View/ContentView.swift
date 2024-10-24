@@ -4,7 +4,7 @@ import SwiftUI
 
 struct ContentViewInjector: View {
     @Environment(\.router) private var router: any Router
-    @Environment(\.contentInteractor) private var contentInteractor: any ContentInteractor
+    @Environment(\.contentInteractor) private var contentInteractor: any CounterInteractor
     
     var body: some View {
         ContentView(
