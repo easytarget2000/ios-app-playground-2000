@@ -3,8 +3,8 @@ import Foundation
 // MARK: - Protocol
 
 protocol CounterInteractor: Sendable {
-    func fetchValue() async throws -> Int
-    func increaseValue() async throws -> Int
+    func fetch() async throws -> Int
+    func increment() async throws -> Int
 }
 
 // MARK: - Preview Implementation
@@ -12,11 +12,11 @@ protocol CounterInteractor: Sendable {
 final actor PreviewCounterInteractor: CounterInteractor {
     private var value = 0
     
-    func fetchValue() async throws -> Int {
+    func fetch() async throws -> Int {
         value
     }
     
-    func increaseValue() async throws -> Int {
+    func increment() async throws -> Int {
         value += 1
         return value
     }

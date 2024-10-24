@@ -49,7 +49,7 @@ import Observation
     func onAppear() {
         Task {
             self.shouldShowLoadingIndicator = true
-            self.setCounter(from: try await self.interactor.fetchValue())
+            self.setCounter(from: try await self.interactor.fetch())
             self.shouldShowLoadingIndicator = false
         }
     }
@@ -57,7 +57,7 @@ import Observation
     func onAddCounterSelected() {
         Task {
             self.shouldShowLoadingIndicator = true
-            self.setCounter(from: try await self.interactor.increaseValue())
+            self.setCounter(from: try await self.interactor.increment())
             self.shouldShowLoadingIndicator = false
         }
     }

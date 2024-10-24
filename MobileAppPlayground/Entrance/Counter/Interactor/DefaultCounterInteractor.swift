@@ -26,12 +26,12 @@ final actor DefaultCounterInteractor: CounterInteractor {
     
     // MARK: - Protocol Implementations
     
-    func fetchValue() async throws -> Int {
+    func fetch() async throws -> Int {
         try await self.valueRepository.fetchValue()
     }
     
-    func increaseValue() async throws -> Int {
-        let newValue = try await self.fetchValue()
+    func increment() async throws -> Int {
+        let newValue = try await self.fetch() + 1
         try await self.valueRepository.setValue(newValue)
         return newValue
     }
