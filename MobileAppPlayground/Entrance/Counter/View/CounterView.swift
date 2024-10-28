@@ -26,9 +26,11 @@ struct CounterView: View {
             if self.viewModel.shouldShowLoadingIndicator {
                 ProgressView()
             }
-            Text(self.viewModel.counter ?? "")
+            Text(self.viewModel.currentValue ?? "")
             Button(self.viewModel.addCounterButtonTitle) {
-                self.viewModel.onAddCounterSelected()
+                Task {
+                    try? await self.viewModel.onAddCounterSelected()
+                }
             }
             Button(viewModel.navigateButtonTitle) {
                 self.viewModel.onNavigateSelected()
@@ -36,7 +38,7 @@ struct CounterView: View {
         }
         .padding()
         .task {
-            self.viewModel.onAppear()
+            try? await self.viewModel.onAppear()
         }
     }
 }

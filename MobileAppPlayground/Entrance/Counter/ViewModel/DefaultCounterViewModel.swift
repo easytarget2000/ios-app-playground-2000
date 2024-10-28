@@ -9,7 +9,7 @@ import Observation
     private let interactor: any CounterInteractor
     private let lifecycleLogger: any Logger
     
-    var counter: String? {
+    var currentValue: String? {
         return if self.shouldShowCounter {
             self.innerCounter
         } else {
@@ -46,20 +46,16 @@ import Observation
     
     // MARK: - Interaction
     
-    func onAppear() {
-        Task {
-            self.shouldShowLoadingIndicator = true
-            self.setCounter(from: try await self.interactor.fetch())
-            self.shouldShowLoadingIndicator = false
-        }
+    func onAppear() async throws {
+        self.shouldShowLoadingIndicator = true
+        self.setCounter(from: try await self.interactor.fetch())
+        self.shouldShowLoadingIndicator = false
     }
     
-    func onAddCounterSelected() {
-        Task {
-            self.shouldShowLoadingIndicator = true
-            self.setCounter(from: try await self.interactor.increment())
-            self.shouldShowLoadingIndicator = false
-        }
+    func onAddCounterSelected() async throws {
+        self.shouldShowLoadingIndicator = true
+        self.setCounter(from: try await self.interactor.increment())
+        self.shouldShowLoadingIndicator = false
     }
     
     func onNavigateSelected() {

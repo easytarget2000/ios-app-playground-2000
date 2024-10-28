@@ -1,6 +1,6 @@
 final class PreviewCounterViewModel: CounterViewModel {
     var shouldShowLoadingIndicator: Bool
-    let counter: String?
+    let currentValue: String?
     let addCounterButtonTitle: String = "Perform something (Preview)"
     let navigateButtonTitle: String = "Navigate (Preview)"
     
@@ -9,7 +9,7 @@ final class PreviewCounterViewModel: CounterViewModel {
         counter: String? = "Lorem ipsum. (Preview)"
     ) {
         self.shouldShowLoadingIndicator = shouldShowLoadingIndicator
-        self.counter = counter
+        self.currentValue = counter
     }
     
     func onAppear() {}
