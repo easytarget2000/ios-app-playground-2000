@@ -36,4 +36,11 @@ import SwiftUI
     func navigate(to item: NavigationItem) {
         self.state.navigationPath.append(item)
     }
+    
+    func open(externalItem: ExternalNavigationItem) {
+        switch externalItem {
+        case .appSettings:
+            UIApplication.shared.openSettings()
+        }
+    }
 }
