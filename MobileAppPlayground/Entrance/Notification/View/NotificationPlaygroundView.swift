@@ -8,14 +8,19 @@ struct NotificationPlaygroundViewInjector: View {
     private var permissionInteractor: any NotificationPermissionInteractor
     
     var body: some View {
-        NotificationPlaygroundView()
+        NotificationPlaygroundView(
+            viewModel: DefaultNotificationPlaygroundViewModel(
+                router: self.router,
+                permissionInteractor: self.permissionInteractor
+            )
+        )
     }
 }
 
 // MARK: - View
 
 struct NotificationPlaygroundView: View {
-//    @State var viewModel: CounterViewModel
+    @State var viewModel: NotificationPlaygroundViewModel
     
     var body: some View {
         EmptyView()
@@ -43,5 +48,5 @@ struct NotificationPlaygroundView: View {
 // MARK: - Preview
 
 #Preview {
-    NotificationPlaygroundView()
+    NotificationPlaygroundView(viewModel: .preview)
 }

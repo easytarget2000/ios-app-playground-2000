@@ -1,6 +1,6 @@
 import UserNotifications
 
-final class OSNotificationPermissionInteractor: NotificationPermissionInteractor, Sendable {
+final class OSNotificationPermissionInteractor: NotificationPermissionInteractor {
     
     // MARK: - Properties
     

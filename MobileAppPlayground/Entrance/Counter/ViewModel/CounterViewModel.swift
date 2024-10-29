@@ -1,4 +1,5 @@
 protocol CounterViewModel {
+    
     var shouldShowLoadingIndicator: Bool { get }
     
     var currentValue: String? { get }
@@ -9,4 +10,5 @@ protocol CounterViewModel {
     @MainActor func onAppear() async throws
     @MainActor func onAddCounterSelected() async throws
     @MainActor func onNavigateSelected()
+    
 }
