@@ -21,11 +21,11 @@ final actor FakeNotificationPermissionInteractor: NotificationPermissionInteract
     // MARK: - Protocol Implementation
     
     func getPermission() async -> NotificationPermission {
-        getPermissionResult
+        self.getPermissionResult
     }
     
     func requestPermission() async throws {
-        requestPermissionCalled = true
+        self.requestPermissionCalled = true
     }
     
 }

@@ -13,11 +13,11 @@ final actor PreviewCounterInteractor: CounterInteractor {
     private var value = 0
     
     func fetch() async throws -> Int {
-        value
+        self.value
     }
     
     func increment() async throws -> Int {
-        value += 1
-        return value
+        self.value += 1
+        return self.value
     }
 }

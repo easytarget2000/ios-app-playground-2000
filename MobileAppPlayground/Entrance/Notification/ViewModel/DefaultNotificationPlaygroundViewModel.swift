@@ -42,7 +42,7 @@ import Observation
         await self.updatePermission()
         
         if self.permission == .denied {
-            router.open(externalItem: .appSettings)
+            self.router.open(externalItem: .appSettings)
         }
     }
     
