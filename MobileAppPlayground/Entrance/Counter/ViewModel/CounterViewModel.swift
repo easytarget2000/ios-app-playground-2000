@@ -5,10 +5,12 @@ protocol CounterViewModel {
     var currentValue: String? { get }
     
     var addCounterButtonTitle: String { get }
-    var navigateButtonTitle: String { get }
+    var navigateToAnotherCounterTitle: String { get }
+    var navigateToNotificationPlaygroundTitle: String { get }
 
-    @MainActor func onAppear() async throws
+    @MainActor func setup() async throws
     @MainActor func onAddCounterSelected() async throws
-    @MainActor func onNavigateSelected()
+    @MainActor func navigateToAnotherCounter()
+    @MainActor func navigateToNotificationPlayground()
     
 }

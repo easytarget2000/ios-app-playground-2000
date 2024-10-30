@@ -18,7 +18,8 @@ import Observation
     }
     
     let addCounterButtonTitle: String = "Add Counter"
-    let navigateButtonTitle: String = "Navigate"
+    let navigateToAnotherCounterTitle: String = "Counter in Another View"
+    let navigateToNotificationPlaygroundTitle: String = "Notifications Playground"
     var shouldShowLoadingIndicator: Bool = false
     
     private var shouldShowCounter: Bool {
@@ -46,7 +47,7 @@ import Observation
     
     // MARK: - Interaction
     
-    func onAppear() async throws {
+    func setup() async throws {
         self.shouldShowLoadingIndicator = true
         self.setCounter(from: try await self.interactor.fetch())
         self.shouldShowLoadingIndicator = false
@@ -58,8 +59,12 @@ import Observation
         self.shouldShowLoadingIndicator = false
     }
     
-    func onNavigateSelected() {
+    func navigateToAnotherCounter() {
         self.router.navigate(to: .counter2)
+    }
+    
+    func navigateToNotificationPlayground() {
+        self.router.navigate(to: .notificationPlayground)
     }
     
     // MARK: Implementation
@@ -67,4 +72,5 @@ import Observation
     private func setCounter(from int: Int) {
         self.innerCounter = .init(int)
     }
+    
 }

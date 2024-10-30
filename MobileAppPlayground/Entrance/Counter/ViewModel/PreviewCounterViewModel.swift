@@ -3,7 +3,8 @@ final class PreviewCounterViewModel: CounterViewModel {
     var shouldShowLoadingIndicator: Bool
     let currentValue: String?
     let addCounterButtonTitle: String = "Perform something (Preview)"
-    let navigateButtonTitle: String = "Navigate (Preview)"
+    let navigateToAnotherCounterTitle: String = "Counter in Another View (Preview)"
+    let navigateToNotificationPlaygroundTitle: String = "Notifications Playground (Preview)"
     
     init(
         shouldShowLoadingIndicator: Bool = true,
@@ -13,10 +14,10 @@ final class PreviewCounterViewModel: CounterViewModel {
         self.currentValue = counter
     }
     
-    func onAppear() {}
+    func setup() {}
     func onAddCounterSelected() {}
-    func onNavigateSelected() {}
-    
+    func navigateToAnotherCounter() {}
+    func navigateToNotificationPlayground() {}
 }
 
 extension CounterViewModel where Self == PreviewCounterViewModel {

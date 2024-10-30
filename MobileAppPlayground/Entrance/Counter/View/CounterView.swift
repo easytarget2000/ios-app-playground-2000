@@ -32,13 +32,16 @@ struct CounterView: View {
                     try? await self.viewModel.onAddCounterSelected()
                 }
             }
-            Button(viewModel.navigateButtonTitle) {
-                self.viewModel.onNavigateSelected()
+            Button(self.viewModel.navigateToAnotherCounterTitle) {
+                self.viewModel.navigateToAnotherCounter()
+            }
+            Button(self.viewModel.navigateToNotificationPlaygroundTitle) {
+                self.viewModel.navigateToNotificationPlayground()
             }
         }
         .padding()
         .task {
-            try? await self.viewModel.onAppear()
+            try? await self.viewModel.setup()
         }
     }
 }

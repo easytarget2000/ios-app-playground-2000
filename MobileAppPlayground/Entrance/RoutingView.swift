@@ -19,6 +19,8 @@ struct RoutingView: View {
             CounterViewInjector()
         case .counter2:
             CounterViewInjector()
+        case .notificationPlayground:
+            NotificationPlaygroundViewInjector()
         }
     }
 }

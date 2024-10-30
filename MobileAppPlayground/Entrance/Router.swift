@@ -13,6 +13,7 @@ protocol Router: ObservableObject, Sendable {
 enum NavigationItem: Hashable {
     case counter1
     case counter2
+    case notificationPlayground
 }
 
 enum ExternalNavigationItem {

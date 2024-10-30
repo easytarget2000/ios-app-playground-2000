@@ -42,7 +42,7 @@ import Observation
         await self.updatePermission()
         
         if self.permission == .denied {
-            print("DEBUG: denied")
+            router.open(externalItem: .appSettings)
         }
     }
     
