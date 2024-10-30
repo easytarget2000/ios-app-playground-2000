@@ -1,8 +1,13 @@
 final class PreviewNotificationPlaygroundViewModel: NotificationPlaygroundViewModel {
     
-    var permission: NotificationPermission = .unknown
+    let permission: NotificationPermission
     
-    func onAppear() {}
+    init(permission: NotificationPermission = .denied) {
+        self.permission = permission
+    }
+    
+    func setup() async {}
+    func requestPermission() async throws {}
     
 }
 

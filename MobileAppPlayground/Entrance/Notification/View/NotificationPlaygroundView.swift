@@ -23,25 +23,14 @@ struct NotificationPlaygroundView: View {
     @State var viewModel: NotificationPlaygroundViewModel
     
     var body: some View {
-        EmptyView()
-//        VStack {
-//            if self.viewModel.shouldShowLoadingIndicator {
-//                ProgressView()
-//            }
-//            Text(self.viewModel.currentValue ?? "")
-//            Button(self.viewModel.addCounterButtonTitle) {
-//                Task {
-//                    try? await self.viewModel.onAddCounterSelected()
-//                }
-//            }
-//            Button(viewModel.navigateButtonTitle) {
-//                self.viewModel.onNavigateSelected()
-//            }
-//        }
-//        .padding()
-//        .task {
-//            try? await self.viewModel.onAppear()
-//        }
+        Button("Request Permission") {
+            Task {
+                try await self.viewModel.requestPermission()
+            }
+        }
+        .task {
+            await self.viewModel.setup()
+        }
     }
 }
 

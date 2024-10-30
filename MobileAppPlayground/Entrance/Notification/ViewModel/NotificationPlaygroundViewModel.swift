@@ -1,7 +1,8 @@
-protocol NotificationPlaygroundViewModel {
+protocol NotificationPlaygroundViewModel: Sendable {
     
     var permission: NotificationPermission { get }
     
-    @MainActor func onAppear() async throws
+    @MainActor func setup() async
+    @MainActor func requestPermission() async throws
     
 }
