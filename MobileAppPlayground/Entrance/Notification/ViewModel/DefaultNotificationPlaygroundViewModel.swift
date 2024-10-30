@@ -6,7 +6,7 @@ import Observation
     
     // MARK: External
     
-    private(set) var permission: NotificationPermission = .unknown
+    var permission: NotificationPermission = .unknown
     
     // MARK: Internal
 
@@ -45,8 +45,8 @@ import Observation
             print("DEBUG: denied")
         }
     }
-        
-    private func updatePermission() async {
+    
+    @MainActor private func updatePermission() async {
         self.permission = await self.permissionInteractor.getPermission()
     }
     

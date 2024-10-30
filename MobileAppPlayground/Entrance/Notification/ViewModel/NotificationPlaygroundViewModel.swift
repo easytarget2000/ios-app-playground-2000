@@ -1,4 +1,4 @@
-protocol NotificationPlaygroundViewModel: Sendable {
+protocol NotificationPlaygroundViewModel {
     
     var permission: NotificationPermission { get }
     
