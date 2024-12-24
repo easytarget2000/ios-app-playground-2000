@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: - Protocol
 
-protocol CounterInteractor: Sendable {
+protocol CounterInteractor: ObservableObject, Sendable {
     func fetch() async throws -> Int
     func increment() async throws -> Int
 }
