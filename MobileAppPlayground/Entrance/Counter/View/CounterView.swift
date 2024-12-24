@@ -8,7 +8,7 @@ struct CounterViewInjector: View {
     
     var body: some View {
         CounterView(
-            viewModel: DefaultCounterViewModel(
+            viewModel: .default(
                 router: self.router,
                 interactor: self.counterInteractor
             )

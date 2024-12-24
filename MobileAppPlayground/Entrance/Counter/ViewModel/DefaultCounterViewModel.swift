@@ -74,3 +74,19 @@ import Observation
     }
     
 }
+
+// MARK: - Convenience Initializer
+
+extension CounterViewModel where Self == DefaultCounterViewModel {
+    static func `default`(
+        router: any Router,
+        interactor: any CounterInteractor,
+        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Counter")
+    ) -> Self {
+        .init(
+            router: router,
+            interactor: interactor,
+            lifecycleLogger: lifecycleLogger
+        )
+    }
+}
