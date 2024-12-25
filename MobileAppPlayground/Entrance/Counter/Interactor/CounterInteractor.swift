@@ -12,6 +12,8 @@ protocol CounterInteractor: ObservableObject, Sendable {
 final actor PreviewCounterInteractor: CounterInteractor {
     private var value = 0
     
+    private var maybe: Int!
+    
     func fetch() async throws -> Int {
         self.value
     }
