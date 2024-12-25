@@ -111,6 +111,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				30364D092D1C921600238A36 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				0B1885212CB71DCE00594E81 /* MobileAppPlayground */,
@@ -275,6 +276,10 @@
 			isa = PBXTargetDependency;
 			target = 0B18851E2CB71DCE00594E81 /* MobileAppPlayground */;
 			targetProxy = 0B18853A2CB71DCF00594E81 /* PBXContainerItemProxy */;
+		};
+		30364D092D1C921600238A36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 30364D082D1C921600238A36 /* SwiftLintBuildToolPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -589,6 +594,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		30364D082D1C921600238A36 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30C6C3382D1C7AED00EB0C0F /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
 		30C6C33A2D1C7B0200EB0C0F /* AsyncAlgorithms */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 30C6C3392D1C7B0200EB0C0F /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
