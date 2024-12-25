@@ -6,7 +6,7 @@ struct NotificationPlaygroundViewInjector: View {
     @Environment(\.router) private var router: any Router
     @Environment(\.notificationPermissionInteractor)
     private var permissionInteractor: any NotificationPermissionInteractor
-    
+
     var body: some View {
         NotificationPlaygroundView(
             viewModel: DefaultNotificationPlaygroundViewModel(
@@ -21,7 +21,7 @@ struct NotificationPlaygroundViewInjector: View {
 
 struct NotificationPlaygroundView: View {
     @State var viewModel: NotificationPlaygroundViewModel
-    
+
     var body: some View {
         Button("Request Permission") {
             Task {

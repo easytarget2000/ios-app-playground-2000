@@ -8,11 +8,11 @@ protocol NotificationPermissionInteractor: Sendable {
 // MARK: - Preview Implementation
 
 final class PreviewNotificationPermissionInteractor: NotificationPermissionInteractor {
-    
+
     func getPermission() async -> NotificationPermission {
         .denied
     }
-    
+
     func requestPermission() async throws { }
-    
+
 }

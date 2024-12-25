@@ -24,9 +24,9 @@ enum ExternalNavigationItem {
 
 final class PreviewRouter: Router {
     var navigationPath: Binding<[NavigationItem]> = .constant([.counter1])
-    
+
     func navigate(to: NavigationItem) {}
-    
+
     func open(externalItem: ExternalNavigationItem) {}
 }
 

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct RoutingView: View {
     @Environment(\.router) private var router: any Router
-    
+
     var body: some View {
         NavigationStack(path: router.navigationPath) {
             EmptyView()
@@ -12,7 +12,7 @@ struct RoutingView: View {
                 )
         }
     }
-    
+
     @ViewBuilder private func viewDestination(for navigationItem: NavigationItem) -> some View {
         switch navigationItem {
         case .counter1:

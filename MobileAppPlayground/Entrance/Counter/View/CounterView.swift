@@ -5,7 +5,7 @@ import SwiftUI
 struct CounterViewInjector: View {
     @Environment(\.router) private var router: any Router
     @Environment(\.counterInteractor) private var counterInteractor: any CounterInteractor
-    
+
     var body: some View {
         CounterView(
             viewModel: .default(
@@ -20,7 +20,7 @@ struct CounterViewInjector: View {
 
 struct CounterView: View {
     @State var viewModel: CounterViewModel
-    
+
     var body: some View {
         VStack {
             if self.viewModel.shouldShowLoadingIndicator {

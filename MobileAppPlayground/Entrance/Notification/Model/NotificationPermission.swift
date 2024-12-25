@@ -10,7 +10,7 @@ extension NotificationPermission {
     static func map(_ osSettings: UNNotificationSettings) -> Self {
         Self.map(osSettings.authorizationStatus)
     }
-    
+
     static func map(_ osAuthStatus: UNAuthorizationStatus) -> Self {
         return switch osAuthStatus {
         case .notDetermined: .unknown

@@ -13,12 +13,12 @@ fileprivate let subsystem: String = Bundle.main.bundleIdentifier!
 
 final class DefaultLogger: Logger {
     private let osLogger: os.Logger
-    
+
     init(subsystemSuffix: String, category: String) {
         let completeSubsystem: String = "\(subsystem).\(subsystemSuffix)"
         self.osLogger = .init(subsystem: completeSubsystem, category: category)
     }
-    
+
     func debug(_ message: String) {
         osLogger.debug("\(message)")
     }
