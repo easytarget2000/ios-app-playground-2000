@@ -7,15 +7,19 @@ protocol Logger: Sendable {
     func debug(_ message: String)
 }
 
-fileprivate let subsystem: String = Bundle.main.bundleIdentifier!
-
 // MARK: - Default Implementation
 
 final class DefaultLogger: Logger {
+
+    private enum Constant {
+        static let subsystem: String = Bundle.main.bundleIdentifier!
+    }
+
     private let osLogger: os.Logger
 
     init(subsystemSuffix: String, category: String) {
-        let completeSubsystem: String = "\(subsystem).\(subsystemSuffix)"
+        let completeSubsystem: String
+        = "\(Constant.subsystem).\(subsystemSuffix)"
         self.osLogger = .init(subsystem: completeSubsystem, category: category)
     }
 

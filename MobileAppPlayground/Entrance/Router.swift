@@ -4,7 +4,7 @@ import SwiftUI
 
 protocol Router: Sendable {
     @MainActor var navigationPath: Binding<[NavigationItem]> { get }
-    @MainActor func navigate(to: NavigationItem)
+    @MainActor func navigate(to item: NavigationItem)
     @MainActor func open(externalItem: ExternalNavigationItem)
 }
 
@@ -25,7 +25,7 @@ enum ExternalNavigationItem {
 final class PreviewRouter: Router {
     var navigationPath: Binding<[NavigationItem]> = .constant([.counter1])
 
-    func navigate(to: NavigationItem) {}
+    func navigate(to item: NavigationItem) {}
 
     func open(externalItem: ExternalNavigationItem) {}
 }
