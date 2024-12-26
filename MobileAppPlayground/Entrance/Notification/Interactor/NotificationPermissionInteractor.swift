@@ -7,7 +7,8 @@ protocol NotificationPermissionInteractor: Sendable {
 
 // MARK: - Preview Implementation
 
-final class PreviewNotificationPermissionInteractor: NotificationPermissionInteractor {
+final class PreviewNotificationPermissionInteractor:
+    NotificationPermissionInteractor {
 
     func getPermission() async -> NotificationPermission {
         .denied
@@ -15,4 +16,13 @@ final class PreviewNotificationPermissionInteractor: NotificationPermissionInter
 
     func requestPermission() async throws { }
 
+}
+
+// MARK: Convenience Initalizer
+
+extension NotificationPermissionInteractor
+where Self == PreviewNotificationPermissionInteractor {
+    static var preview: Self {
+        .init()
+    }
 }

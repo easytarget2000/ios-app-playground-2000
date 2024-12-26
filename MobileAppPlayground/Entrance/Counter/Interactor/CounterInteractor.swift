@@ -23,3 +23,11 @@ final actor PreviewCounterInteractor: CounterInteractor {
         return self.value
     }
 }
+
+// MARK: Convenience Initalizer
+
+extension CounterInteractor where Self == PreviewCounterInteractor {
+    static var preview: Self {
+        .init()
+    }
+}

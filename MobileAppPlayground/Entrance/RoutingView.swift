@@ -21,7 +21,7 @@ struct RoutingView: View {
                     for: NavigationItem.self,
                     destination: viewDestination
                 )
-        } 
+        }
     }
 
     @ViewBuilder private func viewDestination(
@@ -55,9 +55,9 @@ struct RoutingView: View {
 
 // MARK: - Preview
 
-#warning("TODO: Add previews to RoutingView environment.")
-
 #Preview {
     RoutingView()
         .environment(\.router, .preview)
+        .environment(\.counterInteractor, .preview)
+        .environment(\.notificationPermissionInteractor, .preview)
 }
