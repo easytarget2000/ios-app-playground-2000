@@ -1,5 +1,5 @@
-import Testing
 @testable import MobileAppPlayground
+import Testing
 
 @Suite struct DefaultNotificationPlaygroundViewModelTests {
     
@@ -21,4 +21,3 @@ import Testing
     }
     
 }
-

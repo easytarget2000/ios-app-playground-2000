@@ -35,5 +35,5 @@ final actor DefaultCounterInteractor: CounterInteractor {
         try await self.valueRepository.setValue(newValue)
         return newValue
     }
-    
+
 }

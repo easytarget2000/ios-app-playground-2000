@@ -20,7 +20,7 @@ import Observation
     init(
         router: any Router,
         permissionInteractor: any NotificationPermissionInteractor,
-        lifecycleLogger: some Logger
+        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Counter")
     ) {
         self.router = router
         self.permissionInteractor = permissionInteractor
