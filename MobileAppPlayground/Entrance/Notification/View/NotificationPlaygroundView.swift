@@ -1,24 +1,5 @@
 import SwiftUI
 
-// MARK: - Injector
-
-struct NotificationPlaygroundViewInjector: View {
-    @Environment(\.router) private var router: any Router
-    @Environment(\.notificationPermissionInteractor)
-    private var permissionInteractor: any NotificationPermissionInteractor
-
-    var body: some View {
-        NotificationPlaygroundView(
-            viewModel: DefaultNotificationPlaygroundViewModel(
-                router: self.router,
-                permissionInteractor: self.permissionInteractor
-            )
-        )
-    }
-}
-
-// MARK: - View
-
 struct NotificationPlaygroundView: View {
     @State var viewModel: NotificationPlaygroundViewModel
 

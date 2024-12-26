@@ -1,23 +1,5 @@
 import SwiftUI
 
-// MARK: - Injector
-
-struct CounterViewInjector: View {
-    @Environment(\.router) private var router: any Router
-    @Environment(\.counterInteractor) private var counterInteractor: any CounterInteractor
-
-    var body: some View {
-        CounterView(
-            viewModel: .default(
-                router: self.router,
-                interactor: self.counterInteractor
-            )
-        )
-    }
-}
-
-// MARK: - View
-
 struct CounterView: View {
     @State var viewModel: CounterViewModel
 
