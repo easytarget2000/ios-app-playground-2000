@@ -43,4 +43,5 @@ import SwiftUI
             UIApplication.shared.openSettings()
         }
     }
+    
 }

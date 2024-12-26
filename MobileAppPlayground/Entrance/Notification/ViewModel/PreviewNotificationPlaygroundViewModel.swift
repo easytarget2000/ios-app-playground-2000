@@ -1,4 +1,5 @@
-final class PreviewNotificationPlaygroundViewModel: NotificationPlaygroundViewModel {
+final class PreviewNotificationPlaygroundViewModel:
+    NotificationPlaygroundViewModel {
 
     let permission: NotificationPermission
 
@@ -11,8 +12,11 @@ final class PreviewNotificationPlaygroundViewModel: NotificationPlaygroundViewMo
 
 }
 
-extension NotificationPlaygroundViewModel where Self == PreviewNotificationPlaygroundViewModel {
+extension NotificationPlaygroundViewModel
+where Self == PreviewNotificationPlaygroundViewModel {
+
     static var preview: Self {
         .init()
     }
+
 }

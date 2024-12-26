@@ -22,7 +22,9 @@ final class PreviewNotificationPermissionInteractor:
 
 extension NotificationPermissionInteractor
 where Self == PreviewNotificationPermissionInteractor {
+    
     static var preview: Self {
         .init()
     }
+
 }

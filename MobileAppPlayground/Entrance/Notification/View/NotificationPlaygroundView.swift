@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct NotificationPlaygroundView: View {
+
     @State var viewModel: NotificationPlaygroundViewModel
 
     var body: some View {
@@ -13,6 +14,7 @@ struct NotificationPlaygroundView: View {
             await self.viewModel.setup()
         }
     }
+
 }
 
 // MARK: - Preview

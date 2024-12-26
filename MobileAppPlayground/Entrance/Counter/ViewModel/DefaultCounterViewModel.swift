@@ -33,7 +33,7 @@ import Observation
     init(
         router: any Router,
         interactor: any CounterInteractor,
-        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Counter")
+        lifecycleLogger: some Logger
     ) {
         self.router = router
         self.interactor = interactor
@@ -78,6 +78,7 @@ import Observation
 // MARK: - Convenience Initializer
 
 extension CounterViewModel where Self == DefaultCounterViewModel {
+
     static func `default`(
         router: any Router,
         interactor: any CounterInteractor,
@@ -89,4 +90,5 @@ extension CounterViewModel where Self == DefaultCounterViewModel {
             lifecycleLogger: lifecycleLogger
         )
     }
+
 }

@@ -39,4 +39,5 @@ final actor UserDefaultsCounterValueRepository: CounterValueRepository {
     func setValue(_ value: Int) async throws {
         self.userDefaults.set(value, forKey: UserDefaultsKey.counterValue)
     }
+    
 }
