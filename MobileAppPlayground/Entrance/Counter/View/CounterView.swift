@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct CounterView: View {
+
     @State var viewModel: CounterViewModel
 
     var body: some View {
@@ -26,6 +27,7 @@ struct CounterView: View {
             try? await self.viewModel.setup()
         }
     }
+    
 }
 
 // MARK: - Preview
