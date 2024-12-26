@@ -14,7 +14,7 @@ struct RoutingView: View {
 
     // MARK: - Body
 
-#warning("TODO: Remove EmptyView from NavigationStack.")
+    #warning("TODO: Replace EmptyView with actual Root View.")
 
     var body: some View {
         NavigationStack(path: router.navigationPath) {
