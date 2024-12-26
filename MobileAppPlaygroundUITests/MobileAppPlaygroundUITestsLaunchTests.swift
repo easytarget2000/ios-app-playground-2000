@@ -2,7 +2,7 @@ import XCTest
 
 final class MobileAppPlaygroundUITestsLaunchTests: XCTestCase {
 
-    override class var runsForEachTargetApplicationUIConfiguration: Bool {
+    override static var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }
 

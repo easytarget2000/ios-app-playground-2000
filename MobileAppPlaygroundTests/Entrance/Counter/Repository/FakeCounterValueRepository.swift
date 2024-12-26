@@ -13,7 +13,7 @@ final actor FakeCounterValueRepository: CounterValueRepository {
     var fetchValueCalled: Bool = false
     var setValueCalled: Bool = false
     var setValueValue: Int?
-    
+
     // MARK: - Constructor
 
     init(fetchValueResult: Int) {

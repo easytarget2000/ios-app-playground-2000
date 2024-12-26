@@ -1,6 +1,7 @@
 @testable import MobileAppPlayground
 import Testing
 
+// swiftlint:disable:next type_name
 @Suite struct DefaultNotificationPlaygroundViewModelTests {
 
     // MARK: - `requestPermission()`
