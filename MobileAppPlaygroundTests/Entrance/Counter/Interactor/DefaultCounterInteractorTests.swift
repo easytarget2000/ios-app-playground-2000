@@ -1,5 +1,5 @@
-import Testing
 @testable import MobileAppPlayground
+import Testing
 
 @Suite struct DefaultCounterInteractorTests {
 
