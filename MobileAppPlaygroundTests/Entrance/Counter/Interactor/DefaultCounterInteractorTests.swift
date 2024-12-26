@@ -36,7 +36,7 @@ import Testing
         let fakeRepository: FakeCounterValueRepository = .init(fetchValueResult: initialValue)
         let sut: DefaultCounterInteractor = .init(valueRepository: fakeRepository)
 
-        let _ = try await sut.increment()
+        _ = try await sut.increment()
 
         let result = await fakeRepository.setValueValue
         let expectation = initialValue + 1

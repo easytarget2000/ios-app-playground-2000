@@ -135,6 +135,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				30F357DA2D1DFDFA00ADB9F9 /* PBXTargetDependency */,
 				0B1885312CB71DCF00594E81 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
@@ -158,6 +159,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				30F357D82D1DFDF600ADB9F9 /* PBXTargetDependency */,
 				0B18853B2CB71DCF00594E81 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
@@ -280,6 +282,14 @@
 		30364D092D1C921600238A36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = 30364D082D1C921600238A36 /* SwiftLintBuildToolPlugin */;
+		};
+		30F357D82D1DFDF600ADB9F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 30F357D72D1DFDF600ADB9F9 /* SwiftLintBuildToolPlugin */;
+		};
+		30F357DA2D1DFDFA00ADB9F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 30F357D92D1DFDFA00ADB9F9 /* SwiftLintBuildToolPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -603,6 +613,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 30C6C3392D1C7B0200EB0C0F /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
 			productName = AsyncAlgorithms;
+		};
+		30F357D72D1DFDF600ADB9F9 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30C6C3382D1C7AED00EB0C0F /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		30F357D92D1DFDFA00ADB9F9 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30C6C3382D1C7AED00EB0C0F /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
