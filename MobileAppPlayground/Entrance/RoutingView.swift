@@ -44,7 +44,7 @@ struct RoutingView: View {
             )
         case .notificationPlayground:
             NotificationPlaygroundView(
-                viewModel: DefaultNotificationPlaygroundViewModel(
+                viewModel: .default(
                     router: self.router,
                     permissionInteractor: self.permissionInteractor
                 )

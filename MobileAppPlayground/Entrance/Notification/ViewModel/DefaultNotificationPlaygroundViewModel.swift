@@ -1,6 +1,7 @@
 import Observation
 
-@Observable final class DefaultNotificationPlaygroundViewModel: NotificationPlaygroundViewModel {
+@Observable final class DefaultNotificationPlaygroundViewModel:
+    NotificationPlaygroundViewModel {
 
     // MARK: - Properties
 
@@ -19,7 +20,7 @@ import Observation
     init(
         router: any Router,
         permissionInteractor: any NotificationPermissionInteractor,
-        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Counter")
+        lifecycleLogger: some Logger
     ) {
         self.router = router
         self.permissionInteractor = permissionInteractor
@@ -48,6 +49,25 @@ import Observation
 
     @MainActor private func updatePermission() async {
         self.permission = await self.permissionInteractor.getPermission()
+    }
+
+}
+
+// MARK: - Convenience Initializer
+
+extension NotificationPlaygroundViewModel
+where Self == DefaultNotificationPlaygroundViewModel {
+
+    static func `default`(
+        router: any Router,
+        permissionInteractor: any NotificationPermissionInteractor,
+        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Counter")
+    ) -> Self {
+        .init(
+            router: router,
+            permissionInteractor: permissionInteractor,
+            lifecycleLogger: lifecycleLogger
+        )
     }
 
 }

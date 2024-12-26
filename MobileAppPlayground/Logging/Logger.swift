@@ -10,7 +10,6 @@ protocol Logger: Sendable {
 // MARK: - Default Implementation
 
 final class DefaultLogger: Logger {
-
     private enum Constant {
         static let subsystem: String = Bundle.main.bundleIdentifier!
     }
