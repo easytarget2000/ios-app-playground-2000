@@ -6,7 +6,7 @@ import SwiftUI
     // MARK: - Nested Types
 
     private struct State {
-        var navigationPath: [NavigationItem] = [.counter1]
+        var navigationPath: [NavigationItem] = []
     }
 
     // MARK: - Properties
@@ -30,7 +30,10 @@ import SwiftUI
     // MARK: - Protocol Implementations
 
     var navigationPath: Binding<[NavigationItem]> {
-        .init(get: { self.state.navigationPath }, set: { self.state.navigationPath = $0 })
+        .init(
+            get: { self.state.navigationPath },
+            set: { self.state.navigationPath = $0 }
+        )
     }
 
     func navigate(to item: NavigationItem) {

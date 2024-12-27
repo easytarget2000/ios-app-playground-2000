@@ -19,7 +19,6 @@ import Observation
 
     let addCounterButtonTitle: String = "Add Counter"
     let navigateToAnotherCounterTitle: String = "Counter in Another View"
-    let navigateToNotificationPlaygroundTitle: String = "Notifications Playground"
     var shouldShowLoadingIndicator: Bool = false
 
     private var shouldShowCounter: Bool {
@@ -61,10 +60,6 @@ import Observation
 
     func navigateToAnotherCounter() {
         self.router.navigate(to: .counter2)
-    }
-
-    func navigateToNotificationPlayground() {
-        self.router.navigate(to: .notificationPlayground)
     }
 
     // MARK: Implementation

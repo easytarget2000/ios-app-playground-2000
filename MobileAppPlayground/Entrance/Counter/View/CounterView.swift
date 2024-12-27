@@ -18,9 +18,6 @@ struct CounterView: View {
             Button(self.viewModel.navigateToAnotherCounterTitle) {
                 self.viewModel.navigateToAnotherCounter()
             }
-            Button(self.viewModel.navigateToNotificationPlaygroundTitle) {
-                self.viewModel.navigateToNotificationPlayground()
-            }
         }
         .padding()
         .task {

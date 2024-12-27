@@ -21,5 +21,5 @@ struct MenuView: View {
 // MARK: - Preview
 
 #Preview {
-    CounterView(viewModel: .preview)
+    MenuView(viewModel: .preview)
 }

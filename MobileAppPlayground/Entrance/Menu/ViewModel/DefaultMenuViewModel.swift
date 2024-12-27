@@ -9,7 +9,7 @@ import Observation
     private let interactor: any CounterInteractor
     private let lifecycleLogger: any Logger
 
-    let navigateToCounterTitle: String = "Counter in Another View"
+    let navigateToCounterTitle: String = "Counter"
     let navigateToNotificationPlaygroundTitle: String = "Notifications Playground"
 
     // MARK: - Lifecycle

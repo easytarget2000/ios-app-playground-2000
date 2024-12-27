@@ -14,16 +14,23 @@ struct RoutingView: View {
 
     // MARK: - Body
 
-    #warning("TODO: Replace EmptyView with actual Root View.")
-
     var body: some View {
         NavigationStack(path: router.navigationPath) {
-            EmptyView()
+            rootView
                 .navigationDestination(
                     for: NavigationItem.self,
                     destination: viewDestination
                 )
         }
+    }
+
+    private var rootView: some View {
+        MenuView(
+            viewModel: .default(
+                router: self.router,
+                interactor: self.counterInteractor
+            )
+        )
     }
 
     @ViewBuilder private func viewDestination(
