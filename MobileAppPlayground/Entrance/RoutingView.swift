@@ -25,12 +25,7 @@ struct RoutingView: View {
     }
 
     private var rootView: some View {
-        MenuView(
-            viewModel: .default(
-                router: self.router,
-                interactor: self.counterInteractor
-            )
-        )
+        MenuView(viewModel: .default(router: self.router))
     }
 
     @ViewBuilder private func viewDestination(
