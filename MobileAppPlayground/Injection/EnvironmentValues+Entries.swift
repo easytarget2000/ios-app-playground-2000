@@ -9,4 +9,6 @@ extension EnvironmentValues {
     = OSNotificationPermissionInteractor.shared
 
     @Entry var router: any Router = DefaultRouter.shared
+
+    @Entry var counterViewModel: any CounterViewModel = .preview
 }

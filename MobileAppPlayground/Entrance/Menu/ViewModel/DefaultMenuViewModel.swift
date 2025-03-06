@@ -39,7 +39,10 @@ import Observation
 
 extension MenuViewModel where Self == DefaultMenuViewModel {
 
-    static func `default`(router: any Router, lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Menu")) -> Self {
+    static func `default`(
+        router: any Router,
+        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Menu")
+    ) -> Self {
         .init(router: router, lifecycleLogger: lifecycleLogger)
     }
 

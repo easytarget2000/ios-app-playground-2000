@@ -2,19 +2,28 @@ import SwiftUI
 
 struct CounterView: View {
 
-    @State var viewModel: CounterViewModel
+    @Environment(\.counterViewModel) private var viewModel: CounterViewModel
 
     var body: some View {
         VStack {
             if self.viewModel.shouldShowLoadingIndicator {
                 ProgressView()
             }
-            Text(self.viewModel.currentValue ?? "")
-            Button(self.viewModel.addCounterButtonTitle) {
+
+            Text(self.viewModel.currentLocalValue ?? "")
+            Button(self.viewModel.addToLocalCounterButtonTitle) {
                 Task {
-                    try? await self.viewModel.onAddCounterSelected()
+                    try? await self.viewModel.onAddToLocalCounterSelected()
                 }
             }
+
+            Text(self.viewModel.currentGlobalValue ?? "")
+            Button(self.viewModel.addToGlobalCounterButtonTitle) {
+                Task {
+                    try? await self.viewModel.onAddToGlobalCounterSelected()
+                }
+            }
+
             Button(self.viewModel.navigateToAnotherCounterTitle) {
                 self.viewModel.navigateToAnotherCounter()
             }
@@ -30,5 +39,5 @@ struct CounterView: View {
 // MARK: - Preview
 
 #Preview {
-    CounterView(viewModel: .preview)
+    CounterView()
 }

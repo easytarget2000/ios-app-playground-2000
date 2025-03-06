@@ -3,19 +3,22 @@ final actor DefaultCounterInteractor: CounterInteractor {
     // MARK: - Properties
 
     static let shared: DefaultCounterInteractor = .init(
-        valueRepository: UserDefaultsCounterValueRepository()
+        globalValueRepository: UserDefaultsCounterValueRepository()
     )
 
-    private let valueRepository: any CounterValueRepository
+    private let globalValueRepository: any CounterValueRepository
     private let lifecycleLogger: Logger
+    private var localValue: Int = 0
 
     // MARK: - Constructor/Deconstructor
 
     init(
-        valueRepository: any CounterValueRepository,
+        initialLocalValue: Int = 0,
+        globalValueRepository: any CounterValueRepository,
         lifecycleLogger: any Logger = .lifecycle(subsystemSuffix: "Counter")
     ) {
-        self.valueRepository = valueRepository
+        self.localValue = initialLocalValue
+        self.globalValueRepository = globalValueRepository
         self.lifecycleLogger = lifecycleLogger
         self.lifecycleLogger.debug("DefaultCounterInteractor initialized.")
     }
@@ -26,13 +29,22 @@ final actor DefaultCounterInteractor: CounterInteractor {
 
     // MARK: - Protocol Implementations
 
-    func fetch() async throws -> Int {
-        try await self.valueRepository.fetchValue()
+    func fetchLocal() async throws -> Int {
+        self.localValue
     }
 
-    func increment() async throws -> Int {
-        let newValue = try await self.fetch() + 1
-        try await self.valueRepository.setValue(newValue)
+    func fetchGlobal() async throws -> Int {
+        try await self.globalValueRepository.fetchValue()
+    }
+
+    func incrementLocal() async throws -> Int {
+        self.localValue += 1
+        return self.localValue
+    }
+
+    func incrementGlobal() async throws -> Int {
+        let newValue = try await self.fetchGlobal() + 1
+        try await self.globalValueRepository.setValue(newValue)
         return newValue
     }
 

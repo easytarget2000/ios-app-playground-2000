@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MenuView: View {
 
-    @State var viewModel: MenuViewModel
+    @State private var viewModel: any MenuViewModel = .default(router: DefaultRouter.shared)
 
     var body: some View {
         VStack {
@@ -21,5 +21,5 @@ struct MenuView: View {
 // MARK: - Preview
 
 #Preview {
-    MenuView(viewModel: .preview)
+    MenuView()
 }

@@ -1,21 +1,26 @@
 final class PreviewCounterViewModel: CounterViewModel {
 
     var shouldShowLoadingIndicator: Bool
-    let currentValue: String?
-    let addCounterButtonTitle: String = "Perform something (Preview)"
+    let currentLocalValue: String?
+    let currentGlobalValue: String?
+    let addToLocalCounterButtonTitle: String = "Perform something (Preview)"
+    let addToGlobalCounterButtonTitle: String = "Perform something (Preview)"
     let navigateToAnotherCounterTitle: String
     = "Counter in Another View (Preview)"
 
     init(
         shouldShowLoadingIndicator: Bool = true,
-        counter: String? = "Lorem ipsum. (Preview)"
+        currentLocalValue: String? = "0",
+        currentGlobalValue: String? = "0"
     ) {
         self.shouldShowLoadingIndicator = shouldShowLoadingIndicator
-        self.currentValue = counter
+        self.currentLocalValue = currentLocalValue
+        self.currentGlobalValue = currentGlobalValue
     }
 
     func setup() {}
-    func onAddCounterSelected() {}
+    func onAddToLocalCounterSelected() {}
+    func onAddToGlobalCounterSelected() {}
     func navigateToAnotherCounter() {}
 }
 

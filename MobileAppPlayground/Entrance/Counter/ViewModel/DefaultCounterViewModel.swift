@@ -9,15 +9,16 @@ import Observation
     private let interactor: any CounterInteractor
     private let lifecycleLogger: any Logger
 
-    var currentValue: String? {
-        return if self.shouldShowCounter {
-            self.innerCounter
-        } else {
-            nil
-        }
+    var currentLocalValue: String? {
+        self.shouldShowCounter ? self.innerLocalCounter : nil
     }
 
-    let addCounterButtonTitle: String = "Add Counter"
+    var currentGlobalValue: String? {
+        self.shouldShowCounter ? self.innerGlobalCounter : nil
+    }
+
+    let addToLocalCounterButtonTitle: String = "Add to Local Counter"
+    let addToGlobalCounterButtonTitle: String = "Add to Global Counter"
     let navigateToAnotherCounterTitle: String = "Counter in Another View"
     var shouldShowLoadingIndicator: Bool = false
 
@@ -25,7 +26,8 @@ import Observation
         !self.shouldShowLoadingIndicator
     }
 
-    private var innerCounter: String?
+    private var innerLocalCounter: String?
+    private var innerGlobalCounter: String?
 
     // MARK: - Lifecycle
 
@@ -48,13 +50,20 @@ import Observation
 
     func setup() async throws {
         self.shouldShowLoadingIndicator = true
-        self.setCounter(from: try await self.interactor.fetch())
+        self.setLocalCounter(from: try await self.interactor.fetchLocal())
+        self.setGlobalCounter(from: try await self.interactor.fetchGlobal())
         self.shouldShowLoadingIndicator = false
     }
 
-    func onAddCounterSelected() async throws {
+    func onAddToLocalCounterSelected() async throws {
         self.shouldShowLoadingIndicator = true
-        self.setCounter(from: try await self.interactor.increment())
+        self.setLocalCounter(from: try await self.interactor.incrementLocal())
+        self.shouldShowLoadingIndicator = false
+    }
+
+    func onAddToGlobalCounterSelected() async throws {
+        self.shouldShowLoadingIndicator = true
+        self.setGlobalCounter(from: try await self.interactor.incrementGlobal())
         self.shouldShowLoadingIndicator = false
     }
 
@@ -64,10 +73,13 @@ import Observation
 
     // MARK: Implementation
 
-    private func setCounter(from int: Int) {
-        self.innerCounter = .init(int)
+    private func setLocalCounter(from int: Int) {
+        self.innerLocalCounter = .init(int)
     }
 
+    private func setGlobalCounter(from int: Int) {
+        self.innerGlobalCounter = .init(int)
+    }
 }
 
 // MARK: - Convenience Initializer

@@ -25,7 +25,7 @@ struct RoutingView: View {
     }
 
     private var rootView: some View {
-        MenuView(viewModel: .default(router: self.router))
+        MenuView()
     }
 
     @ViewBuilder private func viewDestination(
@@ -33,19 +33,17 @@ struct RoutingView: View {
     ) -> some View {
         switch navigationItem {
         case .counter1:
-            CounterView(
-                viewModel: .default(
-                    router: self.router,
-                    interactor: self.counterInteractor
+            CounterView()
+                .environment(
+                    \.counterViewModel,
+                     .default(router: router, interactor: counterInteractor)
                 )
-            )
         case .counter2:
-            CounterView(
-                viewModel: .default(
-                    router: self.router,
-                    interactor: self.counterInteractor
+            CounterView()
+                .environment(
+                    \.counterViewModel,
+                     .default(router: router, interactor: counterInteractor)
                 )
-            )
         case .notificationPlayground:
             NotificationPlaygroundView(
                 viewModel: .default(
