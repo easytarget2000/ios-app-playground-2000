@@ -20,7 +20,7 @@ import Observation
     init(
         router: any Router,
         permissionInteractor: any NotificationPermissionInteractor,
-        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Counter")
+        lifecycleLogger: some Logger
     ) {
         self.router = router
         self.permissionInteractor = permissionInteractor
@@ -60,8 +60,8 @@ where Self == DefaultNotificationPlaygroundViewModel {
 
     static func `default`(
         router: any Router,
-        permissionInteractor: any NotificationPermissionInteractor,
-        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Counter")
+        permissionInteractor: any NotificationPermissionInteractor = .osShared,
+        lifecycleLogger: some Logger = .lifecycle(subsystem: .notification)
     ) -> Self {
         .init(
             router: router,

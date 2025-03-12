@@ -11,14 +11,14 @@ import SwiftUI
 
     // MARK: - Properties
 
-    static let shared: DefaultRouter = .init()
+    static let sharedDefault: DefaultRouter = .init(lifecycleLogger: .lifecycle(subsystem: .router))
 
     private let lifecycleLogger: Logger
     @MainActor private var state: State = .init()
 
     // MARK: - Constructor/Deconstructor
 
-    init(lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Router")) {
+    init(lifecycleLogger: some Logger) {
         self.lifecycleLogger = lifecycleLogger
         self.lifecycleLogger.debug("DefaultRouter initialized.")
     }
@@ -45,6 +45,14 @@ import SwiftUI
         case .appSettings:
             UIApplication.shared.openSettings()
         }
+    }
+
+}
+
+extension Router where Self == DefaultRouter {
+
+    static var sharedDefault: Self {
+        Self.sharedDefault
     }
 
 }

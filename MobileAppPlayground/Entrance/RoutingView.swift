@@ -35,12 +35,7 @@ struct RoutingView: View {
         case .counter2:
             CounterView(viewModel: .default(router: router))
         case .notificationPlayground:
-            NotificationPlaygroundView(
-                viewModel: .default(
-                    router: self.router,
-                    permissionInteractor: self.permissionInteractor
-                )
-            )
+            NotificationPlaygroundView(viewModel: .default(router: self.router))
         }
     }
 

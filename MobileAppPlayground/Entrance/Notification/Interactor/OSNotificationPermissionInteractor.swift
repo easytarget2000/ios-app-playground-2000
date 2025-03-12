@@ -26,3 +26,13 @@ final class OSNotificationPermissionInteractor:
     }
 
 }
+
+// MARK: - Convenience Initializer
+
+extension NotificationPermissionInteractor where Self == OSNotificationPermissionInteractor {
+
+    static var osShared: Self {
+        Self.shared
+    }
+
+}

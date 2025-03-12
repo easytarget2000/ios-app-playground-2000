@@ -2,7 +2,11 @@ import SwiftUI
 
 struct NotificationPlaygroundView: View {
 
-    @State var viewModel: NotificationPlaygroundViewModel
+    @State private var viewModel: NotificationPlaygroundViewModel
+
+    init(viewModel: NotificationPlaygroundViewModel) {
+        self._viewModel = .init(initialValue: viewModel)
+    }
 
     var body: some View {
         Button("Request Permission") {

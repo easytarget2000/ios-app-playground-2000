@@ -1,12 +1,15 @@
 import UserNotifications
 
 enum NotificationPermission {
+
     case unknown
     case denied
     case authorized
+    
 }
 
 extension NotificationPermission {
+
     static func map(_ osSettings: UNNotificationSettings) -> Self {
         Self.map(osSettings.authorizationStatus)
     }
@@ -21,4 +24,5 @@ extension NotificationPermission {
         @unknown default: .unknown
         }
     }
+
 }

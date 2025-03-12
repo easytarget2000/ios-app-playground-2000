@@ -41,7 +41,7 @@ extension MenuViewModel where Self == DefaultMenuViewModel {
 
     static func `default`(
         router: any Router,
-        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Menu")
+        lifecycleLogger: some Logger = .lifecycle(subsystem: .menu)
     ) -> Self {
         .init(router: router, lifecycleLogger: lifecycleLogger)
     }

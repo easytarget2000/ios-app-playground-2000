@@ -40,5 +40,5 @@ extension CounterValueRepository where Self == FakeCounterValueRepository {
     static func mock(fetchValueResult: Int = 0) -> Self {
         .init(fetchValueResult: fetchValueResult)
     }
-    
+
 }

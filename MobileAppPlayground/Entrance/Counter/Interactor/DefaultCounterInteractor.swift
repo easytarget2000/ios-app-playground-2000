@@ -46,13 +46,12 @@ final actor DefaultCounterInteractor: CounterInteractor {
 
 }
 
-
 extension CounterInteractor where Self == DefaultCounterInteractor {
 
     static func `default`(
         initialLocalValue: Int = 0,
         globalValueRepository: any CounterValueRepository = .sharedUserDefaults,
-        lifecycleLogger: any Logger = .lifecycle(subsystemSuffix: "Counter")
+        lifecycleLogger: any Logger = .lifecycle(subsystem: .counter)
     ) -> Self {
         Self.init(
             initialLocalValue: initialLocalValue,

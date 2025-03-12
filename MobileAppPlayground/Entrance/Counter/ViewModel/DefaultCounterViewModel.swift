@@ -89,7 +89,7 @@ extension CounterViewModel where Self == DefaultCounterViewModel {
     static func `default`(
         router: any Router,
         interactor: any CounterInteractor = .default(),
-        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Counter")
+        lifecycleLogger: some Logger = .lifecycle(subsystem: .counter)
     ) -> Self {
         .init(
             router: router,
