@@ -39,11 +39,11 @@ import Observation
         self.router = router
         self.interactor = interactor
         self.lifecycleLogger = lifecycleLogger
-        self.lifecycleLogger.debug("DefaultCounterViewModel initialized.")
+        self.lifecycleLogger.debug("DefaultCounterViewModel ➕: \(Unmanaged.passUnretained(self).toOpaque())")
     }
 
     deinit {
-        self.lifecycleLogger.debug("DefaultCounterViewModel deinitialized.")
+        self.lifecycleLogger.debug("DefaultCounterViewModel ➖: \(Unmanaged.passUnretained(self).toOpaque())")
     }
 
     // MARK: - Interaction
@@ -87,8 +87,8 @@ import Observation
 extension CounterViewModel where Self == DefaultCounterViewModel {
 
     static func `default`(
-        router: any Router,
-        interactor: any CounterInteractor,
+        router: any Router = DefaultRouter.shared,
+        interactor: any CounterInteractor = .default(),
         lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Counter")
     ) -> Self {
         .init(

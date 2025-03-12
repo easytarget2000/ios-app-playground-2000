@@ -6,13 +6,13 @@ import Testing
     // MARK: - `fetchLocal()`
 
     @Test func fetchLocal_returnsZero() async throws {
-        let expectation = 0
+        let initialLocalValue = 0
 
-        let sut: DefaultCounterInteractor = .init(globalValueRepository: .mock())
+        let sut: DefaultCounterInteractor = .default(initialLocalValue: initialLocalValue)
 
         let result = try await sut.fetchLocal()
 
-        #expect(result == expectation)
+        #expect(result == initialLocalValue)
     }
 
     // MARK: - `fetchGlobal()`
@@ -21,7 +21,7 @@ import Testing
         let expectation = 1
 
         let mockRepository: FakeCounterValueRepository = .init(fetchValueResult: expectation)
-        let sut: DefaultCounterInteractor = .init(globalValueRepository: mockRepository)
+        let sut: DefaultCounterInteractor = .default(globalValueRepository: mockRepository)
 
         let result = try await sut.fetchGlobal()
 
@@ -31,13 +31,16 @@ import Testing
     // MARK: - `incrementLocal()`
 
     @Test func incrementLocal_calledTwice_returnsLocalValueIncrementedByTwo() async throws {
-        let initialValue = 22
+        let initialLocalValue = 22
 
-        let sut: DefaultCounterInteractor = .init(globalValueRepository: .mock())
+        let sut: DefaultCounterInteractor = .default(
+            initialLocalValue: initialLocalValue,
+            globalValueRepository: .mock()
+        )
 
         _ = try await sut.incrementLocal()
         let result = try await sut.incrementLocal()
-        let expectation = 2
+        let expectation = 24
 
         #expect(result == expectation)
     }
@@ -48,12 +51,12 @@ import Testing
         let initialValue = 333
 
         let fakeRepository: FakeCounterValueRepository = .init(fetchValueResult: initialValue)
-        let sut: DefaultCounterInteractor = .init(globalValueRepository: fakeRepository)
+        let sut: DefaultCounterInteractor = .default(globalValueRepository: fakeRepository)
 
         _ = try await sut.incrementGlobal()
 
         let result = await fakeRepository.setValueValue
-        let expectation = initialValue + 1
+        let expectation = 334
 
         #expect(result == expectation)
     }

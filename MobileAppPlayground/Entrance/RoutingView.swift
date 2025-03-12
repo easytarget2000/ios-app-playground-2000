@@ -7,8 +7,6 @@ struct RoutingView: View {
     // MARK: Dependencies
 
     @Environment(\.router) private var router: any Router
-    @Environment(\.counterInteractor)
-    private var counterInteractor: any CounterInteractor
     @Environment(\.notificationPermissionInteractor)
     private var permissionInteractor: any NotificationPermissionInteractor
 
@@ -33,17 +31,9 @@ struct RoutingView: View {
     ) -> some View {
         switch navigationItem {
         case .counter1:
-            CounterView()
-                .environment(
-                    \.counterViewModel,
-                     .default(router: router, interactor: counterInteractor)
-                )
+            CounterView(viewModel: .default())
         case .counter2:
-            CounterView()
-                .environment(
-                    \.counterViewModel,
-                     .default(router: router, interactor: counterInteractor)
-                )
+            CounterView(viewModel: .default())
         case .notificationPlayground:
             NotificationPlaygroundView(
                 viewModel: .default(
@@ -61,6 +51,5 @@ struct RoutingView: View {
 #Preview {
     RoutingView()
         .environment(\.router, .preview)
-        .environment(\.counterInteractor, .preview)
         .environment(\.notificationPermissionInteractor, .preview)
 }

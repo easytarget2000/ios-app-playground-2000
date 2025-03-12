@@ -2,10 +2,6 @@ final actor DefaultCounterInteractor: CounterInteractor {
 
     // MARK: - Properties
 
-    static let shared: DefaultCounterInteractor = .init(
-        globalValueRepository: UserDefaultsCounterValueRepository()
-    )
-
     private let globalValueRepository: any CounterValueRepository
     private let lifecycleLogger: Logger
     private var localValue: Int = 0
@@ -13,9 +9,9 @@ final actor DefaultCounterInteractor: CounterInteractor {
     // MARK: - Constructor/Deconstructor
 
     init(
-        initialLocalValue: Int = 0,
+        initialLocalValue: Int,
         globalValueRepository: any CounterValueRepository,
-        lifecycleLogger: any Logger = .lifecycle(subsystemSuffix: "Counter")
+        lifecycleLogger: any Logger
     ) {
         self.localValue = initialLocalValue
         self.globalValueRepository = globalValueRepository
@@ -46,6 +42,23 @@ final actor DefaultCounterInteractor: CounterInteractor {
         let newValue = try await self.fetchGlobal() + 1
         try await self.globalValueRepository.setValue(newValue)
         return newValue
+    }
+
+}
+
+
+extension CounterInteractor where Self == DefaultCounterInteractor {
+
+    static func `default`(
+        initialLocalValue: Int = 0,
+        globalValueRepository: any CounterValueRepository = .sharedUserDefaults,
+        lifecycleLogger: any Logger = .lifecycle(subsystemSuffix: "Counter")
+    ) -> Self {
+        Self.init(
+            initialLocalValue: initialLocalValue,
+            globalValueRepository: globalValueRepository,
+            lifecycleLogger: lifecycleLogger
+        )
     }
 
 }

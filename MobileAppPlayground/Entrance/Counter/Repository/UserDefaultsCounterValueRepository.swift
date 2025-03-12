@@ -41,3 +41,11 @@ final actor UserDefaultsCounterValueRepository: CounterValueRepository {
     }
 
 }
+
+extension CounterValueRepository where Self == UserDefaultsCounterValueRepository {
+
+    static var sharedUserDefaults: Self {
+        Self.shared
+    }
+
+}

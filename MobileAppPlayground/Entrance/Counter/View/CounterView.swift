@@ -2,7 +2,11 @@ import SwiftUI
 
 struct CounterView: View {
 
-    @Environment(\.counterViewModel) private var viewModel: CounterViewModel
+    @State private var viewModel: CounterViewModel
+
+    init(viewModel: CounterViewModel) {
+        self._viewModel = .init(initialValue: viewModel)
+    }
 
     var body: some View {
         VStack {
@@ -39,5 +43,5 @@ struct CounterView: View {
 // MARK: - Preview
 
 #Preview {
-    CounterView()
+    CounterView(viewModel: .preview)
 }
