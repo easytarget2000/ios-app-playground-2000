@@ -39,11 +39,11 @@ import Observation
         self.router = router
         self.interactor = interactor
         self.lifecycleLogger = lifecycleLogger
-        self.lifecycleLogger.debug("DefaultCounterViewModel ➕: \(Unmanaged.passUnretained(self).toOpaque())")
+        self.lifecycleLogger.debug("DefaultCounterViewModel ➕: \(address(of: self))")
     }
 
     deinit {
-        self.lifecycleLogger.debug("DefaultCounterViewModel ➖: \(Unmanaged.passUnretained(self).toOpaque())")
+        self.lifecycleLogger.debug("DefaultCounterViewModel ➖: \(address(of: self))")
     }
 
     // MARK: - Interaction

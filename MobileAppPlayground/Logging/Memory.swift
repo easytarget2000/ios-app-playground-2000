@@ -1,3 +1,3 @@
-func address(of instance: Any) -> String {
-    ""
+func address(of object: AnyObject) -> String {
+    .init(describing: Unmanaged.passUnretained(object).toOpaque())
 }
