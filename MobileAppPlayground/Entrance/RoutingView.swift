@@ -31,9 +31,9 @@ struct RoutingView: View {
     ) -> some View {
         switch navigationItem {
         case .counter1:
-            CounterView(viewModel: .default())
+            CounterView(viewModel: .default(router: router))
         case .counter2:
-            CounterView(viewModel: .default())
+            CounterView(viewModel: .default(router: router))
         case .notificationPlayground:
             NotificationPlaygroundView(
                 viewModel: .default(

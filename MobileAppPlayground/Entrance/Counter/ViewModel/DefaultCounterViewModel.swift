@@ -87,7 +87,7 @@ import Observation
 extension CounterViewModel where Self == DefaultCounterViewModel {
 
     static func `default`(
-        router: any Router = DefaultRouter.shared,
+        router: any Router,
         interactor: any CounterInteractor = .default(),
         lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Counter")
     ) -> Self {
