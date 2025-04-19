@@ -6,7 +6,6 @@ import Observation
     // MARK: - Properties
 
     private let router: any Router
-    private let interactor: any CounterInteractor
     private let lifecycleLogger: any Logger
 
     let navigateToCounterTitle = "Counter"
@@ -15,13 +14,8 @@ import Observation
 
     // MARK: - Lifecycle
 
-    init(
-        router: any Router,
-        interactor: any CounterInteractor,
-        lifecycleLogger: some Logger
-    ) {
+    init(router: any Router, lifecycleLogger: some Logger) {
         self.router = router
-        self.interactor = interactor
         self.lifecycleLogger = lifecycleLogger
         self.lifecycleLogger.debug("DefaultMenuViewModel initialized.")
     }
@@ -52,14 +46,9 @@ extension MenuViewModel where Self == DefaultMenuViewModel {
 
     static func `default`(
         router: any Router,
-        interactor: any CounterInteractor,
-        lifecycleLogger: some Logger = .lifecycle(subsystemSuffix: "Menu")
+        lifecycleLogger: some Logger = .lifecycle(subsystem: .menu)
     ) -> Self {
-        .init(
-            router: router,
-            interactor: interactor,
-            lifecycleLogger: lifecycleLogger
-        )
+        .init(router: router, lifecycleLogger: lifecycleLogger)
     }
 
 }

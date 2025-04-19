@@ -11,11 +11,11 @@ struct LegacyCounterView: View {
     var body: some View {
         VStack {
             progressSection
-            Text(self.viewModel.currentValue ?? "")
-            Button(self.viewModel.addCounterButtonTitle) {
-                Task {
-                    try? await self.viewModel.onAddCounterSelected()
-                }
+            Text(self.viewModel.currentGlobalValue ?? "")
+            Button(self.viewModel.addToGlobalCounterButtonTitle) {
+//                Task { @MainActor in
+//                    try? await self.viewModel.onAddToGlobalCounterSelected()
+//                }
             }
             Button(self.viewModel.navigateToAnotherCounterTitle) {
                 self.viewModel.navigateToAnotherCounter()
@@ -23,7 +23,7 @@ struct LegacyCounterView: View {
         }
         .padding()
         .task {
-            try? await self.viewModel.setup()
+//            try? await self.viewModel.setup()
         }
     }
 
@@ -35,4 +35,22 @@ struct LegacyCounterView: View {
             EmptyView()
         }
     }
+}
+
+// MARK: - Convenience Initializer
+
+extension CounterViewModel where Self == LegacyCounterViewModel {
+
+    static func legacy(
+        router: any Router,
+        interactor: any CounterInteractor = .default(),
+        lifecycleLogger: some Logger = .lifecycle(subsystem: .counter)
+    ) -> Self {
+        .init(
+            router: router,
+            interactor: interactor,
+            lifecycleLogger: lifecycleLogger
+        )
+    }
+
 }

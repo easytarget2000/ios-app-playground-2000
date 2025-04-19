@@ -10,31 +10,44 @@ protocol Logger: Sendable {
 // MARK: - Default Implementation
 
 final class DefaultLogger: Logger {
+
     private enum Constant {
         static let subsystem: String = Bundle.main.bundleIdentifier!
     }
 
     private let osLogger: os.Logger
 
-    init(subsystemSuffix: String, category: String) {
-        let completeSubsystem: String
-        = "\(Constant.subsystem).\(subsystemSuffix)"
-        self.osLogger = .init(subsystem: completeSubsystem, category: category)
+    init(subsystem: LogSubsystem, category: LogCategory) {
+        let completeSubsystem: String = "\(Constant.subsystem).\(subsystem.suffix)"
+        self.osLogger = .init(subsystem: completeSubsystem, category: category.name)
     }
 
     func debug(_ message: String) {
-        osLogger.debug("\(message)")
+        self.osLogger.debug("\(message)")
     }
+
 }
 
 extension Logger where Self == DefaultLogger {
-    static func lifecycle(subsystemSuffix: String) -> DefaultLogger {
-        .init(subsystemSuffix: subsystemSuffix, category: "lifecycle")
+
+    static func `default`(subsystem: LogSubsystem, category: LogCategory) -> Self {
+        Self.init(subsystem: subsystem, category: category)
     }
+
 }
 
 // MARK: - No-Op Implementation
 
 final class NoOpLogger: Logger {
+
     func debug(_ message: String) {}
+
+}
+
+extension Logger where Self == NoOpLogger {
+
+    static var noOp: Self {
+        Self.init()
+    }
+
 }

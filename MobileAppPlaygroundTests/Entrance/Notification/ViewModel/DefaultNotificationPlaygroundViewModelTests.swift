@@ -13,7 +13,8 @@ import Testing
 
         let sut: DefaultNotificationPlaygroundViewModel = .init(
             router: spyRouter,
-            permissionInteractor: mockPermissionInteractor
+            permissionInteractor: mockPermissionInteractor,
+            lifecycleLogger: .noOp
         )
 
         try await sut.requestPermission()

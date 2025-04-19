@@ -8,7 +8,9 @@ final class LegacyCounterViewModel: CounterViewModel, ObservableObject {
     private let interactor: any CounterInteractor
     private let lifecycleLogger: any Logger
 
-    var currentValue: String? {
+    let currentLocalValue: String? = nil
+
+    var currentGlobalValue: String? {
         return if self.shouldShowCounter {
             self.innerCounter
         } else {
@@ -16,9 +18,10 @@ final class LegacyCounterViewModel: CounterViewModel, ObservableObject {
         }
     }
 
-    let addCounterButtonTitle: String = "Add Counter"
+    let addToLocalCounterButtonTitle: String = "Add to Local Counter (disabled)"
+    let addToGlobalCounterButtonTitle: String = "Add to Global Counter"
     let navigateToAnotherCounterTitle: String = "Counter in Another View"
-    @Published var shouldShowLoadingIndicator: Bool = false
+    @Published private(set) var shouldShowLoadingIndicator: Bool = false
 
      private var shouldShowCounter: Bool {
         !self.shouldShowLoadingIndicator
@@ -47,13 +50,15 @@ final class LegacyCounterViewModel: CounterViewModel, ObservableObject {
 
     func setup() async throws {
         self.shouldShowLoadingIndicator = true
-        self.setCounter(from: try await self.interactor.fetch())
+        self.setCounter(from: try await self.interactor.fetchGlobal())
         self.shouldShowLoadingIndicator = false
     }
 
-    func onAddCounterSelected() async throws {
+    func onAddToLocalCounterSelected() async throws { }
+
+    func onAddToGlobalCounterSelected() async throws {
         self.shouldShowLoadingIndicator = true
-        self.setCounter(from: try await self.interactor.increment())
+        self.setCounter(from: try await self.interactor.incrementGlobal())
         self.shouldShowLoadingIndicator = false
     }
 

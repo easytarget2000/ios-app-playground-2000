@@ -1,16 +1,19 @@
 import Observation
 
-protocol CounterViewModel {
+@MainActor protocol CounterViewModel {
 
     var shouldShowLoadingIndicator: Bool { get }
 
-    var currentValue: String? { get }
+    var currentLocalValue: String? { get }
+    var currentGlobalValue: String? { get }
 
-    var addCounterButtonTitle: String { get }
+    var addToLocalCounterButtonTitle: String { get }
+    var addToGlobalCounterButtonTitle: String { get }
     var navigateToAnotherCounterTitle: String { get }
 
-    @MainActor func setup() async throws
-    @MainActor func onAddCounterSelected() async throws
-    @MainActor func navigateToAnotherCounter()
+    func setup() async throws
+    func onAddToLocalCounterSelected() async throws
+    func onAddToGlobalCounterSelected() async throws
+    func navigateToAnotherCounter()
 
 }

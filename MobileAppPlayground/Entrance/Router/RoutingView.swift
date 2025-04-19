@@ -7,8 +7,6 @@ struct RoutingView: View {
     // MARK: Dependencies
 
     @Environment(\.router) private var router: any Router
-    @Environment(\.counterInteractor)
-    private var counterInteractor: any CounterInteractor
     @Environment(\.notificationPermissionInteractor)
     private var permissionInteractor: any NotificationPermissionInteractor
 
@@ -25,12 +23,7 @@ struct RoutingView: View {
     }
 
     private var rootView: some View {
-        MenuView(
-            viewModel: .default(
-                router: self.router,
-                interactor: self.counterInteractor
-            )
-        )
+        MenuView()
     }
 
     @ViewBuilder private func viewDestination(
@@ -38,27 +31,11 @@ struct RoutingView: View {
     ) -> some View {
         switch navigationItem {
         case .counter:
-            CounterView(
-                viewModel: .default(
-                    router: self.router,
-                    interactor: self.counterInteractor
-                )
-            )
+            CounterView(viewModel: .default(router: self.router))
         case .legacyCounter:
-            LegacyCounterView(
-                viewModel: LegacyCounterViewModel(
-                    router: self.router,
-                    interactor: self.counterInteractor,
-                    lifecycleLogger: .lifecycle(subsystemSuffix: "Counter")
-                    )
-            )
+            LegacyCounterView(viewModel: .legacy(router: self.router))
         case .notificationPlayground:
-            NotificationPlaygroundView(
-                viewModel: .default(
-                    router: self.router,
-                    permissionInteractor: self.permissionInteractor
-                )
-            )
+            NotificationPlaygroundView(viewModel: .default(router: self.router))
         }
     }
 
@@ -69,6 +46,5 @@ struct RoutingView: View {
 #Preview {
     RoutingView()
         .environment(\.router, .preview)
-        .environment(\.counterInteractor, .preview)
         .environment(\.notificationPermissionInteractor, .preview)
 }

@@ -4,7 +4,10 @@ final actor UserDefaultsCounterValueRepository: CounterValueRepository {
 
     // MARK: - Properties
 
-    static let shared: UserDefaultsCounterValueRepository = .init()
+    static let shared: UserDefaultsCounterValueRepository = .init(
+        userDefaults: .standard,
+        lifecycleLogger: .lifecycle(subsystem: .counter)
+    )
 
     var simulateSlowResponse = true
 
@@ -14,8 +17,8 @@ final actor UserDefaultsCounterValueRepository: CounterValueRepository {
     // MARK: - Constructor/Deconstructor
 
     init(
-        userDefaults: UserDefaults = .standard,
-        lifecycleLogger: any Logger = .lifecycle(subsystemSuffix: "Counter")
+        userDefaults: UserDefaults,
+        lifecycleLogger: any Logger
     ) {
         self.userDefaults = userDefaults
         self.lifecycleLogger = lifecycleLogger
@@ -38,6 +41,14 @@ final actor UserDefaultsCounterValueRepository: CounterValueRepository {
 
     func setValue(_ value: Int) async throws {
         self.userDefaults.set(value, forKey: UserDefaultsKey.counterValue)
+    }
+
+}
+
+extension CounterValueRepository where Self == UserDefaultsCounterValueRepository {
+
+    static var sharedUserDefaults: Self {
+        Self.shared
     }
 
 }

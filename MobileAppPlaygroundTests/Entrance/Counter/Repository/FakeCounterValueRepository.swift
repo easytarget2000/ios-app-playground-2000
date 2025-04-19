@@ -16,7 +16,7 @@ final actor FakeCounterValueRepository: CounterValueRepository {
 
     // MARK: - Constructor
 
-    init(fetchValueResult: Int) {
+    init(fetchValueResult: Int = 0) {
         self.fetchValueResult = fetchValueResult
     }
 
@@ -31,6 +31,14 @@ final actor FakeCounterValueRepository: CounterValueRepository {
         fetchValueCalled = true
         setValueCalled = true
         setValueValue = value
+    }
+
+}
+
+extension CounterValueRepository where Self == FakeCounterValueRepository {
+
+    static func mock(fetchValueResult: Int = 0) -> Self {
+        .init(fetchValueResult: fetchValueResult)
     }
 
 }
