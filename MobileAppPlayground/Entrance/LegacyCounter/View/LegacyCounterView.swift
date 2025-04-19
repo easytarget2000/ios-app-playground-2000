@@ -6,9 +6,7 @@ struct LegacyCounterView: View {
 
     var body: some View {
         VStack {
-            if self.viewModel.shouldShowLoadingIndicator {
-                ProgressView()
-            }
+            progressSection
             Text(self.viewModel.currentValue ?? "")
             Button(self.viewModel.addCounterButtonTitle) {
                 Task {
@@ -25,4 +23,12 @@ struct LegacyCounterView: View {
         }
     }
 
+    @ViewBuilder
+    private var progressSection: some View {
+        if self.viewModel.shouldShowLoadingIndicator {
+            ProgressView()
+        } else {
+            EmptyView()
+        }
+    }
 }

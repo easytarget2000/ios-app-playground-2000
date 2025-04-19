@@ -18,13 +18,13 @@ final class LegacyCounterViewModel: CounterViewModel, ObservableObject {
 
     let addCounterButtonTitle: String = "Add Counter"
     let navigateToAnotherCounterTitle: String = "Counter in Another View"
-    var shouldShowLoadingIndicator: Bool = false
+    @Published var shouldShowLoadingIndicator: Bool = false
 
-    private var shouldShowCounter: Bool {
+     private var shouldShowCounter: Bool {
         !self.shouldShowLoadingIndicator
     }
 
-    private var innerCounter: String?
+    @Published private var innerCounter: String?
 
     // MARK: - Lifecycle
 

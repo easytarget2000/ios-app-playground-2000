@@ -6,7 +6,7 @@ final actor UserDefaultsCounterValueRepository: CounterValueRepository {
 
     static let shared: UserDefaultsCounterValueRepository = .init()
 
-    var simulateSlowResponse = false
+    var simulateSlowResponse = true
 
     private let userDefaults: UserDefaults
     private let lifecycleLogger: Logger
