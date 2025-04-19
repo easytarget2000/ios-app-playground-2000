@@ -13,9 +13,9 @@ struct LegacyCounterView: View {
             progressSection
             Text(self.viewModel.currentGlobalValue ?? "")
             Button(self.viewModel.addToGlobalCounterButtonTitle) {
-//                Task { @MainActor in
-//                    try? await self.viewModel.onAddToGlobalCounterSelected()
-//                }
+                Task {
+                    try? await self.viewModel.onAddToGlobalCounterSelected()
+                }
             }
             Button(self.viewModel.navigateToAnotherCounterTitle) {
                 self.viewModel.navigateToAnotherCounter()
@@ -23,7 +23,7 @@ struct LegacyCounterView: View {
         }
         .padding()
         .task {
-//            try? await self.viewModel.setup()
+            try? await self.viewModel.setup()
         }
     }
 
