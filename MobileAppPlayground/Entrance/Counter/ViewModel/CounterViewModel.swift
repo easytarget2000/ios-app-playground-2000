@@ -1,3 +1,5 @@
+import Observation
+
 protocol CounterViewModel {
 
     var shouldShowLoadingIndicator: Bool { get }

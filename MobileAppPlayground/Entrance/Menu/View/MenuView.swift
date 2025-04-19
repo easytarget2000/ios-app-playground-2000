@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MenuView: View {
 
-    @State var viewModel: MenuViewModel
+    let viewModel: MenuViewModel
 
     var body: some View {
         VStack {

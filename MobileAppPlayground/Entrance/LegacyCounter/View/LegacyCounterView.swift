@@ -2,7 +2,11 @@ import SwiftUI
 
 struct LegacyCounterView: View {
 
-    @StateObject var viewModel: LegacyCounterViewModel
+    @StateObject private var viewModel: LegacyCounterViewModel
+
+    init(viewModel: LegacyCounterViewModel) {
+        self._viewModel = .init(wrappedValue: viewModel)
+    }
 
     var body: some View {
         VStack {
