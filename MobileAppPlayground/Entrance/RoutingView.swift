@@ -37,19 +37,20 @@ struct RoutingView: View {
         for navigationItem: NavigationItem
     ) -> some View {
         switch navigationItem {
-        case .counter1:
+        case .counter:
             CounterView(
                 viewModel: .default(
                     router: self.router,
                     interactor: self.counterInteractor
                 )
             )
-        case .counter2:
-            CounterView(
-                viewModel: .default(
+        case .legacyCounter:
+            LegacyCounterView(
+                viewModel: LegacyCounterViewModel(
                     router: self.router,
-                    interactor: self.counterInteractor
-                )
+                    interactor: self.counterInteractor,
+                    lifecycleLogger: .lifecycle(subsystemSuffix: "Counter")
+                    )
             )
         case .notificationPlayground:
             NotificationPlaygroundView(

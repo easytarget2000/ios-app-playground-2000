@@ -36,11 +36,11 @@ final class LegacyCounterViewModel: CounterViewModel, ObservableObject {
         self.router = router
         self.interactor = interactor
         self.lifecycleLogger = lifecycleLogger
-        self.lifecycleLogger.debug("DefaultCounterViewModel initialized.")
+        self.lifecycleLogger.debug("LegacyCounterViewModel initialized.")
     }
 
     deinit {
-        self.lifecycleLogger.debug("DefaultCounterViewModel deinitialized.")
+        self.lifecycleLogger.debug("LegacyCounterViewModel deinitialized.")
     }
 
     // MARK: - Interaction
@@ -58,7 +58,7 @@ final class LegacyCounterViewModel: CounterViewModel, ObservableObject {
     }
 
     func navigateToAnotherCounter() {
-        self.router.navigate(to: .counter2)
+        self.router.navigate(to: .legacyCounter)
     }
 
     // MARK: Implementation

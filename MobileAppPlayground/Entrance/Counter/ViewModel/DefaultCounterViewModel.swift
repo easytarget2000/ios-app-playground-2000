@@ -59,7 +59,7 @@ import Observation
     }
 
     func navigateToAnotherCounter() {
-        self.router.navigate(to: .counter2)
+        self.router.navigate(to: .counter)
     }
 
     // MARK: Implementation

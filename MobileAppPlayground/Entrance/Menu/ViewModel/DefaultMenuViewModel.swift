@@ -9,8 +9,9 @@ import Observation
     private let interactor: any CounterInteractor
     private let lifecycleLogger: any Logger
 
-    let navigateToCounterTitle: String = "Counter"
-    let navigateToNotificationPlaygroundTitle: String = "Notifications Playground"
+    let navigateToCounterTitle = "Counter"
+    let navigateToLegacyCounterTitle = "Legacy Counter"
+    let navigateToNotificationPlaygroundTitle = "Notifications Playground"
 
     // MARK: - Lifecycle
 
@@ -32,7 +33,11 @@ import Observation
     // MARK: - Interaction
 
     func navigateToCounter() {
-        self.router.navigate(to: .counter2)
+        self.router.navigate(to: .counter)
+    }
+
+    func navigateToLegacyCounter() {
+        self.router.navigate(to: .legacyCounter)
     }
 
     func navigateToNotificationPlayground() {
