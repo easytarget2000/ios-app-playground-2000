@@ -2,7 +2,11 @@ import SwiftUI
 
 struct NotificationPlaygroundView: View {
 
-    let viewModel: NotificationPlaygroundViewModel
+    @State private var viewModel: NotificationPlaygroundViewModel
+
+    init(viewModel: NotificationPlaygroundViewModel) {
+        self._viewModel = .init(initialValue: viewModel)
+    }
 
     var body: some View {
         Button("Request Permission") {
@@ -19,6 +23,10 @@ struct NotificationPlaygroundView: View {
 
 // MARK: - Preview
 
+#if DEBUG
+
 #Preview {
     NotificationPlaygroundView(viewModel: .preview)
 }
+
+#endif

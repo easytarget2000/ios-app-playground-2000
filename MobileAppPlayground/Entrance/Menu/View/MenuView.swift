@@ -2,10 +2,10 @@ import SwiftUI
 
 struct MenuView: View {
 
-    private let viewModel: any MenuViewModel
+    @State private var viewModel: any MenuViewModel
 
     init(viewModel: some MenuViewModel = .default(router: .sharedDefault)) {
-        self.viewModel = viewModel
+        self._viewModel = .init(wrappedValue: viewModel)
     }
 
     var body: some View {
