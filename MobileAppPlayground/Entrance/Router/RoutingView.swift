@@ -6,9 +6,16 @@ struct RoutingView: View {
 
     // MARK: Dependencies
 
-    @Environment(\.router) private var router: any Router
-    @Environment(\.notificationPermissionInteractor)
-    private var permissionInteractor: any NotificationPermissionInteractor
+    private let router: any Router
+    private let permissionInteractor: any NotificationPermissionInteractor
+
+    init(
+        router: some Router = .sharedDefault,
+        permissionInteractor: some NotificationPermissionInteractor = .osShared,
+    ) {
+        self.router = router
+        self.permissionInteractor = permissionInteractor
+    }
 
     // MARK: - Body
 
@@ -43,8 +50,10 @@ struct RoutingView: View {
 
 // MARK: - Preview
 
+#if DEBUG
+
 #Preview {
-    RoutingView()
-        .environment(\.router, .preview)
-        .environment(\.notificationPermissionInteractor, .preview)
+    RoutingView(router: .preview, permissionInteractor: .preview)
 }
+
+#endif

@@ -2,7 +2,11 @@ import SwiftUI
 
 struct MenuView: View {
 
-    @State private var viewModel: any MenuViewModel = .default(router: .sharedDefault)
+    private let viewModel: any MenuViewModel
+
+    init(viewModel: some MenuViewModel = .default(router: .sharedDefault)) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         VStack {
