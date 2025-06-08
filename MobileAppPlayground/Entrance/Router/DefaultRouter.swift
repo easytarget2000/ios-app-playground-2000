@@ -20,11 +20,12 @@ import SwiftUI
 
     init(lifecycleLogger: some Logger) {
         self.lifecycleLogger = lifecycleLogger
-        self.lifecycleLogger.debug("DefaultRouter initialized.")
+
+        self.lifecycleLogger.debug("\(self) +: \(address(of: self))")
     }
 
     deinit {
-        self.lifecycleLogger.debug("DefaultRouter deinitialized.")
+        self.lifecycleLogger.debug("\(self) -: \(address(of: self))")
     }
 
     // MARK: - Protocol Implementations

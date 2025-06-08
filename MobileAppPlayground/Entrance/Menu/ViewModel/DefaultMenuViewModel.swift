@@ -17,11 +17,12 @@ import Observation
     init(router: any Router, lifecycleLogger: some Logger) {
         self.router = router
         self.lifecycleLogger = lifecycleLogger
-        self.lifecycleLogger.debug("DefaultMenuViewModel initialized.")
+        
+        self.lifecycleLogger.debug("\(self) +: \(address(of: self))")
     }
 
     deinit {
-        self.lifecycleLogger.debug("DefaultMenuViewModel deinitialized.")
+        self.lifecycleLogger.debug("\(self) -: \(address(of: self))")
     }
 
     // MARK: - Interaction

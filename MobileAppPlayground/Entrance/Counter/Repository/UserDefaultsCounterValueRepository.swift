@@ -23,11 +23,11 @@ final actor UserDefaultsCounterValueRepository: CounterValueRepository {
         self.userDefaults = userDefaults
         self.lifecycleLogger = lifecycleLogger
 
-        self.lifecycleLogger.debug("UserDefaultsCounterValueRepository initialized.")
+        self.lifecycleLogger.debug("\(self) +: \(address(of: self))")
     }
 
     deinit {
-        self.lifecycleLogger.debug("UserDefaultsCounterValueRepository deinitialized.")
+        self.lifecycleLogger.debug("\(self) -: \(address(of: self))")
     }
 
     // MARK: - Protocol Implementations

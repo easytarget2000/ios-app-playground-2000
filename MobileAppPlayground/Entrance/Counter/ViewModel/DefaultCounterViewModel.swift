@@ -39,11 +39,12 @@ import Observation
         self.router = router
         self.interactor = interactor
         self.lifecycleLogger = lifecycleLogger
-        self.lifecycleLogger.debug("DefaultCounterViewModel ➕: \(address(of: self))")
+        
+        self.lifecycleLogger.debug("\(self) +: \(address(of: self))")
     }
 
     deinit {
-        self.lifecycleLogger.debug("DefaultCounterViewModel ➖: \(address(of: self))")
+        self.lifecycleLogger.debug("\(self) -: \(address(of: self))")
     }
 
     // MARK: - Interaction

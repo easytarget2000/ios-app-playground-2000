@@ -39,11 +39,12 @@ final class LegacyCounterViewModel: CounterViewModel, ObservableObject {
         self.router = router
         self.interactor = interactor
         self.lifecycleLogger = lifecycleLogger
-        self.lifecycleLogger.debug("LegacyCounterViewModel initialized.")
+        
+        self.lifecycleLogger.debug("\(self) +: \(address(of: self))")
     }
 
     deinit {
-        self.lifecycleLogger.debug("LegacyCounterViewModel deinitialized.")
+        self.lifecycleLogger.debug("\(self) -: \(address(of: self))")
     }
 
     // MARK: - Interaction

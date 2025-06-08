@@ -23,7 +23,7 @@ final class DefaultLogger: Logger {
     }
 
     func debug(_ message: String) {
-        self.osLogger.debug("\(message)")
+        self.osLogger.debug("DEBUG: \(message)")
     }
 
 }

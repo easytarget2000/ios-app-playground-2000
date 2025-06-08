@@ -16,11 +16,12 @@ final actor DefaultCounterInteractor: CounterInteractor {
         self.localValue = initialLocalValue
         self.globalValueRepository = globalValueRepository
         self.lifecycleLogger = lifecycleLogger
-        self.lifecycleLogger.debug("DefaultCounterInteractor initialized.")
+
+        self.lifecycleLogger.debug("\(self) +: \(address(of: self))")
     }
 
     deinit {
-        self.lifecycleLogger.debug("DefaultCounterInteractor deinitialized.")
+        self.lifecycleLogger.debug("\(self) -: \(address(of: self))")
     }
 
     // MARK: - Protocol Implementations

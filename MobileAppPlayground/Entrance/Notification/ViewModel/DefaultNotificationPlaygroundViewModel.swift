@@ -25,11 +25,12 @@ import Observation
         self.router = router
         self.permissionInteractor = permissionInteractor
         self.lifecycleLogger = lifecycleLogger
-        self.lifecycleLogger.debug("DefaultNotificationPlaygroundViewModel initialized.")
+
+        self.lifecycleLogger.debug("\(self) +: \(address(of: self))")
     }
 
     deinit {
-        self.lifecycleLogger.debug("DefaultNotificationPlaygroundViewModel deinitialized.")
+        self.lifecycleLogger.debug("\(self) -: \(address(of: self))")
     }
 
     // MARK: - Interaction
