@@ -3,10 +3,15 @@ final class PreviewCounterViewModel: CounterViewModel {
     var shouldShowLoadingIndicator: Bool
     let currentLocalValue: String?
     let currentGlobalValue: String?
-    let addToLocalCounterButtonTitle: String = "Perform something (Preview)"
-    let addToGlobalCounterButtonTitle: String = "Perform something (Preview)"
-    let navigateToAnotherCounterTitle: String
-    = "Counter in Another View (Preview)"
+    let addToLocalCounterButtonTitle: String = .init(
+        localized: .Counter.addToLocalCounterButton
+    )
+    let addToGlobalCounterButtonTitle: String = .init(
+        localized: .Counter.addToGlobalCounterButton
+    )
+    let navigateToAnotherCounterTitle: String = .init(
+        localized: .Counter.navigateToAnotherCounterButton
+    )
 
     init(
         shouldShowLoadingIndicator: Bool = true,

@@ -7,6 +7,36 @@
     "And Goodbye!" : {
 
     },
+    "counter.addToGlobalCounterButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add to Global Counter"
+          }
+        }
+      }
+    },
+    "counter.addToLocalCounterButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add to Local Counter"
+          }
+        }
+      }
+    },
+    "counter.navigateToAnotherCounterButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To Another Counter"
+          }
+        }
+      }
+    },
     "Hello" : {
 
     },

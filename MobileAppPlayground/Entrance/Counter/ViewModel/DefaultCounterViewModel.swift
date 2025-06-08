@@ -17,9 +17,16 @@ import Observation
         self.shouldShowCounter ? self.innerGlobalCounter : nil
     }
 
-    let addToLocalCounterButtonTitle: String = "Add to Local Counter"
-    let addToGlobalCounterButtonTitle: String = "Add to Global Counter"
-    let navigateToAnotherCounterTitle: String = "Counter in Another View"
+    let addToLocalCounterButtonTitle: String = .init(
+        localized: .Counter.addToLocalCounterButton
+    )
+    let addToGlobalCounterButtonTitle: String = .init(
+        localized: .Counter.addToGlobalCounterButton
+    )
+    let navigateToAnotherCounterTitle: String = .init(
+        localized: .Counter.navigateToAnotherCounterButton
+    )
+
     var shouldShowLoadingIndicator: Bool = false
 
     private var shouldShowCounter: Bool {
@@ -39,7 +46,7 @@ import Observation
         self.router = router
         self.interactor = interactor
         self.lifecycleLogger = lifecycleLogger
-        
+
         self.lifecycleLogger.debug("\(self) +: \(address(of: self))")
     }
 
