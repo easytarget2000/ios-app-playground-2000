@@ -26,7 +26,10 @@ struct MenuView: View {
 }
 
 // MARK: - Preview
+#if DEBUG
 
 #Preview {
     MenuView()
 }
+
+#endif

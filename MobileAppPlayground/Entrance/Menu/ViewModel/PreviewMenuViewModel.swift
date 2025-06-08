@@ -1,9 +1,14 @@
 final class PreviewMenuViewModel: MenuViewModel {
 
-    let navigateToCounterTitle: String = "Counter (Preview)"
-    let navigateToLegacyCounterTitle: String = "Legacy Counter (Preview)"
-    let navigateToNotificationPlaygroundTitle: String
-    = "Notifications Playground (Preview)"
+    let navigateToCounterTitle: String = .init(
+        localized: .counterItem
+    )
+    let navigateToLegacyCounterTitle: String = .init(
+        localized: .legacyCounterItem
+    )
+    let navigateToNotificationPlaygroundTitle: String = .init(
+        localized: .notificationPlaygroundItem
+    )
 
     func navigateToCounter() {}
     func navigateToLegacyCounter() {}

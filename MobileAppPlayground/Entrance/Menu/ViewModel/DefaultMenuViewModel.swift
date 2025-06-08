@@ -8,16 +8,22 @@ import Observation
     private let router: any Router
     private let lifecycleLogger: any Logger
 
-    let navigateToCounterTitle = "Counter"
-    let navigateToLegacyCounterTitle = "Legacy Counter"
-    let navigateToNotificationPlaygroundTitle = "Notifications Playground"
+    let navigateToCounterTitle: String = .init(
+        localized: .counterItem
+    )
+    let navigateToLegacyCounterTitle: String = .init(
+        localized: .legacyCounterItem
+    )
+    let navigateToNotificationPlaygroundTitle: String = .init(
+        localized: .notificationPlaygroundItem
+    )
 
     // MARK: - Lifecycle
 
     init(router: any Router, lifecycleLogger: some Logger) {
         self.router = router
         self.lifecycleLogger = lifecycleLogger
-        
+
         self.lifecycleLogger.debug("\(self) +: \(address(of: self))")
     }
 

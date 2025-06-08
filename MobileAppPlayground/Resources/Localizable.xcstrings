@@ -1,0 +1,30 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Active" : {
+
+    },
+    "And Goodbye!" : {
+
+    },
+    "Hello" : {
+
+    },
+    "Increment: %lld" : {
+
+    },
+    "No Animation" : {
+
+    },
+    "Request Permission" : {
+
+    },
+    "Toggle" : {
+
+    },
+    "World" : {
+
+    }
+  },
+  "version" : "1.0"
+}

@@ -1,5 +1,3 @@
-import Observation
-
 @MainActor protocol CounterViewModel {
 
     var shouldShowLoadingIndicator: Bool { get }
