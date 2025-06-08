@@ -13,6 +13,36 @@
     "Increment: %lld" : {
 
     },
+    "menu.counterItem" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Counter"
+          }
+        }
+      }
+    },
+    "menu.legacyCounterItem" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legacy Counter"
+          }
+        }
+      }
+    },
+    "menu.notificationPlaygroundItem" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notification Playground"
+          }
+        }
+      }
+    },
     "No Animation" : {
 
     },

@@ -29,7 +29,7 @@ struct MenuView: View {
 #if DEBUG
 
 #Preview {
-    MenuView()
+    MenuView(viewModel: .preview)
 }
 
 #endif

@@ -9,13 +9,13 @@ import Observation
     private let lifecycleLogger: any Logger
 
     let navigateToCounterTitle: String = .init(
-        localized: .counterItem
+        localized: .Menu.counterItem
     )
     let navigateToLegacyCounterTitle: String = .init(
-        localized: .legacyCounterItem
+        localized: .Menu.legacyCounterItem
     )
     let navigateToNotificationPlaygroundTitle: String = .init(
-        localized: .notificationPlaygroundItem
+        localized: .Menu.notificationPlaygroundItem
     )
 
     // MARK: - Lifecycle

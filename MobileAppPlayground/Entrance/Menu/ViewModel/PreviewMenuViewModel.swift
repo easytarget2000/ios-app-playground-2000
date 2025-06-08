@@ -1,13 +1,13 @@
 final class PreviewMenuViewModel: MenuViewModel {
 
     let navigateToCounterTitle: String = .init(
-        localized: .counterItem
+        localized: .Menu.counterItem
     )
     let navigateToLegacyCounterTitle: String = .init(
-        localized: .legacyCounterItem
+        localized: .Menu.legacyCounterItem
     )
     let navigateToNotificationPlaygroundTitle: String = .init(
-        localized: .notificationPlaygroundItem
+        localized: .Menu.notificationPlaygroundItem
     )
 
     func navigateToCounter() {}
