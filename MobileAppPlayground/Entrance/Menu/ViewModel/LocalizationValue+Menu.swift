@@ -1,3 +1,5 @@
+// Use string literals directly, not initializers of LocalizationValue.
+
 extension String.LocalizationValue {
 
     enum Menu {
