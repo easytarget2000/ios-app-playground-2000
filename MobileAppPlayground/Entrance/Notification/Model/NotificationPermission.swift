@@ -5,7 +5,7 @@ enum NotificationPermission {
     case unknown
     case denied
     case authorized
-    
+
 }
 
 extension NotificationPermission {

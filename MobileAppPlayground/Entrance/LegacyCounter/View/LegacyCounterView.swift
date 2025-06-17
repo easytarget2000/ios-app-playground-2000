@@ -2,11 +2,7 @@ import SwiftUI
 
 struct LegacyCounterView: View {
 
-    @StateObject private var viewModel: LegacyCounterViewModel
-
-    init(viewModel: LegacyCounterViewModel) {
-        self._viewModel = .init(wrappedValue: viewModel)
-    }
+    @ObservedObject var viewModel: LegacyCounterViewModel
 
     var body: some View {
         VStack {
@@ -35,22 +31,4 @@ struct LegacyCounterView: View {
             EmptyView()
         }
     }
-}
-
-// MARK: - Convenience Initializer
-
-extension CounterViewModel where Self == LegacyCounterViewModel {
-
-    static func legacy(
-        router: any Router,
-        interactor: any CounterInteractor = .default(),
-        lifecycleLogger: some Logger = .lifecycle(subsystem: .counter)
-    ) -> Self {
-        .init(
-            router: router,
-            interactor: interactor,
-            lifecycleLogger: lifecycleLogger
-        )
-    }
-
 }

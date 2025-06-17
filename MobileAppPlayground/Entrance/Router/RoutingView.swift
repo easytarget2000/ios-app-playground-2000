@@ -40,7 +40,12 @@ struct RoutingView: View {
         case .counter:
             CounterView(viewModel: .default(router: self.router))
         case .legacyCounter:
-            LegacyCounterView(viewModel: .legacy(router: self.router))
+            LegacyCounterView(
+                viewModel: LegacyCounterViewModelPool.shared.viewModel(
+                    contextID: "one",
+                    router: self.router
+                )
+            )
         case .notificationPlayground:
             NotificationPlaygroundView(viewModel: .default(router: self.router))
         }
