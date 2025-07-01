@@ -11,7 +11,7 @@ protocol Router: Sendable {
 // MARK: - Other Types
 
 enum NavigationItem: Hashable {
-    case counter
+    case counter(id: Int)
     case legacyCounter
     case notificationPlayground
 }
@@ -23,7 +23,7 @@ enum ExternalNavigationItem {
 // MARK: - Preview Implementation
 
 final class PreviewRouter: Router {
-    var navigationPath: Binding<[NavigationItem]> = .constant([.counter])
+    var navigationPath: Binding<[NavigationItem]> = .constant([.counter(id: -1)])
 
     func navigate(to item: NavigationItem) {}
 

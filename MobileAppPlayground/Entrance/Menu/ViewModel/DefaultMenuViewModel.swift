@@ -34,7 +34,7 @@ import Observation
     // MARK: - Interaction
 
     func navigateToCounter() {
-        self.router.navigate(to: .counter)
+        self.router.navigate(to: .counter(id: 0))
     }
 
     func navigateToLegacyCounter() {

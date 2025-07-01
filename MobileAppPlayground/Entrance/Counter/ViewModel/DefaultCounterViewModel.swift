@@ -76,7 +76,7 @@ import Observation
     }
 
     func navigateToAnotherCounter() {
-        self.router.navigate(to: .counter)
+        self.router.navigate(to: .counter(id: 1))
     }
 
     // MARK: Implementation
@@ -88,22 +88,4 @@ import Observation
     private func setGlobalCounter(from int: Int) {
         self.innerGlobalCounter = .init(int)
     }
-}
-
-// MARK: - Convenience Initializer
-
-extension CounterViewModel where Self == DefaultCounterViewModel {
-
-    static func `default`(
-        router: any Router,
-        interactor: any CounterInteractor = .default(),
-        lifecycleLogger: some Logger = .lifecycle(subsystem: .counter)
-    ) -> Self {
-        .init(
-            router: router,
-            interactor: interactor,
-            lifecycleLogger: lifecycleLogger
-        )
-    }
-
 }
