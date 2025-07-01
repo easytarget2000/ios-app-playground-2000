@@ -1,5 +1,5 @@
 extension String.LocalizationValue {
-    
+
     enum Counter {
         static let addToLocalCounterButton: String.LocalizationValue
         = "counter.addToLocalCounterButton"
@@ -8,6 +8,5 @@ extension String.LocalizationValue {
         static let navigateToAnotherCounterButton: String.LocalizationValue
         = "counter.navigateToAnotherCounterButton"
     }
-    
-}
 
+}

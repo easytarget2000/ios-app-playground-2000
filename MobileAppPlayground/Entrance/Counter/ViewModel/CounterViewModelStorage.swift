@@ -1,9 +1,7 @@
-final class CounterViewModelStorage {
+@MainActor final class CounterViewModelStorage {
 
-    @MainActor
     private static var instances: [Int: any CounterViewModel] = .init()
 
-    @MainActor
     static func instance(for id: Int) -> any CounterViewModel {
         if let existingInstance = self.instances[id] {
             return existingInstance
@@ -18,4 +16,9 @@ final class CounterViewModelStorage {
         self.instances[id] = newInstance
         return newInstance
     }
+
+    static func clear() {
+        self.instances = .init()
+    }
+
 }

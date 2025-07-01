@@ -39,7 +39,6 @@ final class LegacyCounterViewModel: CounterViewModel, ObservableObject {
         self.router = router
         self.interactor = interactor
         self.lifecycleLogger = lifecycleLogger
-        
         self.lifecycleLogger.debug("\(self) +: \(address(of: self))")
     }
 
