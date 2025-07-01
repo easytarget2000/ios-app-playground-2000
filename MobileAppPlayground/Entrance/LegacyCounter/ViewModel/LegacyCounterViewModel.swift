@@ -63,7 +63,7 @@ final class LegacyCounterViewModel: CounterViewModel, ObservableObject {
     }
 
     func navigateToAnotherCounter() {
-        self.router.navigate(to: .legacyCounter)
+        self.router.navigate(to: .legacyCounter(id: 26))
     }
 
     // MARK: Implementation

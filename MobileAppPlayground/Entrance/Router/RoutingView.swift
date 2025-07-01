@@ -38,9 +38,13 @@ struct RoutingView: View {
     ) -> some View {
         switch navigationItem {
         case let .counter(id):
-            CounterView(viewModel: CounterViewModelStorage.instance(for: id))
-        case .legacyCounter:
-            LegacyCounterView(viewModel: .legacy(router: self.router))
+            CounterView(
+                viewModel: CounterViewModelStorage.defaultInstance(for: id)
+            )
+        case let .legacyCounter(id):
+            LegacyCounterView(
+                viewModel: CounterViewModelStorage.legacyInstance(for: id)
+            )
         case .notificationPlayground:
             NotificationPlaygroundView(viewModel: .default(router: self.router))
         }

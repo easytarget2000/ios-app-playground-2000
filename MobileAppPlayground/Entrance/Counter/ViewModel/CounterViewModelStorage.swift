@@ -1,9 +1,12 @@
 @MainActor final class CounterViewModelStorage {
 
-    private static var instances: [Int: any CounterViewModel] = .init()
+    private static var defaultInstances: [Int: DefaultCounterViewModel]
+    = .init()
+    private static var legacyInstances: [Int: LegacyCounterViewModel]
+    = .init()
 
-    static func instance(for id: Int) -> any CounterViewModel {
-        if let existingInstance = self.instances[id] {
+    static func defaultInstance(for id: Int) -> DefaultCounterViewModel {
+        if let existingInstance = self.defaultInstances[id] {
             return existingInstance
         }
 
@@ -13,12 +16,28 @@
             lifecycleLogger: .lifecycle(subsystem: .counter),
         )
 
-        self.instances[id] = newInstance
+        self.defaultInstances[id] = newInstance
+        return newInstance
+    }
+
+    static func legacyInstance(for id: Int) -> LegacyCounterViewModel {
+        if let existingInstance = self.legacyInstances[id] {
+            return existingInstance
+        }
+
+        let newInstance: LegacyCounterViewModel = .init(
+            router: .sharedDefault,
+            interactor: .default(),
+            lifecycleLogger: .lifecycle(subsystem: .counter),
+        )
+
+        self.legacyInstances[id] = newInstance
         return newInstance
     }
 
     static func clear() {
-        self.instances = .init()
+        self.defaultInstances = .init()
+        self.legacyInstances = .init()
     }
 
 }

@@ -12,7 +12,7 @@ protocol Router: Sendable {
 
 enum NavigationItem: Hashable {
     case counter(id: Int)
-    case legacyCounter
+    case legacyCounter(id: Int)
     case notificationPlayground
 }
 

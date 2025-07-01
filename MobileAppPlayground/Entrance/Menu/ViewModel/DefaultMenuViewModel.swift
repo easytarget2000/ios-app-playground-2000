@@ -38,7 +38,7 @@ import Observation
     }
 
     func navigateToLegacyCounter() {
-        self.router.navigate(to: .legacyCounter)
+        self.router.navigate(to: .legacyCounter(id: 25))
     }
 
     func navigateToNotificationPlayground() {
