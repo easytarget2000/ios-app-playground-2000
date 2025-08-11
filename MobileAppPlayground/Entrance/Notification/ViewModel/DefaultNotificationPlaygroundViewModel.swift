@@ -48,7 +48,7 @@ import Observation
         }
     }
 
-    @MainActor private func updatePermission() async {
+    private func updatePermission() async {
         self.permission = await self.permissionInteractor.getPermission()
     }
 

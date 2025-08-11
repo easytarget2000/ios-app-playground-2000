@@ -4,8 +4,8 @@ protocol MenuViewModel {
     var navigateToLegacyCounterTitle: String { get }
     var navigateToNotificationPlaygroundTitle: String { get }
 
-    @MainActor func navigateToCounter()
-    @MainActor func navigateToLegacyCounter()
-    @MainActor func navigateToNotificationPlayground()
+    func navigateToCounter()
+    func navigateToLegacyCounter()
+    func navigateToNotificationPlayground()
 
 }

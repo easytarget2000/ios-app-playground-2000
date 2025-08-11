@@ -3,9 +3,9 @@ import SwiftUI
 // MARK: - Protocol
 
 protocol Router: Sendable {
-    @MainActor var navigationPath: Binding<[NavigationItem]> { get }
-    @MainActor func navigate(to item: NavigationItem)
-    @MainActor func open(externalItem: ExternalNavigationItem)
+    var navigationPath: Binding<[NavigationItem]> { get }
+    func navigate(to item: NavigationItem)
+    func open(externalItem: ExternalNavigationItem)
 }
 
 // MARK: - Other Types

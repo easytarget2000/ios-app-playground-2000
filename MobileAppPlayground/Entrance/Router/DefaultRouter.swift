@@ -14,7 +14,7 @@ import SwiftUI
     static let sharedDefault: DefaultRouter = .init(lifecycleLogger: .lifecycle(subsystem: .router))
 
     private let lifecycleLogger: Logger
-    @MainActor private var state: State = .init()
+    private var state: State = .init()
 
     // MARK: - Constructor/Deconstructor
 

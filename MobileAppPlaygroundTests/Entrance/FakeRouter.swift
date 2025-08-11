@@ -7,8 +7,8 @@ final class FakeRouter: Router {
 
     // MARK: Spies
 
-    @MainActor var navigateToNavigationItem: NavigationItem?
-    @MainActor var openExternalItem: ExternalNavigationItem?
+    var navigateToNavigationItem: NavigationItem?
+    var openExternalItem: ExternalNavigationItem?
 
     // MARK: - Constructor
 

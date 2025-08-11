@@ -6,7 +6,7 @@ struct ThinkingInSwiftUIChapter2View: View {
     private var showText = true
     private var greeting: String? = "Hello"
 
-    @ViewBuilder @MainActor var body: some View {
+    var body: some View {
         Text("Hello")
             .padding()
             .background(Color.blue)

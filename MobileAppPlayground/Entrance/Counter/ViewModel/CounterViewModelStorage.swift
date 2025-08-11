@@ -1,4 +1,4 @@
-@MainActor final class CounterViewModelStorage {
+final class CounterViewModelStorage {
 
     private static var defaultInstances: [Int: DefaultCounterViewModel]
     = .init()
