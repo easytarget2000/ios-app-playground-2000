@@ -17,12 +17,17 @@ final class DefaultLogger: Logger {
 
     private let osLogger: os.Logger
 
-    init(subsystem: LogSubsystem, category: LogCategory) {
-        let completeSubsystem: String = "\(Constant.subsystem).\(subsystem.suffix)"
-        self.osLogger = .init(subsystem: completeSubsystem, category: category.name)
+    init(subsystem: some LogSubsystem, category: some LogCategory) {
+        let completeSubsystem: String
+        = "\(Constant.subsystem).\(subsystem.suffix)"
+
+        self.osLogger = .init(
+            subsystem: completeSubsystem,
+            category: category.name
+        )
     }
 
-    func debug(_ message: String) {
+    nonisolated func debug(_ message: String) {
         self.osLogger.debug("DEBUG: \(message)")
     }
 
@@ -30,7 +35,10 @@ final class DefaultLogger: Logger {
 
 extension Logger where Self == DefaultLogger {
 
-    static func `default`(subsystem: LogSubsystem, category: LogCategory) -> Self {
+    static func `default`(
+        subsystem: some LogSubsystem,
+        category: some LogCategory,
+    ) -> Self {
         Self.init(subsystem: subsystem, category: category)
     }
 

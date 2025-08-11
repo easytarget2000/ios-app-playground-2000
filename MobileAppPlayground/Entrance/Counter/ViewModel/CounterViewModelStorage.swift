@@ -14,6 +14,7 @@ final class CounterViewModelStorage {
             router: .sharedDefault,
             interactor: .default(),
             lifecycleLogger: .lifecycle(subsystem: .counter),
+            threadingLogger: .threading(subsystem: .counter),
         )
 
         self.defaultInstances[id] = newInstance

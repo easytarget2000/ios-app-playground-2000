@@ -8,6 +8,7 @@ import Observation
     private let router: any Router
     private let interactor: any CounterInteractor
     private let lifecycleLogger: any Logger
+    private let threadingLogger: any Logger
 
     var currentLocalValue: String? {
         self.shouldShowCounter ? self.innerLocalCounter : nil
@@ -39,13 +40,15 @@ import Observation
     // MARK: - Lifecycle
 
     init(
-        router: any Router,
-        interactor: any CounterInteractor,
-        lifecycleLogger: some Logger
+        router: some Router,
+        interactor: some CounterInteractor,
+        lifecycleLogger: some Logger,
+        threadingLogger: some Logger,
     ) {
         self.router = router
         self.interactor = interactor
         self.lifecycleLogger = lifecycleLogger
+        self.threadingLogger = threadingLogger
 
         self.lifecycleLogger.debug("\(self) +: \(address(of: self))")
     }
@@ -70,9 +73,18 @@ import Observation
     }
 
     func onAddToGlobalCounterSelected() async throws {
+        self.threadingLogger.debug(
+            "onAddToGlobalCounterSelected() started on thread: "
+            + Thread.currentThread.description
+        )
         self.shouldShowLoadingIndicator = true
         self.setGlobalCounter(from: try await self.interactor.incrementGlobal())
         self.shouldShowLoadingIndicator = false
+
+        self.threadingLogger.debug(
+            "onAddToGlobalCounterSelected() returned to thread: "
+            + Thread.currentThread.description
+        )
     }
 
     func navigateToAnotherCounter() {

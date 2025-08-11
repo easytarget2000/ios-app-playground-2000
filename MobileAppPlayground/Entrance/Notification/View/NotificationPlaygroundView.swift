@@ -2,9 +2,9 @@ import SwiftUI
 
 struct NotificationPlaygroundView: View {
 
-    @State private var viewModel: NotificationPlaygroundViewModel
+    @State private var viewModel: any NotificationPlaygroundViewModel
 
-    init(viewModel: NotificationPlaygroundViewModel) {
+    init(viewModel: some NotificationPlaygroundViewModel) {
         self._viewModel = .init(initialValue: viewModel)
     }
 

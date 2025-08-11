@@ -5,18 +5,21 @@ final actor UserDefaultsCounterValueRepository: CounterValueRepository {
     // MARK: - Properties
 
     static let shared: UserDefaultsCounterValueRepository = .init(
-        lifecycleLogger: .lifecycle(subsystem: .counter)
+        lifecycleLogger: .lifecycle(subsystem: .counter),
+        threadingLogger: .threading(subsystem: .counter),
     )
 
     var simulateSlowResponse = true
 
     private let userDefaults: UserDefaults = .standard
-    private let lifecycleLogger: Logger
+    private let lifecycleLogger: any Logger
+    private let threadingLogger: any Logger
 
     // MARK: - Constructor/Deconstructor
 
-    init(lifecycleLogger: any Logger) {
+    init(lifecycleLogger: some Logger, threadingLogger: some Logger) {
         self.lifecycleLogger = lifecycleLogger
+        self.threadingLogger = threadingLogger
 
         self.lifecycleLogger.debug("\(self) +: \(address(of: self))")
     }
@@ -28,9 +31,16 @@ final actor UserDefaultsCounterValueRepository: CounterValueRepository {
     // MARK: - Protocol Implementations
 
     func fetchValue() async throws -> Int {
+        self.threadingLogger.debug(
+            "fetchValue() started on thread: \(Thread.currentThread)"
+        )
         if self.simulateSlowResponse {
             try await Task.sleep(for: .seconds(0.5))
         }
+
+        self.threadingLogger.debug(
+            "fetchValue() returned to thread: \(Thread.currentThread)"
+        )
         return self.userDefaults.integer(forKey: UserDefaultsKey.counterValue)
     }
 
