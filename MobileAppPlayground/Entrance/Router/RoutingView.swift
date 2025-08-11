@@ -24,7 +24,7 @@ struct RoutingView: View {
             rootView
                 .navigationDestination(
                     for: NavigationItem.self,
-                    destination: viewDestination
+                    destination: self.viewDestination
                 )
         }
     }
