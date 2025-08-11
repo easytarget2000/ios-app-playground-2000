@@ -7,7 +7,7 @@ final class OSNotificationPermissionInteractor:
 
     static let shared: OSNotificationPermissionInteractor = .init()
 
-    private var center: UNUserNotificationCenter {
+    private nonisolated var center: UNUserNotificationCenter {
         .current()
     }
 

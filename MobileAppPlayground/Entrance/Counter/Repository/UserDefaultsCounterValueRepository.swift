@@ -5,22 +5,17 @@ final actor UserDefaultsCounterValueRepository: CounterValueRepository {
     // MARK: - Properties
 
     static let shared: UserDefaultsCounterValueRepository = .init(
-        userDefaults: .standard,
         lifecycleLogger: .lifecycle(subsystem: .counter)
     )
 
     var simulateSlowResponse = true
 
-    private let userDefaults: UserDefaults
+    private let userDefaults: UserDefaults = .standard
     private let lifecycleLogger: Logger
 
     // MARK: - Constructor/Deconstructor
 
-    init(
-        userDefaults: UserDefaults,
-        lifecycleLogger: any Logger
-    ) {
-        self.userDefaults = userDefaults
+    init(lifecycleLogger: any Logger) {
         self.lifecycleLogger = lifecycleLogger
 
         self.lifecycleLogger.debug("\(self) +: \(address(of: self))")

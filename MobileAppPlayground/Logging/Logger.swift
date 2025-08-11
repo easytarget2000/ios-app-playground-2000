@@ -4,7 +4,7 @@ import os
 // MARK: - Protocol
 
 protocol Logger: Sendable {
-    func debug(_ message: String)
+    nonisolated func debug(_ message: String)
 }
 
 // MARK: - Default Implementation
