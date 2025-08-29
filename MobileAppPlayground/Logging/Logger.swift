@@ -48,7 +48,7 @@ extension Logger where Self == DefaultLogger {
 
 final class NoOpLogger: Logger {
 
-    func debug(_ message: String) {}
+    nonisolated func debug(_ message: String) {}
 
 }
 
