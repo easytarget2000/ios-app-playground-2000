@@ -22,7 +22,7 @@ final class DefaultLogger: Logger {
         self.osLogger = .init(subsystem: completeSubsystem, category: category.name)
     }
 
-    func debug(_ message: String) {
+    nonisolated func debug(_ message: String) {
         self.osLogger.debug("DEBUG: \(message)")
     }
 
@@ -40,7 +40,7 @@ extension Logger where Self == DefaultLogger {
 
 final class NoOpLogger: Logger {
 
-    func debug(_ message: String) {}
+    nonisolated func debug(_ message: String) {}
 
 }
 
