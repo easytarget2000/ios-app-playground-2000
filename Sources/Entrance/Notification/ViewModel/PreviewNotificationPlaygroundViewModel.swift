@@ -9,7 +9,7 @@ final class PreviewNotificationPlaygroundViewModel:
 
     func setup() async {}
     func requestPermission() async throws {}
-
+    func startLiveActivity() {}
 }
 
 extension NotificationPlaygroundViewModel

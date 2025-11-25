@@ -34,9 +34,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		0B1885212CB71DCE00594E81 /* MobileAppPlayground */ = {
+		0B1885212CB71DCE00594E81 /* Sources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MobileAppPlayground;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		0B1885322CB71DCF00594E81 /* MobileAppPlaygroundTests */ = {
@@ -80,7 +80,7 @@
 		0B1885162CB71DCE00594E81 = {
 			isa = PBXGroup;
 			children = (
-				0B1885212CB71DCE00594E81 /* MobileAppPlayground */,
+				0B1885212CB71DCE00594E81 /* Sources */,
 				0B1885322CB71DCF00594E81 /* MobileAppPlaygroundTests */,
 				0B18853C2CB71DCF00594E81 /* MobileAppPlaygroundUITests */,
 				0B1885202CB71DCE00594E81 /* Products */,
@@ -114,7 +114,7 @@
 				30364D092D1C921600238A36 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				0B1885212CB71DCE00594E81 /* MobileAppPlayground */,
+				0B1885212CB71DCE00594E81 /* Sources */,
 			);
 			name = MobileAppPlayground;
 			packageProductDependencies = (
@@ -432,7 +432,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MobileAppPlayground/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -461,7 +461,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MobileAppPlayground/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

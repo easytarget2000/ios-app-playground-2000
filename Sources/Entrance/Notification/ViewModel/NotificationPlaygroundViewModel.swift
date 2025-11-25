@@ -4,5 +4,6 @@ protocol NotificationPlaygroundViewModel {
 
     func setup() async
     func requestPermission() async throws
+    func startLiveActivity()
 
 }

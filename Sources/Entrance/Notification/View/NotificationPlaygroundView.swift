@@ -9,9 +9,14 @@ struct NotificationPlaygroundView: View {
     }
 
     var body: some View {
-        Button("Request Permission") {
-            Task {
-                try await self.viewModel.requestPermission()
+        VStack {
+            Button("Request Permission") {
+                Task {
+                    try await self.viewModel.requestPermission()
+                }
+            }
+            Button("Start Live Activity") {
+                self.viewModel.startLiveActivity()
             }
         }
         .task {

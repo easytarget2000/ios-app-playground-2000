@@ -48,6 +48,12 @@ import Observation
         }
     }
 
+    func startLiveActivity() {
+
+    }
+
+    // MARK: Implementations
+
     private func updatePermission() async {
         self.permission = await self.permissionInteractor.getPermission()
     }
