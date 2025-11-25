@@ -39,14 +39,14 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		0B1885322CB71DCF00594E81 /* MobileAppPlaygroundTests */ = {
+		0B1885322CB71DCF00594E81 /* Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MobileAppPlaygroundTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		0B18853C2CB71DCF00594E81 /* MobileAppPlaygroundUITests */ = {
+		0B18853C2CB71DCF00594E81 /* UITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MobileAppPlaygroundUITests;
+			path = UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -81,8 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				0B1885212CB71DCE00594E81 /* Sources */,
-				0B1885322CB71DCF00594E81 /* MobileAppPlaygroundTests */,
-				0B18853C2CB71DCF00594E81 /* MobileAppPlaygroundUITests */,
+				0B1885322CB71DCF00594E81 /* Tests */,
+				0B18853C2CB71DCF00594E81 /* UITests */,
 				0B1885202CB71DCE00594E81 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -139,7 +139,7 @@
 				0B1885312CB71DCF00594E81 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				0B1885322CB71DCF00594E81 /* MobileAppPlaygroundTests */,
+				0B1885322CB71DCF00594E81 /* Tests */,
 			);
 			name = MobileAppPlaygroundTests;
 			packageProductDependencies = (
@@ -163,7 +163,7 @@
 				0B18853B2CB71DCF00594E81 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				0B18853C2CB71DCF00594E81 /* MobileAppPlaygroundUITests */,
+				0B18853C2CB71DCF00594E81 /* UITests */,
 			);
 			name = MobileAppPlaygroundUITests;
 			packageProductDependencies = (
