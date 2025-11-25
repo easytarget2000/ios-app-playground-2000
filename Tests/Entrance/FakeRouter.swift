@@ -1,7 +1,7 @@
 @testable import MobileAppPlayground
 import SwiftUI
 
-final class FakeRouter: Router {
+final class FakeRouter: Router, @unchecked Sendable {
 
     // MARK: - Properties
 
