@@ -12,7 +12,7 @@ struct WidgetExtensionPlaygroundAttributes: ActivityAttributes {
     var name: String
 }
 
-struct WidgetExtensionPlaygroundLiveActivity: Widget {
+struct SampleLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: WidgetExtensionPlaygroundAttributes.self) { context in
             // Lock screen/banner UI goes here
@@ -66,7 +66,7 @@ extension WidgetExtensionPlaygroundAttributes.ContentState {
 }
 
 #Preview("Notification", as: .content, using: WidgetExtensionPlaygroundAttributes.preview) {
-    WidgetExtensionPlaygroundLiveActivity()
+    SampleLiveActivity()
 } contentStates: {
     WidgetExtensionPlaygroundAttributes.ContentState.smiley
     WidgetExtensionPlaygroundAttributes.ContentState.starEyes

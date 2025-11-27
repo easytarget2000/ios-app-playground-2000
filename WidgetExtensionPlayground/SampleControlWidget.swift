@@ -2,8 +2,8 @@ import AppIntents
 import SwiftUI
 import WidgetKit
 
-struct WidgetExtensionPlaygroundControl: ControlWidget {
-    static let kind: String = "eu.ezytarget.MobileAppPlayground.WidgetExtensionPlayground"
+struct SampleControlWidget: ControlWidget {
+    static let kind: String = "eu.ezytarget.MobileAppPlayground.SampleControlWidget"
 
     var body: some ControlWidgetConfiguration {
         AppIntentControlConfiguration(
@@ -23,7 +23,7 @@ struct WidgetExtensionPlaygroundControl: ControlWidget {
     }
 }
 
-extension WidgetExtensionPlaygroundControl {
+extension SampleControlWidget {
     struct Value {
         var isRunning: Bool
         var name: String
@@ -31,12 +31,12 @@ extension WidgetExtensionPlaygroundControl {
 
     struct Provider: AppIntentControlValueProvider {
         func previewValue(configuration: TimerConfiguration) -> Value {
-            WidgetExtensionPlaygroundControl.Value(isRunning: false, name: configuration.timerName)
+            SampleControlWidget.Value(isRunning: false, name: configuration.timerName)
         }
 
         func currentValue(configuration: TimerConfiguration) async throws -> Value {
             let isRunning = true  // Check if the timer is running
-            return WidgetExtensionPlaygroundControl.Value(
+            return SampleControlWidget.Value(
                 isRunning: isRunning,
                 name: configuration.timerName
             )

@@ -1,14 +1,7 @@
-//
-//  AppIntent.swift
-//  WidgetExtensionPlayground
-//
-//  Created by Michel Sievers  on 2025-11-27.
-//
-
-import WidgetKit
 import AppIntents
+import WidgetKit
 
-struct ConfigurationAppIntent: WidgetConfigurationIntent {
+struct SampleWidgetConfigurationIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource { "Configuration" }
     static var description: IntentDescription { "This is an example widget." }
 
