@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BB45DA32ED89BEC0017D870 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB45DA22ED89BEC0017D870 /* WidgetKit.framework */; };
+		0BB45DA52ED89BEC0017D870 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB45DA42ED89BEC0017D870 /* SwiftUI.framework */; };
+		0BB45DB62ED89BED0017D870 /* WidgetExtensionPlaygroundExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0BB45DA02ED89BEC0017D870 /* WidgetExtensionPlaygroundExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		30C6C33B2D1C7B0200EB0C0F /* AsyncAlgorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 30C6C33A2D1C7B0200EB0C0F /* AsyncAlgorithms */; };
 /* End PBXBuildFile section */
 
@@ -25,13 +28,47 @@
 			remoteGlobalIDString = 0B18851E2CB71DCE00594E81;
 			remoteInfo = MobileAppPlayground;
 		};
+		0BB45DB42ED89BED0017D870 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B1885172CB71DCE00594E81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BB45D9F2ED89BEC0017D870;
+			remoteInfo = WidgetExtensionPlaygroundExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0BB45DB72ED89BED0017D870 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0BB45DB62ED89BED0017D870 /* WidgetExtensionPlaygroundExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0B18851F2CB71DCE00594E81 /* MobileAppPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileAppPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B18852F2CB71DCF00594E81 /* MobileAppPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileAppPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B1885392CB71DCF00594E81 /* MobileAppPlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileAppPlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BB45DA02ED89BEC0017D870 /* WidgetExtensionPlaygroundExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtensionPlaygroundExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BB45DA22ED89BEC0017D870 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		0BB45DA42ED89BEC0017D870 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0BB45DBA2ED89BED0017D870 /* Exceptions for "WidgetExtensionPlayground" folder in "WidgetExtensionPlaygroundExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0BB45D9F2ED89BEC0017D870 /* WidgetExtensionPlaygroundExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0B1885212CB71DCE00594E81 /* Sources */ = {
@@ -47,6 +84,14 @@
 		0B18853C2CB71DCF00594E81 /* UITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = UITests;
+			sourceTree = "<group>";
+		};
+		0BB45DA62ED89BEC0017D870 /* WidgetExtensionPlayground */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0BB45DBA2ED89BED0017D870 /* Exceptions for "WidgetExtensionPlayground" folder in "WidgetExtensionPlaygroundExtension" target */,
+			);
+			path = WidgetExtensionPlayground;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -74,6 +119,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BB45D9D2ED89BEC0017D870 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BB45DA52ED89BEC0017D870 /* SwiftUI.framework in Frameworks */,
+				0BB45DA32ED89BEC0017D870 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,6 +137,8 @@
 				0B1885212CB71DCE00594E81 /* Sources */,
 				0B1885322CB71DCF00594E81 /* Tests */,
 				0B18853C2CB71DCF00594E81 /* UITests */,
+				0BB45DA62ED89BEC0017D870 /* WidgetExtensionPlayground */,
+				0BB45DA12ED89BEC0017D870 /* Frameworks */,
 				0B1885202CB71DCE00594E81 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,8 +149,18 @@
 				0B18851F2CB71DCE00594E81 /* MobileAppPlayground.app */,
 				0B18852F2CB71DCF00594E81 /* MobileAppPlaygroundTests.xctest */,
 				0B1885392CB71DCF00594E81 /* MobileAppPlaygroundUITests.xctest */,
+				0BB45DA02ED89BEC0017D870 /* WidgetExtensionPlaygroundExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0BB45DA12ED89BEC0017D870 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BB45DA22ED89BEC0017D870 /* WidgetKit.framework */,
+				0BB45DA42ED89BEC0017D870 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,11 +173,13 @@
 				0B18851B2CB71DCE00594E81 /* Sources */,
 				0B18851C2CB71DCE00594E81 /* Frameworks */,
 				0B18851D2CB71DCE00594E81 /* Resources */,
+				0BB45DB72ED89BED0017D870 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				30364D092D1C921600238A36 /* PBXTargetDependency */,
+				0BB45DB52ED89BED0017D870 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				0B1885212CB71DCE00594E81 /* Sources */,
@@ -172,6 +240,28 @@
 			productReference = 0B1885392CB71DCF00594E81 /* MobileAppPlaygroundUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		0BB45D9F2ED89BEC0017D870 /* WidgetExtensionPlaygroundExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BB45DBB2ED89BED0017D870 /* Build configuration list for PBXNativeTarget "WidgetExtensionPlaygroundExtension" */;
+			buildPhases = (
+				0BB45D9C2ED89BEC0017D870 /* Sources */,
+				0BB45D9D2ED89BEC0017D870 /* Frameworks */,
+				0BB45D9E2ED89BEC0017D870 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0BB45DA62ED89BEC0017D870 /* WidgetExtensionPlayground */,
+			);
+			name = WidgetExtensionPlaygroundExtension;
+			packageProductDependencies = (
+			);
+			productName = WidgetExtensionPlaygroundExtension;
+			productReference = 0BB45DA02ED89BEC0017D870 /* WidgetExtensionPlaygroundExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -179,7 +269,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
+				LastSwiftUpdateCheck = 2610;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					0B18851E2CB71DCE00594E81 = {
@@ -192,6 +282,9 @@
 					0B1885382CB71DCF00594E81 = {
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = 0B18851E2CB71DCE00594E81;
+					};
+					0BB45D9F2ED89BEC0017D870 = {
+						CreatedOnToolsVersion = 26.1.1;
 					};
 				};
 			};
@@ -216,6 +309,7 @@
 				0B18851E2CB71DCE00594E81 /* MobileAppPlayground */,
 				0B18852E2CB71DCF00594E81 /* MobileAppPlaygroundTests */,
 				0B1885382CB71DCF00594E81 /* MobileAppPlaygroundUITests */,
+				0BB45D9F2ED89BEC0017D870 /* WidgetExtensionPlaygroundExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -236,6 +330,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0B1885372CB71DCF00594E81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BB45D9E2ED89BEC0017D870 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,6 +367,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BB45D9C2ED89BEC0017D870 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -278,6 +386,11 @@
 			isa = PBXTargetDependency;
 			target = 0B18851E2CB71DCE00594E81 /* MobileAppPlayground */;
 			targetProxy = 0B18853A2CB71DCF00594E81 /* PBXContainerItemProxy */;
+		};
+		0BB45DB52ED89BED0017D870 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0BB45D9F2ED89BEC0017D870 /* WidgetExtensionPlaygroundExtension */;
+			targetProxy = 0BB45DB42ED89BED0017D870 /* PBXContainerItemProxy */;
 		};
 		30364D092D1C921600238A36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -553,6 +666,66 @@
 			};
 			name = Release;
 		};
+		0BB45DB82ED89BED0017D870 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetExtensionPlayground/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtensionPlayground;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = eu.ezytarget.MobileAppPlayground.WidgetExtensionPlayground;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0BB45DB92ED89BED0017D870 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetExtensionPlayground/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtensionPlayground;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = eu.ezytarget.MobileAppPlayground.WidgetExtensionPlayground;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -588,6 +761,15 @@
 			buildConfigurations = (
 				0B18854A2CB71DCF00594E81 /* Debug */,
 				0B18854B2CB71DCF00594E81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0BB45DBB2ED89BED0017D870 /* Build configuration list for PBXNativeTarget "WidgetExtensionPlaygroundExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BB45DB82ED89BED0017D870 /* Debug */,
+				0BB45DB92ED89BED0017D870 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
