@@ -18,11 +18,12 @@ struct SampleAppIntentTimelineProvider: AppIntentTimelineProvider {
         var entries: [SampleTimelineEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        for hourOffset in 0..<5 {
+        let currentDate: Date = .now
+        (0..<5).forEach { offset in
             let entryDate = Calendar.current.date(
-                byAdding: .hour,
-                value: hourOffset,
-                to: .now
+                byAdding: .minute,
+                value: offset,
+                to: currentDate
             )!
             let entry: SampleTimelineEntry = .init(date: entryDate, configuration: configuration)
             entries.append(entry)
