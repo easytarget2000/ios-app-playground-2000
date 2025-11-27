@@ -1,12 +1,5 @@
-//
-//  WidgetExtensionPlaygroundBundle.swift
-//  WidgetExtensionPlayground
-//
-//  Created by Michel Sievers  on 2025-11-27.
-//
-
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 @main
 struct WidgetExtensionPlaygroundBundle: WidgetBundle {

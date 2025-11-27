@@ -1,13 +1,6 @@
-//
-//  WidgetExtensionPlaygroundLiveActivity.swift
-//  WidgetExtensionPlayground
-//
-//  Created by Michel Sievers  on 2025-11-27.
-//
-
 import ActivityKit
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 struct WidgetExtensionPlaygroundAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
@@ -65,15 +58,15 @@ extension WidgetExtensionPlaygroundAttributes {
 extension WidgetExtensionPlaygroundAttributes.ContentState {
     fileprivate static var smiley: WidgetExtensionPlaygroundAttributes.ContentState {
         WidgetExtensionPlaygroundAttributes.ContentState(emoji: "😀")
-     }
-     
-     fileprivate static var starEyes: WidgetExtensionPlaygroundAttributes.ContentState {
-         WidgetExtensionPlaygroundAttributes.ContentState(emoji: "🤩")
-     }
+    }
+
+    fileprivate static var starEyes: WidgetExtensionPlaygroundAttributes.ContentState {
+        WidgetExtensionPlaygroundAttributes.ContentState(emoji: "🤩")
+    }
 }
 
 #Preview("Notification", as: .content, using: WidgetExtensionPlaygroundAttributes.preview) {
-   WidgetExtensionPlaygroundLiveActivity()
+    WidgetExtensionPlaygroundLiveActivity()
 } contentStates: {
     WidgetExtensionPlaygroundAttributes.ContentState.smiley
     WidgetExtensionPlaygroundAttributes.ContentState.starEyes

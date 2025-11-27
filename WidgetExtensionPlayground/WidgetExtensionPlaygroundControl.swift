@@ -1,10 +1,3 @@
-//
-//  WidgetExtensionPlaygroundControl.swift
-//  WidgetExtensionPlayground
-//
-//  Created by Michel Sievers  on 2025-11-27.
-//
-
 import AppIntents
 import SwiftUI
 import WidgetKit
@@ -42,8 +35,11 @@ extension WidgetExtensionPlaygroundControl {
         }
 
         func currentValue(configuration: TimerConfiguration) async throws -> Value {
-            let isRunning = true // Check if the timer is running
-            return WidgetExtensionPlaygroundControl.Value(isRunning: isRunning, name: configuration.timerName)
+            let isRunning = true  // Check if the timer is running
+            return WidgetExtensionPlaygroundControl.Value(
+                isRunning: isRunning,
+                name: configuration.timerName
+            )
         }
     }
 }
