@@ -2,6 +2,7 @@ import SwiftUI
 import WidgetKit
 
 struct SampleWidget: Widget {
+
     static let kind: String = "eu.ezytarget.MobileAppPlayground.SampleWidget"
 
     var body: some WidgetConfiguration {
@@ -14,9 +15,11 @@ struct SampleWidget: Widget {
                 .containerBackground(.fill.tertiary, for: .widget)
         }
     }
+
 }
 
 struct WidgetEntryView: View {
+
     var entry: SampleAppIntentTimelineProvider.Entry
 
     var body: some View {
@@ -28,11 +31,13 @@ struct WidgetEntryView: View {
             Text(entry.configuration.favoriteEmoji)
         }
     }
+
 }
 
 // MARK: - Preview
 
 extension SampleWidgetConfigurationIntent {
+    
     fileprivate static var smiley: Self {
         let intent: Self = .init()
         intent.favoriteEmoji = "😀"
@@ -44,6 +49,7 @@ extension SampleWidgetConfigurationIntent {
         intent.favoriteEmoji = "🤩"
         return intent
     }
+
 }
 
 #Preview(as: .systemSmall) {

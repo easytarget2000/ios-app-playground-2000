@@ -3,6 +3,7 @@ import SwiftUI
 import WidgetKit
 
 struct SampleControlWidget: ControlWidget {
+
     static let kind: String = "eu.ezytarget.MobileAppPlayground.SampleControlWidget"
 
     var body: some ControlWidgetConfiguration {
@@ -21,9 +22,11 @@ struct SampleControlWidget: ControlWidget {
         .displayName("Timer")
         .description("A an example control that runs a timer.")
     }
+
 }
 
 extension SampleControlWidget {
+
     struct Value {
         var isRunning: Bool
         var name: String
@@ -42,16 +45,20 @@ extension SampleControlWidget {
             )
         }
     }
+
 }
 
 struct TimerConfiguration: ControlConfigurationIntent {
+
     static let title: LocalizedStringResource = "Timer Name Configuration"
 
     @Parameter(title: "Timer Name", default: "Timer")
     var timerName: String
+
 }
 
 struct StartTimerIntent: SetValueIntent {
+
     static let title: LocalizedStringResource = "Start a timer"
 
     @Parameter(title: "Timer Name")
@@ -70,4 +77,5 @@ struct StartTimerIntent: SetValueIntent {
         // Start the timer…
         return .result()
     }
+    
 }
