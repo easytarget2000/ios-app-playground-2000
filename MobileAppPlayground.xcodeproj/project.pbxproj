@@ -61,7 +61,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		0BB45DBA2ED89BED0017D870 /* Exceptions for "WidgetExtensionPlayground" folder in "WidgetExtensionPlaygroundExtension" target */ = {
+		0BB45DBA2ED89BED0017D870 /* Exceptions for "WidgetSources" folder in "WidgetExtensionPlaygroundExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -86,12 +86,12 @@
 			path = UITests;
 			sourceTree = "<group>";
 		};
-		0BB45DA62ED89BEC0017D870 /* WidgetExtensionPlayground */ = {
+		0BB45DA62ED89BEC0017D870 /* WidgetSources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				0BB45DBA2ED89BED0017D870 /* Exceptions for "WidgetExtensionPlayground" folder in "WidgetExtensionPlaygroundExtension" target */,
+				0BB45DBA2ED89BED0017D870 /* Exceptions for "WidgetSources" folder in "WidgetExtensionPlaygroundExtension" target */,
 			);
-			path = WidgetExtensionPlayground;
+			path = WidgetSources;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -137,7 +137,7 @@
 				0B1885212CB71DCE00594E81 /* Sources */,
 				0B1885322CB71DCF00594E81 /* Tests */,
 				0B18853C2CB71DCF00594E81 /* UITests */,
-				0BB45DA62ED89BEC0017D870 /* WidgetExtensionPlayground */,
+				0BB45DA62ED89BEC0017D870 /* WidgetSources */,
 				0BB45DA12ED89BEC0017D870 /* Frameworks */,
 				0B1885202CB71DCE00594E81 /* Products */,
 			);
@@ -253,7 +253,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				0BB45DA62ED89BEC0017D870 /* WidgetExtensionPlayground */,
+				0BB45DA62ED89BEC0017D870 /* WidgetSources */,
 			);
 			name = WidgetExtensionPlaygroundExtension;
 			packageProductDependencies = (
