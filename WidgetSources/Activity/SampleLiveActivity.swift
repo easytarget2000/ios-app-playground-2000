@@ -1,16 +1,5 @@
-import ActivityKit
 import SwiftUI
 import WidgetKit
-
-struct WidgetExtensionPlaygroundAttributes: ActivityAttributes {
-    public struct ContentState: Codable, Hashable {
-        // Dynamic stateful properties about your activity go here!
-        var emoji: String
-    }
-
-    // Fixed non-changing properties about your activity go here!
-    var name: String
-}
 
 struct SampleLiveActivity: Widget {
     var body: some WidgetConfiguration {
