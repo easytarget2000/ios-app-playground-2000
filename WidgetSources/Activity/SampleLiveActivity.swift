@@ -3,7 +3,7 @@ import WidgetKit
 
 struct SampleLiveActivity: Widget {
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: WidgetExtensionPlaygroundAttributes.self) { context in
+        ActivityConfiguration(for: SampleActivityAttributes.self) { context in
             // Lock screen/banner UI goes here
             VStack {
                 Text("Hello \(context.state.emoji)")
@@ -38,25 +38,9 @@ struct SampleLiveActivity: Widget {
     }
 }
 
-extension WidgetExtensionPlaygroundAttributes {
-    fileprivate static var preview: WidgetExtensionPlaygroundAttributes {
-        WidgetExtensionPlaygroundAttributes(name: "World")
-    }
-}
-
-extension WidgetExtensionPlaygroundAttributes.ContentState {
-    fileprivate static var smiley: WidgetExtensionPlaygroundAttributes.ContentState {
-        WidgetExtensionPlaygroundAttributes.ContentState(emoji: "😀")
-    }
-
-    fileprivate static var starEyes: WidgetExtensionPlaygroundAttributes.ContentState {
-        WidgetExtensionPlaygroundAttributes.ContentState(emoji: "🤩")
-    }
-}
-
-#Preview("Notification", as: .content, using: WidgetExtensionPlaygroundAttributes.preview) {
+#Preview("Notification", as: .content, using: SampleActivityAttributes.preview) {
     SampleLiveActivity()
 } contentStates: {
-    WidgetExtensionPlaygroundAttributes.ContentState.smiley
-    WidgetExtensionPlaygroundAttributes.ContentState.starEyes
+    SampleActivityAttributes.ContentState.smiley
+    SampleActivityAttributes.ContentState.starEyes
 }

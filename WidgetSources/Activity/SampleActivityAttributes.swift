@@ -1,11 +1,36 @@
 import ActivityKit
 
-struct WidgetExtensionPlaygroundAttributes: ActivityAttributes {
+struct SampleActivityAttributes: ActivityAttributes {
+
+    // MARK: - Dynamic, Stateful Properties
+
     public struct ContentState: Codable, Hashable {
-        // Dynamic stateful properties about your activity go here!
         var emoji: String
     }
 
-    // Fixed non-changing properties about your activity go here!
+    // MARK: - Fixed Properties
     var name: String
+
+}
+
+// MARK: - Preview Samples
+
+extension SampleActivityAttributes {
+
+    static var preview: Self {
+        .init(name: "World")
+    }
+
+}
+
+extension SampleActivityAttributes.ContentState {
+
+    static var smiley: Self {
+        .init(emoji: "😀")
+    }
+
+    static var starEyes: Self {
+        .init(emoji: "🤩")
+    }
+
 }
