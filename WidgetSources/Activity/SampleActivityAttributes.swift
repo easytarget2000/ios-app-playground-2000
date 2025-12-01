@@ -9,6 +9,7 @@ struct SampleActivityAttributes: ActivityAttributes {
     }
 
     // MARK: - Fixed Properties
+
     var name: String
 
 }

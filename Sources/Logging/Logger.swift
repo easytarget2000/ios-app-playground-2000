@@ -5,6 +5,7 @@ import os
 
 protocol Logger: Sendable {
     nonisolated func debug(_ message: String)
+    nonisolated func error(_ error: any Error)
 }
 
 // MARK: - Default Implementation
@@ -18,8 +19,7 @@ final class DefaultLogger: Logger {
     private let osLogger: os.Logger
 
     init(subsystem: some LogSubsystem, category: some LogCategory) {
-        let completeSubsystem: String
-        = "\(Constant.subsystem).\(subsystem.suffix)"
+        let completeSubsystem: String = "\(Constant.subsystem).\(subsystem.suffix)"
 
         self.osLogger = .init(
             subsystem: completeSubsystem,
@@ -29,6 +29,10 @@ final class DefaultLogger: Logger {
 
     nonisolated func debug(_ message: String) {
         self.osLogger.debug("DEBUG: \(message)")
+    }
+
+    nonisolated func error(_ error: any Error) {
+        self.osLogger.error("ERROR: \(error.localizedDescription)")
     }
 
 }
@@ -49,6 +53,7 @@ extension Logger where Self == DefaultLogger {
 final class NoOpLogger: Logger {
 
     nonisolated func debug(_ message: String) {}
+    nonisolated func error(_ errror: any Error) {}
 
 }
 

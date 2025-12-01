@@ -68,6 +68,13 @@
 			);
 			target = 0BB45D9F2ED89BEC0017D870 /* PlaygroundWidgetExtension */;
 		};
+		0BC8ECB72EDDF74500BB206F /* Exceptions for "WidgetSources" folder in "MobileAppPlayground" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Activity/SampleActivityAttributes.swift,
+			);
+			target = 0B18851E2CB71DCE00594E81 /* MobileAppPlayground */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -89,6 +96,7 @@
 		0BB45DA62ED89BEC0017D870 /* WidgetSources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				0BC8ECB72EDDF74500BB206F /* Exceptions for "WidgetSources" folder in "MobileAppPlayground" target */,
 				0BB45DBA2ED89BED0017D870 /* Exceptions for "WidgetSources" folder in "PlaygroundWidgetExtension" target */,
 			);
 			path = WidgetSources;

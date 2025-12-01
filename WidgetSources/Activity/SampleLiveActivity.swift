@@ -2,6 +2,7 @@ import SwiftUI
 import WidgetKit
 
 struct SampleLiveActivity: Widget {
+
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: SampleActivityAttributes.self) { context in
             // Lock screen/banner UI goes here
