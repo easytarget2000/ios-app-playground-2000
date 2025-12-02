@@ -2,9 +2,7 @@ import ActivityKit
 import Observation
 
 @Observable
-final class DefaultNotificationPlaygroundViewModel:
-    NotificationPlaygroundViewModel
-{
+final class DefaultNotificationPlaygroundViewModel: NotificationPlaygroundViewModel {
 
     // MARK: - Properties
 
@@ -48,7 +46,7 @@ final class DefaultNotificationPlaygroundViewModel:
     }
 
     func requestPermission() async {
-        #warning("TODO: Handle errors thrown when querying for notification permissions.")
+#warning("TODO: Handle errors thrown when querying for notification permissions.")
         try? await self.permissionInteractor.requestPermission()
         await self.updatePermission()
 
@@ -62,16 +60,39 @@ final class DefaultNotificationPlaygroundViewModel:
             return
         }
 
-        do {
-            self.activity = try .request(
-                attributes: .init(name: "aaa"),
-                content: .init(state: .smiley, staleDate: .init(timeIntervalSinceNow: 60)),
-                pushType: .token,
+        if let activity = self.activity {
+            let currentState = activity.content.state
+            let newState: SampleActivityAttributes.ContentState = .init(
+                emoji: currentState.emoji,
+                progress: currentState.progress + 0.1
             )
-            self.activityLogger.debug("Requested Activity.")
-        } catch {
-            self.activity = nil
-            self.activityLogger.error(error)
+            let newContent: ActivityContent<SampleActivityAttributes.ContentState> = .init(
+                state: newState,
+                staleDate: .init(timeIntervalSinceNow: 10),
+            )
+            let alertConfiguration: AlertConfiguration = .init(
+                title: "Alert Title!",
+                body: "Alert Body",
+                sound: .default
+            )
+
+            self.activityLogger.debug("Updating activity with state: \(newState)")
+
+            Task {
+                await activity.update(newContent, alertConfiguration: alertConfiguration)
+            }
+        } else {
+            do {
+                self.activity = try .request(
+                    attributes: .init(name: "aaa"),
+                    content: .init(state: .smiley, staleDate: .init(timeIntervalSinceNow: 10)),
+                    pushType: .token,
+                )
+                self.activityLogger.debug("Requested Activity.")
+            } catch {
+                self.activity = nil
+                self.activityLogger.error(error)
+            }
         }
     }
 

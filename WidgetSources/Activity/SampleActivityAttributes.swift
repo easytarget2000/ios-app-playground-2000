@@ -5,7 +5,11 @@ struct SampleActivityAttributes: ActivityAttributes {
     // MARK: - Dynamic, Stateful Properties
 
     public struct ContentState: Codable, Hashable {
+
         var emoji: String
+
+        var progress: Double
+
     }
 
     // MARK: - Fixed Properties
@@ -27,11 +31,11 @@ extension SampleActivityAttributes {
 extension SampleActivityAttributes.ContentState {
 
     static var smiley: Self {
-        .init(emoji: "😀")
+        .init(emoji: "😀", progress: 2 / 3)
     }
 
     static var starEyes: Self {
-        .init(emoji: "🤩")
+        .init(emoji: "🤩", progress: 1 / 3)
     }
 
 }

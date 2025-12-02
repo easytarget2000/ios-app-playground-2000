@@ -7,7 +7,8 @@ struct SampleLiveActivity: Widget {
         ActivityConfiguration(for: SampleActivityAttributes.self) { context in
             // Lock screen/banner UI goes here
             VStack {
-                Text("Hello \(context.state.emoji)")
+                Text("Hello \(context.attributes.name) \(context.state.emoji)")
+                indicator(for: context)
             }
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
@@ -27,15 +28,21 @@ struct SampleLiveActivity: Widget {
                     // more content
                 }
             } compactLeading: {
-                Text("L")
+                Text("👈")
             } compactTrailing: {
-                Text("T \(context.state.emoji)")
+                Text("👉 \(context.state.emoji)")
             } minimal: {
                 Text(context.state.emoji)
             }
             .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
         }
+    }
+
+    private func indicator(for context: ActivityViewContext<SampleActivityAttributes>) -> some View {
+        let diameter: CGFloat = 64 * context.state.progress
+        return Circle()
+            .frame(width: diameter, height: diameter)
     }
 }
 
