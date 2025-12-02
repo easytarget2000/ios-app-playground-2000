@@ -60,7 +60,10 @@ final class DefaultNotificationPlaygroundViewModel: NotificationPlaygroundViewMo
             return
         }
 
-        if let activity = self.activity {
+        self.activityLogger
+            .debug("Activity is now: \(String(describing: self.activity?.activityState))")
+
+        if let activity = self.activity, activity.activityState == .active {
             let currentState = activity.content.state
             let newState: SampleActivityAttributes.ContentState = .init(
                 emoji: currentState.emoji,

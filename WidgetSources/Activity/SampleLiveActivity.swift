@@ -39,10 +39,14 @@ struct SampleLiveActivity: Widget {
         }
     }
 
-    private func indicator(for context: ActivityViewContext<SampleActivityAttributes>) -> some View {
-        let diameter: CGFloat = 64 * context.state.progress
-        return Circle()
-            .frame(width: diameter, height: diameter)
+    private func indicator(for context: ActivityViewContext<SampleActivityAttributes>)
+    -> some View {
+        let fullWidth: CGFloat = 200
+        let width: CGFloat = fullWidth * context.state.progress
+        let height: CGFloat = 32
+        return RoundedRectangle(cornerSize: .init(width: height / 2, height: height / 2))
+            .frame(width: width, height: height)
+            .background(.red)
     }
 }
 
