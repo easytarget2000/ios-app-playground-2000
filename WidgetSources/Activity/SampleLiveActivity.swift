@@ -3,6 +3,18 @@ import WidgetKit
 
 struct SampleLiveActivity: Widget {
 
+    // MARK: - Properties
+
+    @State private var indicatorWidth: CGFloat = 200
+
+    private let indicatorHeight: CGFloat = 20
+
+    private var indicatorCornerSize: CGSize {
+        .init(width: indicatorHeight / 2, height: indicatorHeight / 2)
+    }
+
+    // MARK: - Body
+
     var body: some WidgetConfiguration {
 
         ActivityConfiguration(for: SampleActivityAttributes.self) { context in
@@ -11,6 +23,7 @@ struct SampleLiveActivity: Widget {
                 greeting(for: context)
                 indicator(for: context)
             }
+
             .padding(8)
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
@@ -40,21 +53,39 @@ struct SampleLiveActivity: Widget {
         }
     }
 
+    // MARK: -
+
     private func greeting(for context: ActivityViewContext<SampleActivityAttributes>)
     -> some View {
         Text("Hello \(context.attributes.name) \(context.state.emoji)")
     }
 
-    private func indicator(for context: ActivityViewContext<SampleActivityAttributes>)
-    -> some View {
-        let fullWidth: CGFloat = 200
-        let width: CGFloat = fullWidth * context.state.progress
-        let height: CGFloat = 32
-        return RoundedRectangle(cornerSize: .init(width: height / 2, height: height / 2))
-            .foregroundStyle(.yellow)
-            .frame(width: width, height: height)
+    private func indicator(
+        for context: ActivityViewContext<SampleActivityAttributes>,
+    ) -> some View {
+        ZStack(alignment: .leading) {
+            RoundedRectangle(cornerSize: self.indicatorCornerSize)
+                .foregroundStyle(.blue)
+                .onGeometryChange(
+                    for: CGFloat.self,
+                    of: { geometry in
+                        geometry.size.width
+                    }
+                ) {
+                    let _ = print("DEBUG: width: \($0)")
+                    self.indicatorWidth = $0
+                }
+                .frame(height: self.indicatorHeight)
+                .frame(maxWidth: .infinity)
+
+            RoundedRectangle(cornerSize: indicatorCornerSize)
+                .foregroundStyle(.yellow)
+                .frame(width: self.indicatorWidth * context.state.progress, height: indicatorHeight)
+        }
     }
 }
+
+// MARK: - Preview
 
 #Preview("Notification", as: .content, using: SampleActivityAttributes.preview) {
     SampleLiveActivity()
