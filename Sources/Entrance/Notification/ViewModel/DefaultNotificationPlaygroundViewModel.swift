@@ -87,7 +87,7 @@ final class DefaultNotificationPlaygroundViewModel: NotificationPlaygroundViewMo
         } else {
             do {
                 self.activity = try .request(
-                    attributes: .init(name: "aaa"),
+                    attributes: .init(name: "Sabine"),
                     content: .init(state: .smiley, staleDate: .init(timeIntervalSinceNow: 10)),
                     pushType: .token,
                 )
