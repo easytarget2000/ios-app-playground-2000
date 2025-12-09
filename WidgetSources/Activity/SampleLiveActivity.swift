@@ -7,7 +7,7 @@ struct SampleLiveActivity: Widget {
 
     @State private var indicatorWidth: CGFloat = 200
 
-    private let indicatorHeight: CGFloat = 20
+    private let indicatorHeight: CGFloat = 50
 
     private var indicatorCornerSize: CGSize {
         .init(width: indicatorHeight / 2, height: indicatorHeight / 2)
@@ -16,12 +16,14 @@ struct SampleLiveActivity: Widget {
     // MARK: - Body
 
     var body: some WidgetConfiguration {
-
         ActivityConfiguration(for: SampleActivityAttributes.self) { context in
+            let _ = print("DEBUG: ActivityConfiguration")
+
             // Lock screen/banner UI goes here
             VStack(spacing: 8) {
                 greeting(for: context)
                 indicator(for: context)
+                longText
             }
 
             .padding(8)
@@ -40,6 +42,8 @@ struct SampleLiveActivity: Widget {
                 }
                 DynamicIslandExpandedRegion(.bottom) {
                     indicator(for: context)
+                    longText
+
                 }
             } compactLeading: {
                 Text("\(context.attributes.name.first ?? " ")")
@@ -82,6 +86,12 @@ struct SampleLiveActivity: Widget {
                 .foregroundStyle(.yellow)
                 .frame(width: self.indicatorWidth * context.state.progress, height: indicatorHeight)
         }
+    }
+
+    private var longText: some View {
+        Text(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+        )
     }
 }
 

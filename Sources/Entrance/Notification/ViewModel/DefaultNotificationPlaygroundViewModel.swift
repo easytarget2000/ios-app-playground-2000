@@ -87,14 +87,26 @@ final class DefaultNotificationPlaygroundViewModel: NotificationPlaygroundViewMo
         } else {
             do {
                 self.activity = try .request(
-                    attributes: .init(name: "Sabine"),
-                    content: .init(state: .smiley, staleDate: .init(timeIntervalSinceNow: 10)),
+                    attributes: .init(name: "Tokyo"),
+                    content: .init(state: .smiley, staleDate: nil),
                     pushType: .token,
                 )
                 self.activityLogger.debug("Requested Activity.")
             } catch {
                 self.activity = nil
                 self.activityLogger.error(error)
+            }
+
+            if let activity {
+                Task {
+                    for await pushToken in activity.pushTokenUpdates {
+                        let pushTokenString = pushToken.reduce("") {
+                            $0 + String(format: "%02x", $1)
+                        }
+
+                        self.activityLogger.debug("New push token: \(pushTokenString)")
+                    }
+                }
             }
         }
     }
