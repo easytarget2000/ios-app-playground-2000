@@ -3,7 +3,7 @@ protocol NotificationPlaygroundViewModel {
     var permission: NotificationPermission { get }
 
     func setup() async
-    func requestPermission() async throws
-    func startLiveActivity()
+    func requestPermission() async
+    func startLiveActivity() async
 
 }

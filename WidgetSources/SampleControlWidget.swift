@@ -4,11 +4,9 @@ import WidgetKit
 
 struct SampleControlWidget: ControlWidget {
 
-    static let kind: String = "eu.ezytarget.MobileAppPlayground.SampleControlWidget"
-
     var body: some ControlWidgetConfiguration {
         AppIntentControlConfiguration(
-            kind: Self.kind,
+            kind: WidgetKind.controlSample,
             provider: Provider()
         ) { value in
             ControlWidgetToggle(

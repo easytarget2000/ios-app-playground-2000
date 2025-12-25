@@ -3,11 +3,9 @@ import WidgetKit
 
 struct SampleWidget: Widget {
 
-    static let kind: String = "eu.ezytarget.MobileAppPlayground.SampleWidget"
-
     var body: some WidgetConfiguration {
         AppIntentConfiguration(
-            kind: Self.kind,
+            kind: WidgetKind.staticSample,
             intent: SampleWidgetConfigurationIntent.self,
             provider: SampleAppIntentTimelineProvider()
         ) { entry in

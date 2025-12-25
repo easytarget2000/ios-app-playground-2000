@@ -8,6 +8,10 @@ extension LogCategory where Self == LifecycleLogCategory {
         Self.init()
     }
 
+    static var activity: Self {
+        Self.init()
+    }
+
 }
 
 extension Logger where Self == DefaultLogger {
@@ -16,4 +20,7 @@ extension Logger where Self == DefaultLogger {
         Self.init(subsystem: subsystem, category: .lifecycle)
     }
 
+    static func activity(subsystem: some LogSubsystem) -> Self {
+        Self.init(subsystem: subsystem, category: .activity)
+    }
 }

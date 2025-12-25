@@ -12,11 +12,13 @@ struct NotificationPlaygroundView: View {
         VStack {
             Button("Request Permission") {
                 Task {
-                    try await self.viewModel.requestPermission()
+                    await self.viewModel.requestPermission()
                 }
             }
-            Button("Start Live Activity") {
-                self.viewModel.startLiveActivity()
+            Button("Start/Update Live Activity") {
+                Task {
+                    await self.viewModel.startLiveActivity()
+                }
             }
         }
         .task {

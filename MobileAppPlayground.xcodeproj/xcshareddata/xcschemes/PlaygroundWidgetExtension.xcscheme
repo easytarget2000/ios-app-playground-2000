@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "2620"
+   LastUpgradeVersion = "2610"
    wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
@@ -80,7 +80,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "_XCWidgetKind"
-            value = "eu.ezytarget.MobileAppPlayground.SampleWidget"
+            value = "eu.ezytarget.MobileAppPlayground.SampleControlWidget"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
