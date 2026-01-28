@@ -6,7 +6,7 @@ import Testing
 
     // MARK: - `requestPermission()`
 
-    @Test func requestPermission_whenDenied_opensAppSettings() async throws {
+    @Test @MainActor func requestPermission_whenDenied_opensAppSettings() async throws {
         let spyRouter: FakeRouter = .init()
         let mockPermissionInteractor: FakeNotificationPermissionInteractor
         = .init(getPermissionResult: .denied)
@@ -14,10 +14,11 @@ import Testing
         let sut: DefaultNotificationPlaygroundViewModel = .init(
             router: spyRouter,
             permissionInteractor: mockPermissionInteractor,
-            lifecycleLogger: .noOp
+            lifecycleLogger: .noOp,
+            activityLogger: .noOp,
         )
 
-        try await sut.requestPermission()
+        await sut.requestPermission()
 
         #expect(await spyRouter.openExternalItem == .appSettings)
     }

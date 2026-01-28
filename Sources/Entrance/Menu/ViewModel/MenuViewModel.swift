@@ -1,4 +1,4 @@
-protocol MenuViewModel {
+@MainActor protocol MenuViewModel {
 
     var navigateToCounterTitle: String { get }
     var navigateToLegacyCounterTitle: String { get }

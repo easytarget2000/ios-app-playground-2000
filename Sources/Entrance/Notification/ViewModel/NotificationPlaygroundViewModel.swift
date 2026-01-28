@@ -1,4 +1,4 @@
-protocol NotificationPlaygroundViewModel {
+@MainActor protocol NotificationPlaygroundViewModel {
 
     var permission: NotificationPermission { get }
 

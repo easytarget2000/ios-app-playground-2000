@@ -1,4 +1,4 @@
-protocol CounterViewModel {
+@MainActor protocol CounterViewModel {
 
     var shouldShowLoadingIndicator: Bool { get }
 
