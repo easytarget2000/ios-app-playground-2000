@@ -1,3 +1,5 @@
+#if DEBUG
+
 import Foundation
 
 // MARK: - Protocol
@@ -43,3 +45,5 @@ extension CounterInteractor where Self == PreviewCounterInteractor {
         .init()
     }
 }
+
+#endif

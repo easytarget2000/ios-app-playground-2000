@@ -1,3 +1,5 @@
+#if DEBUG
+
 final class PreviewCounterViewModel: CounterViewModel {
 
     var shouldShowLoadingIndicator: Bool
@@ -34,3 +36,5 @@ extension CounterViewModel where Self == PreviewCounterViewModel {
         .init()
     }
 }
+
+#endif

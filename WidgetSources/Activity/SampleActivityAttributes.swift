@@ -18,6 +18,8 @@ struct SampleActivityAttributes: ActivityAttributes {
 
 }
 
+#if DEBUG
+
 // MARK: - Preview Samples
 
 extension SampleActivityAttributes {
@@ -39,3 +41,5 @@ extension SampleActivityAttributes.ContentState {
     }
 
 }
+
+#endif

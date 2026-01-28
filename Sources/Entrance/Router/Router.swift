@@ -20,6 +20,8 @@ enum ExternalNavigationItem {
     case appSettings
 }
 
+#if DEBUG
+
 // MARK: - Preview Implementation
 
 final class PreviewRouter: Router {
@@ -35,3 +37,5 @@ extension Router where Self == PreviewRouter {
         .init()
     }
 }
+
+#endif

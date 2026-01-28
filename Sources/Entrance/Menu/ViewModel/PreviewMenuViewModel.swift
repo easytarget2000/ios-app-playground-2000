@@ -1,3 +1,5 @@
+#if DEBUG
+
 final class PreviewMenuViewModel: MenuViewModel {
 
     let navigateToCounterTitle: String = .init(
@@ -20,3 +22,5 @@ extension MenuViewModel where Self == PreviewMenuViewModel {
         .init()
     }
 }
+
+#endif

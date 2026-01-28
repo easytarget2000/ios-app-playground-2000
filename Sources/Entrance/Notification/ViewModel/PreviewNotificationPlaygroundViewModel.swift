@@ -1,3 +1,5 @@
+#if DEBUG
+
 final class PreviewNotificationPlaygroundViewModel:
     NotificationPlaygroundViewModel {
 
@@ -20,3 +22,5 @@ where Self == PreviewNotificationPlaygroundViewModel {
     }
 
 }
+
+#endif

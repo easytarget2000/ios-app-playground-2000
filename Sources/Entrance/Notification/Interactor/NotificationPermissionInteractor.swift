@@ -5,6 +5,8 @@ protocol NotificationPermissionInteractor: Sendable {
     func requestPermission() async throws
 }
 
+#if DEBUG
+
 // MARK: - Preview Implementation
 
 final class PreviewNotificationPermissionInteractor:
@@ -28,3 +30,5 @@ where Self == PreviewNotificationPermissionInteractor {
     }
 
 }
+
+#endif
