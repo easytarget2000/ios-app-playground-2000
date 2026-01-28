@@ -5,6 +5,11 @@ import Observation
 
     // MARK: - Properties
 
+    static let sharedDefault: DefaultMenuViewModel = .init(
+        router: .sharedDefault,
+        lifecycleLogger: .lifecycle(subsystem: .menu),
+    )
+
     private let router: any Router
     private let lifecycleLogger: any Logger
 
@@ -51,11 +56,8 @@ import Observation
 
 extension MenuViewModel where Self == DefaultMenuViewModel {
 
-    static func `default`(
-        router: any Router,
-        lifecycleLogger: some Logger = .lifecycle(subsystem: .menu)
-    ) -> Self {
-        .init(router: router, lifecycleLogger: lifecycleLogger)
+    static var sharedDefault: Self {
+        Self.sharedDefault
     }
 
 }

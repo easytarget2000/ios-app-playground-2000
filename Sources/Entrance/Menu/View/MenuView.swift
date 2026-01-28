@@ -2,10 +2,10 @@ import SwiftUI
 
 struct MenuView: View {
 
-    @State private var viewModel: any MenuViewModel
+    private let viewModel: any MenuViewModel
 
-    init(viewModel: some MenuViewModel = .default(router: .sharedDefault)) {
-        self._viewModel = .init(wrappedValue: viewModel)
+    init(viewModel: some MenuViewModel = .sharedDefault) {
+        self.viewModel = viewModel
     }
 
     var body: some View {
@@ -26,6 +26,7 @@ struct MenuView: View {
 }
 
 // MARK: - Preview
+
 #if DEBUG
 
 #Preview {
