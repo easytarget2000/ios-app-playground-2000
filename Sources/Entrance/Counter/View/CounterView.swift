@@ -10,14 +10,24 @@ struct CounterView: View {
                 ProgressView()
             }
 
-            Text(self.viewModel.currentLocalValue ?? "")
+            if let currentLocalValue = self.viewModel.currentLocalValue {
+                Text(currentLocalValue)
+            } else {
+                EmptyView()
+            }
+
             Button(self.viewModel.addToLocalCounterButtonTitle) {
                 Task {
                     try? await self.viewModel.onAddToLocalCounterSelected()
                 }
             }
 
-            Text(self.viewModel.currentGlobalValue ?? "")
+            if let currentGlobalValue = self.viewModel.currentGlobalValue {
+                Text(currentGlobalValue)
+            } else {
+                EmptyView()
+            }
+
             Button(self.viewModel.addToGlobalCounterButtonTitle) {
                 Task {
                     try? await self.viewModel.onAddToGlobalCounterSelected()

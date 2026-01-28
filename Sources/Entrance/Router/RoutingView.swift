@@ -24,13 +24,13 @@ struct RoutingView: View {
             rootView
                 .navigationDestination(
                     for: NavigationItem.self,
-                    destination: self.viewDestination
+                    destination: self.viewDestination,
                 )
         }
     }
 
     private var rootView: some View {
-        MenuView()
+        MenuView(viewModel: .sharedDefault)
     }
 
     @ViewBuilder private func viewDestination(
