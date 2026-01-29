@@ -1,4 +1,4 @@
-@MainActor protocol CounterViewModel {
+protocol CounterViewModel {
 
     var shouldShowLoadingIndicator: Bool { get }
 
@@ -12,6 +12,6 @@
     func setup() async throws
     func onAddToLocalCounterSelected() async throws
     func onAddToGlobalCounterSelected() async throws
-    func navigateToAnotherCounter()
+    @MainActor func navigateToAnotherCounter()
 
 }

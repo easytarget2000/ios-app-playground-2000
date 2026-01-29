@@ -18,7 +18,7 @@ final class PreviewCounterViewModel: CounterViewModel {
     init(
         shouldShowLoadingIndicator: Bool = true,
         currentLocalValue: String? = "0",
-        currentGlobalValue: String? = "0"
+        currentGlobalValue: String? = "0",
     ) {
         self.shouldShowLoadingIndicator = shouldShowLoadingIndicator
         self.currentLocalValue = currentLocalValue

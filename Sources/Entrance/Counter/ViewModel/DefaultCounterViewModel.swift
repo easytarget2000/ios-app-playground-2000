@@ -6,7 +6,7 @@ import Observation
     // MARK: - Properties
 
     private let id: Int
-    
+
     private let router: any Router
     private let interactor: any CounterInteractor
     private let lifecycleLogger: any Logger
