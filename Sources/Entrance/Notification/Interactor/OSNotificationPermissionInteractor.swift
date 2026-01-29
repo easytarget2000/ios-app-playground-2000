@@ -5,7 +5,7 @@ final class OSNotificationPermissionInteractor:
 
     // MARK: - Properties
 
-    static let shared: OSNotificationPermissionInteractor = .init()
+    @MainActor static let shared: OSNotificationPermissionInteractor = .init()
 
     private nonisolated var center: UNUserNotificationCenter {
         .current()
@@ -22,7 +22,9 @@ final class OSNotificationPermissionInteractor:
     }
 
     func requestPermission() async throws {
-        try await self.center.requestAuthorization(options: [.alert, .sound, .badge])
+        try await self.center.requestAuthorization(
+            options: [.alert, .sound, .badge]
+        )
     }
 
 }
@@ -31,7 +33,7 @@ final class OSNotificationPermissionInteractor:
 
 extension NotificationPermissionInteractor where Self == OSNotificationPermissionInteractor {
 
-    static var osShared: Self {
+    @MainActor static var osShared: Self {
         Self.shared
     }
 

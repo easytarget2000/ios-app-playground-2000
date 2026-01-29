@@ -1,6 +1,6 @@
 @testable import MobileAppPlayground
 
-final actor FakeNotificationPermissionInteractor: NotificationPermissionInteractor {
+final class FakeNotificationPermissionInteractor: NotificationPermissionInteractor {
 
     // MARK: - Properties
 

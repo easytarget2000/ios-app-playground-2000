@@ -13,7 +13,7 @@ protocol CounterInteractor: ObservableObject {
 
 // MARK: - Preview Implementation
 
-final actor PreviewCounterInteractor: CounterInteractor {
+final class PreviewCounterInteractor: CounterInteractor {
     private var localValue = 0
     private var globalValue = 0
 

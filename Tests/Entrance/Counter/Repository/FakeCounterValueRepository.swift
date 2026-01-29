@@ -1,6 +1,6 @@
 @testable import MobileAppPlayground
 
-final actor FakeCounterValueRepository: CounterValueRepository {
+final class FakeCounterValueRepository: CounterValueRepository {
 
     // MARK: - Properties
 

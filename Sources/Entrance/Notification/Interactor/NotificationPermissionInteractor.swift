@@ -1,6 +1,6 @@
 // MARK: - Protocol
 
-protocol NotificationPermissionInteractor: Sendable {
+protocol NotificationPermissionInteractor {
     func getPermission() async -> NotificationPermission
     func requestPermission() async throws
 }
