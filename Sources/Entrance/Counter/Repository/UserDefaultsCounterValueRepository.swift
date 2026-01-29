@@ -1,15 +1,15 @@
 import Foundation
 
-final actor UserDefaultsCounterValueRepository: CounterValueRepository {
+final class UserDefaultsCounterValueRepository: CounterValueRepository {
 
     // MARK: - Properties
 
-    static let shared: UserDefaultsCounterValueRepository = .init(
+    @MainActor static let shared: UserDefaultsCounterValueRepository = .init(
         lifecycleLogger: .lifecycle(subsystem: .counter),
         threadingLogger: .threading(subsystem: .counter),
     )
 
-    var simulateSlowResponse = true
+    let simulateSlowResponse = true
 
     private let userDefaults: UserDefaults = .standard
     private let lifecycleLogger: any Logger
@@ -30,9 +30,10 @@ final actor UserDefaultsCounterValueRepository: CounterValueRepository {
 
     // MARK: - Protocol Implementations
 
-    func fetchValue() async throws -> Int {
+    @concurrent func fetchValue() async throws -> Int {
         self.threadingLogger.debug(
             "fetchValue() started on thread: \(Thread.currentThread)"
+            + "; task: \(String(describing: Task.name))"
         )
         if self.simulateSlowResponse {
             try await Task.sleep(for: .seconds(0.5))
@@ -40,19 +41,28 @@ final actor UserDefaultsCounterValueRepository: CounterValueRepository {
 
         self.threadingLogger.debug(
             "fetchValue() returned to thread: \(Thread.currentThread)"
+            + "; task: \(String(describing: Task.name))"
         )
         return self.userDefaults.integer(forKey: UserDefaultsKey.counterValue)
     }
 
-    func setValue(_ value: Int) async throws {
+    @concurrent func setValue(_ value: Int) async throws {
+        self.threadingLogger.debug(
+            "setValue() started on thread: \(Thread.currentThread)"
+            + "; task: \(String(describing: Task.name))"
+        )
         self.userDefaults.set(value, forKey: UserDefaultsKey.counterValue)
+        self.threadingLogger.debug(
+            "setValue() returned to thread: \(Thread.currentThread)"
+            + "; task: \(String(describing: Task.name))"
+        )
     }
 
 }
 
 extension CounterValueRepository where Self == UserDefaultsCounterValueRepository {
 
-    static var sharedUserDefaults: Self {
+    @MainActor static var sharedUserDefaults: Self {
         Self.shared
     }
 

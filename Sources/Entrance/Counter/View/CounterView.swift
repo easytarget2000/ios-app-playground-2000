@@ -33,9 +33,15 @@ struct CounterView: View {
                 self.threadingLogger.debug(
                     "addToGlobalCounterButton action on thread: "
                     + Thread.currentThread.description
-                    + "Task: \(String(describing: Task.name))"
+                    + "; task: \(String(describing: Task.name))"
                 )
                 Task {
+                    self.threadingLogger.debug(
+                        "addToGlobalCounterButton started Task on thread: "
+                        + Thread.currentThread.description
+                        + "; task: \(String(describing: Task.name))"
+                    )
+
                     try? await self.viewModel.onAddToGlobalCounterSelected()
                 }
             }

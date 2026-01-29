@@ -80,6 +80,7 @@ import Observation
         self.threadingLogger.debug(
             "onAddToGlobalCounterSelected() started on thread: "
             + Thread.currentThread.description
+            + "; task: \(String(describing: Task.name))"
         )
         self.shouldShowLoadingIndicator = true
         self.setGlobalCounter(from: try await self.interactor.incrementGlobal())
@@ -88,6 +89,7 @@ import Observation
         self.threadingLogger.debug(
             "onAddToGlobalCounterSelected() returned to thread: "
             + Thread.currentThread.description
+            + "; task: \(String(describing: Task.name))"
         )
     }
 

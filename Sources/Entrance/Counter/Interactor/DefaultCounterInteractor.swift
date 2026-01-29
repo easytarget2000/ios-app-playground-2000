@@ -1,6 +1,6 @@
 import Foundation
 
-final actor DefaultCounterInteractor: CounterInteractor {
+final class DefaultCounterInteractor: CounterInteractor {
 
     // MARK: - Properties
 
@@ -47,6 +47,7 @@ final actor DefaultCounterInteractor: CounterInteractor {
     func incrementGlobal() async throws -> Int {
         self.threadingLogger.debug(
             "incrementGlobal() started on thread: \(Thread.currentThread)"
+            + "; task: \(String(describing: Task.name))"
         )
 
         let newValue = try await self.fetchGlobal() + 1
@@ -54,6 +55,7 @@ final actor DefaultCounterInteractor: CounterInteractor {
 
         self.threadingLogger.debug(
             "incrementGlobal() returned to thread: \(Thread.currentThread)"
+            + "; task: \(String(describing: Task.name))"
         )
         return newValue
     }
@@ -62,7 +64,7 @@ final actor DefaultCounterInteractor: CounterInteractor {
 
 extension CounterInteractor where Self == DefaultCounterInteractor {
 
-    static func `default`(
+    @MainActor static func `default`(
         initialLocalValue: Int = 0,
         globalValueRepository: any CounterValueRepository = .sharedUserDefaults,
         lifecycleLogger: any Logger = .lifecycle(subsystem: .counter),
