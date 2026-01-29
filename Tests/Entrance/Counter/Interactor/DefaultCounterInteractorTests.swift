@@ -5,11 +5,15 @@ import Testing
 
     // MARK: - `fetchLocal()`
 
-    @Test @MainActor func fetchLocal_returnsZero() async throws {
-        let initialLocalValue = 0
+    @Test func `first local fetching returns initial value`() async throws {
+        let initialLocalValue = 99
 
-        let sut: DefaultCounterInteractor
-        = .default(initialLocalValue: initialLocalValue)
+        let sut: DefaultCounterInteractor = .init(
+            initialLocalValue: initialLocalValue,
+            globalValueRepository: FakeCounterValueRepository(),
+            lifecycleLogger: .noOp,
+            threadingLogger: .noOp,
+        )
 
         let result = try await sut.fetchLocal()
 
@@ -18,14 +22,17 @@ import Testing
 
     // MARK: - `fetchGlobal()`
 
-    @Test @MainActor func fetchGlobal_returnsValueFromRepository()
-    async throws {
+    @Test func `global fetching returns value from repository`() async throws {
         let expectation = 1
 
         let mockRepository: FakeCounterValueRepository
         = .init(fetchValueResult: expectation)
-        let sut: DefaultCounterInteractor
-        = .default(globalValueRepository: mockRepository)
+        let sut: DefaultCounterInteractor = .init(
+            initialLocalValue: -1,
+            globalValueRepository: mockRepository,
+            lifecycleLogger: .noOp,
+            threadingLogger: .noOp,
+        )
 
         let result = try await sut.fetchGlobal()
 
@@ -34,14 +41,15 @@ import Testing
 
     // MARK: - `incrementLocal()`
 
-    @Test @MainActor
-    func incrementLocal_calledTwice_returnsLocalValueIncrementedByTwo()
+    @Test func `locally incrementing 2x returns initial local value plus 2`()
     async throws {
         let initialLocalValue = 22
 
-        let sut: DefaultCounterInteractor = .default(
+        let sut: DefaultCounterInteractor = .init(
             initialLocalValue: initialLocalValue,
-            globalValueRepository: .mock()
+            globalValueRepository: FakeCounterValueRepository(),
+            lifecycleLogger: .noOp,
+            threadingLogger: .noOp,
         )
 
         _ = try await sut.incrementLocal()
@@ -53,14 +61,18 @@ import Testing
 
     // MARK: - `incrementGlobal()`
 
-    @Test @MainActor
-    func incrementGlobal_storesIncrementedValueInRepository() async throws {
+    @Test func `globally incrementing stores new value in repository`()
+    async throws {
         let initialValue = 333
 
         let fakeRepository: FakeCounterValueRepository
         = .init(fetchValueResult: initialValue)
-        let sut: DefaultCounterInteractor
-        = .default(globalValueRepository: fakeRepository)
+        let sut: DefaultCounterInteractor = .init(
+            initialLocalValue: -1,
+            globalValueRepository: fakeRepository,
+            lifecycleLogger: .noOp,
+            threadingLogger: .noOp,
+        )
 
         _ = try await sut.incrementGlobal()
 
