@@ -3,6 +3,7 @@ import SwiftUI
 struct CounterView: View {
 
     let viewModel: any CounterViewModel
+    let threadingLogger: any Logger = .threading(subsystem: .counter)
 
     var body: some View {
         VStack {
@@ -29,6 +30,11 @@ struct CounterView: View {
             }
 
             Button(self.viewModel.addToGlobalCounterButtonTitle) {
+                self.threadingLogger.debug(
+                    "addToGlobalCounterButton action on thread: "
+                    + Thread.currentThread.description
+                    + "Task: \(String(describing: Task.name))"
+                )
                 Task {
                     try? await self.viewModel.onAddToGlobalCounterSelected()
                 }
