@@ -11,6 +11,7 @@
         }
 
         let newInstance: DefaultCounterViewModel = .init(
+            id: id,
             router: .sharedDefault,
             interactor: .default(),
             lifecycleLogger: .lifecycle(subsystem: .counter),

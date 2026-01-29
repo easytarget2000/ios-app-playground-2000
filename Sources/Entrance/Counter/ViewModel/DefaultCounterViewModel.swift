@@ -5,6 +5,8 @@ import Observation
 
     // MARK: - Properties
 
+    private let id: Int
+    
     private let router: any Router
     private let interactor: any CounterInteractor
     private let lifecycleLogger: any Logger
@@ -40,11 +42,13 @@ import Observation
     // MARK: - Lifecycle
 
     init(
+        id: Int,
         router: some Router,
         interactor: some CounterInteractor,
         lifecycleLogger: some Logger,
         threadingLogger: some Logger,
     ) {
+        self.id = id
         self.router = router
         self.interactor = interactor
         self.lifecycleLogger = lifecycleLogger
@@ -88,7 +92,7 @@ import Observation
     }
 
     func navigateToAnotherCounter() {
-        self.router.navigate(to: .counter(id: 1))
+        self.router.navigate(to: .counter(id: id + 1))
     }
 
     // MARK: Implementation
