@@ -53,7 +53,7 @@
 		0B18851F2CB71DCE00594E81 /* MobileAppPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileAppPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B18852F2CB71DCF00594E81 /* MobileAppPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileAppPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B1885392CB71DCF00594E81 /* MobileAppPlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileAppPlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B1F8A4D2EDF122500054BB3 /* MobileAppPlayground.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MobileAppPlayground.entitlements; sourceTree = "<group>"; };
+		0B1F8A4D2EDF122500054BB3 /* Entitlements.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Entitlements.entitlements; sourceTree = "<group>"; };
 		0BB45DA02ED89BEC0017D870 /* PlaygroundWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PlaygroundWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BB45DA22ED89BEC0017D870 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		0BB45DA42ED89BEC0017D870 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -133,7 +133,7 @@
 		0B1885162CB71DCE00594E81 = {
 			isa = PBXGroup;
 			children = (
-				0B1F8A4D2EDF122500054BB3 /* MobileAppPlayground.entitlements */,
+				0B1F8A4D2EDF122500054BB3 /* Entitlements.entitlements */,
 				0B1885212CB71DCE00594E81 /* Sources */,
 				0B1885322CB71DCF00594E81 /* Tests */,
 				0B18853C2CB71DCF00594E81 /* UITests */,
@@ -517,7 +517,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MobileAppPlayground.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
@@ -549,7 +549,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MobileAppPlayground.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
