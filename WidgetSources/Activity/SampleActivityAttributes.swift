@@ -18,7 +18,7 @@ struct SampleActivityAttributes: ActivityAttributes {
 
 }
 
-#if DEBUG
+#warning("TODO: Exclude Live Activity sample data from release builds.")
 
 // MARK: - Preview Samples
 
@@ -41,5 +41,3 @@ extension SampleActivityAttributes.ContentState {
     }
 
 }
-
-#endif

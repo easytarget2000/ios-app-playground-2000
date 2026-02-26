@@ -97,9 +97,13 @@ struct SampleLiveActivity: Widget {
 
 // MARK: - Preview
 
+#if DEBUG
+
 #Preview("Notification", as: .content, using: SampleActivityAttributes.preview) {
     SampleLiveActivity()
 } contentStates: {
     SampleActivityAttributes.ContentState.smiley
     SampleActivityAttributes.ContentState.starEyes
 }
+
+#endif

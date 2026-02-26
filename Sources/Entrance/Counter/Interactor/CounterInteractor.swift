@@ -1,5 +1,3 @@
-#if DEBUG
-
 import Foundation
 
 // MARK: - Protocol
@@ -10,6 +8,8 @@ protocol CounterInteractor: ObservableObject {
     func incrementLocal() async throws -> Int
     func incrementGlobal() async throws -> Int
 }
+
+#if DEBUG
 
 // MARK: - Preview Implementation
 
