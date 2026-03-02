@@ -79,6 +79,17 @@
         }
       }
     },
+    "menu.rbEditorItem" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rekordbox Editor"
+          }
+        }
+      }
+    },
     "No Animation" : {
 
     },

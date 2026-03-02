@@ -1,3 +1,5 @@
+#warning("TODO: Replace localizations with manually-managed items with generated Swift symbols.")
+
 // Use string literals directly, not initializers of LocalizationValue.
 
 extension String.LocalizationValue {

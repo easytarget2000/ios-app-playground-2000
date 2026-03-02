@@ -11,10 +11,14 @@ final class PreviewMenuViewModel: MenuViewModel {
     let navigateToNotificationPlaygroundTitle: String = .init(
         localized: .Menu.notificationPlaygroundItem
     )
+    let navigateToRBEditorTitle: String = .init(
+        localized: .menuRbEditorItem
+    )
 
     func navigateToCounter() {}
     func navigateToLegacyCounter() {}
     func navigateToNotificationPlayground() {}
+    func navigateToRBEditor() {}
 }
 
 extension MenuViewModel where Self == PreviewMenuViewModel {

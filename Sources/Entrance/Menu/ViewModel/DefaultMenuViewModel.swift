@@ -22,6 +22,9 @@ import Observation
     let navigateToNotificationPlaygroundTitle: String = .init(
         localized: .Menu.notificationPlaygroundItem
     )
+    let navigateToRBEditorTitle: String = .init(
+        localized: .menuRbEditorItem
+    )
 
     // MARK: - Lifecycle
 
@@ -48,6 +51,10 @@ import Observation
 
     func navigateToNotificationPlayground() {
         self.router.navigate(to: .notificationPlayground)
+    }
+
+    func navigateToRBEditor() {
+
     }
 
 }
