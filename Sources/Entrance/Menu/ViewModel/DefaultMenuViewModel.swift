@@ -43,6 +43,11 @@ import Observation
 
     func navigateToCounter() {
         self.router.navigate(to: .counter(id: 0))
+
+        // Debug side-effect:
+        let cInput: CPlaygroundData = .init(a: 42, b: 64)
+        let cResult = addFive(cInput)
+        print("DEBUG: \(cInput): \(cInput), \(cResult)")
     }
 
     func navigateToLegacyCounter() {
