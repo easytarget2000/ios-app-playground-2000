@@ -45,7 +45,10 @@ import Observation
         self.router.navigate(to: .counter(id: 0))
 
         // Debug side-effect:
-        let cInput: CPlaygroundData = .init(a: 42, b: 64)
+        let cInput: CPlaygroundData = .init(
+            a: 42,
+            b: .init(("a" as Character).asciiValue ?? 0)
+        )
         let cResult = addFive(cInput)
         print("DEBUG: \(cInput): \(cInput), \(cResult)")
     }
