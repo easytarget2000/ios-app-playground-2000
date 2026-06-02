@@ -81,9 +81,11 @@ final class DefaultNotificationPlaygroundViewModel: NotificationPlaygroundViewMo
 
             self.activityLogger.debug("Updating activity with state: \(newState)")
 
-            Task {
-                await activity.update(newContent, alertConfiguration: alertConfiguration)
-            }
+            await self.update(
+                activity: activity,
+                with: newContent,
+                alertConfiguration: alertConfiguration
+            )
         } else {
             do {
                 self.activity = try .request(
@@ -115,6 +117,14 @@ final class DefaultNotificationPlaygroundViewModel: NotificationPlaygroundViewMo
 
     private func updatePermission() async {
         self.permission = await self.permissionInteractor.getPermission()
+    }
+
+    private func update(
+        activity: sending Activity<SampleActivityAttributes>,
+        with content: ActivityContent<SampleActivityAttributes.ContentState>,
+        alertConfiguration: AlertConfiguration
+    ) async {
+        await activity.update(content, alertConfiguration: alertConfiguration)
     }
 
 }
