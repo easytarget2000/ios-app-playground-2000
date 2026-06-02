@@ -5,5 +5,6 @@
     func setup() async
     func requestPermission() async
     func startLiveActivity() async
+    func updateLiveActivity() async
 
 }

@@ -11,9 +11,14 @@ struct NotificationPlaygroundView: View {
                     await self.viewModel.requestPermission()
                 }
             }
-            Button("Start/Update Live Activity") {
+            Button("Start Live Activity") {
                 Task {
                     await self.viewModel.startLiveActivity()
+                }
+            }
+            Button("Update Live Activity") {
+                Task {
+                    await self.viewModel.updateLiveActivity()
                 }
             }
         }

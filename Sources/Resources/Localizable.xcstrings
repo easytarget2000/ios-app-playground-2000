@@ -96,10 +96,13 @@
     "Request Permission" : {
 
     },
-    "Start/Update Live Activity" : {
+    "Start Live Activity" : {
 
     },
     "Toggle" : {
+
+    },
+    "Update Live Activity" : {
 
     },
     "World" : {

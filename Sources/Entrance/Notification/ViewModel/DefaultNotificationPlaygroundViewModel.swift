@@ -1,4 +1,3 @@
-import ActivityKit
 import Observation
 
 @Observable
@@ -15,9 +14,7 @@ final class DefaultNotificationPlaygroundViewModel: NotificationPlaygroundViewMo
     private let router: any Router
     private let permissionInteractor: any NotificationPermissionInteractor
     private let lifecycleLogger: any Logger
-    private let activityLogger: any Logger
-
-    private var activity: Activity<SampleActivityAttributes>?
+    private let liveActivityManager: LiveActivityManager
 
     // MARK: - Lifecycle
 
@@ -25,12 +22,12 @@ final class DefaultNotificationPlaygroundViewModel: NotificationPlaygroundViewMo
         router: any Router,
         permissionInteractor: any NotificationPermissionInteractor,
         lifecycleLogger: some Logger,
-        activityLogger: some Logger,
+        liveActivityManager: LiveActivityManager,
     ) {
         self.router = router
         self.permissionInteractor = permissionInteractor
         self.lifecycleLogger = lifecycleLogger
-        self.activityLogger = activityLogger
+        self.liveActivityManager = liveActivityManager
 
         self.lifecycleLogger.debug("\(self) +: \(address(of: self))")
     }
@@ -56,75 +53,17 @@ final class DefaultNotificationPlaygroundViewModel: NotificationPlaygroundViewMo
     }
 
     func startLiveActivity() async {
-        guard ActivityAuthorizationInfo().areActivitiesEnabled else {
-            return
-        }
+        await self.liveActivityManager.start()
+    }
 
-        self.activityLogger
-            .debug("Activity is now: \(String(describing: self.activity?.activityState))")
-
-        if let activity = self.activity, activity.activityState == .active {
-            let currentState = activity.content.state
-            let newState: SampleActivityAttributes.ContentState = .init(
-                emoji: currentState.emoji,
-                progress: currentState.progress + 0.1
-            )
-            let newContent: ActivityContent<SampleActivityAttributes.ContentState> = .init(
-                state: newState,
-                staleDate: .init(timeIntervalSinceNow: 10),
-            )
-            let alertConfiguration: AlertConfiguration = .init(
-                title: "Alert Title!",
-                body: "Alert Body",
-                sound: .default
-            )
-
-            self.activityLogger.debug("Updating activity with state: \(newState)")
-
-            await self.update(
-                activity: activity,
-                with: newContent,
-                alertConfiguration: alertConfiguration
-            )
-        } else {
-            do {
-                self.activity = try .request(
-                    attributes: .init(name: "Tokyo"),
-                    content: .init(state: .smiley, staleDate: nil),
-                    pushType: .token,
-                )
-                self.activityLogger.debug("Requested Activity.")
-            } catch {
-                self.activity = nil
-                self.activityLogger.error(error)
-            }
-
-            if let activity {
-                Task {
-                    for await pushToken in activity.pushTokenUpdates {
-                        let pushTokenString = pushToken.reduce("") {
-                            $0 + String(format: "%02x", $1)
-                        }
-
-                        self.activityLogger.debug("New push token: \(pushTokenString)")
-                    }
-                }
-            }
-        }
+    func updateLiveActivity() async {
+        await self.liveActivityManager.update()
     }
 
     // MARK: Implementations
 
     private func updatePermission() async {
         self.permission = await self.permissionInteractor.getPermission()
-    }
-
-    private func update(
-        activity: sending Activity<SampleActivityAttributes>,
-        with content: ActivityContent<SampleActivityAttributes.ContentState>,
-        alertConfiguration: AlertConfiguration
-    ) async {
-        await activity.update(content, alertConfiguration: alertConfiguration)
     }
 
 }
@@ -144,7 +83,7 @@ where Self == DefaultNotificationPlaygroundViewModel {
             router: router,
             permissionInteractor: permissionInteractor,
             lifecycleLogger: lifecycleLogger,
-            activityLogger: activityLogger,
+            liveActivityManager: .init(logger: activityLogger),
         )
     }
 

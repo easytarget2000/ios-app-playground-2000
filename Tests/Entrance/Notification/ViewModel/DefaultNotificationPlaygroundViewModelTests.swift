@@ -15,7 +15,7 @@ import Testing
             router: spyRouter,
             permissionInteractor: mockPermissionInteractor,
             lifecycleLogger: .noOp,
-            activityLogger: .noOp,
+            liveActivityManager: LiveActivityManager(logger: .noOp),
         )
 
         await sut.requestPermission()
