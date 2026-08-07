@@ -32,8 +32,6 @@ struct SampleLiveActivity: Widget {
 
         } dynamicIsland: { context in
             DynamicIsland {
-                // Expanded UI goes here.  Compose the expanded UI through
-                // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
                     greeting(for: context)
                 }
@@ -43,7 +41,6 @@ struct SampleLiveActivity: Widget {
                 DynamicIslandExpandedRegion(.bottom) {
                     indicator(for: context)
                     longText
-
                 }
             } compactLeading: {
                 Text("\(context.attributes.name.first ?? " ")")

@@ -50,10 +50,7 @@ final actor LiveActivityManager {
         self.logger
             .debug("Activity is now: \(String(describing: self.activity?.activityState))")
 
-        let extracted = self.activity
-        self.activity = nil
-
-        guard let activity = consume extracted else { return }
+        guard let activity else { return }
 
         let currentState = activity.content.state
         let newState: SampleActivityAttributes.ContentState = .init(
