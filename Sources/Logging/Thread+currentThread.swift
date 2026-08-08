@@ -9,6 +9,6 @@ extension Thread {
     /// https://github.com/swiftlang/swift-corelibs-foundation/issues/5139
     /// https://www.avanderlee.com/concurrency/swift-6-2-concurrency-changes/
     nonisolated static var currentThread: Thread {
-        return Thread.current
+        return Self.current
     }
 }
