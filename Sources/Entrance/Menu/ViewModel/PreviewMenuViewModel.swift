@@ -8,6 +8,9 @@ final class PreviewMenuViewModel: MenuViewModel {
     let navigateToLegacyCounterTitle: String = .init(
         localized: .Menu.legacyCounterItem
     )
+    let navigateToNestingTitle: String = .init(
+        localized: .Menu.nestingItem
+    )
     let navigateToNotificationPlaygroundTitle: String = .init(
         localized: .Menu.notificationPlaygroundItem
     )
@@ -18,6 +21,7 @@ final class PreviewMenuViewModel: MenuViewModel {
     func navigateToCounter() {}
     func navigateToLegacyCounter() {}
     func navigateToNotificationPlayground() {}
+    func navigateToNesting() {}
     func navigateToRBEditor() {}
 }
 

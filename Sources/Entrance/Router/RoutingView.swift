@@ -45,6 +45,8 @@ struct RoutingView: View {
             LegacyCounterView(
                 viewModel: CounterViewModelStorage.legacyInstance(for: id)
             )
+        case .nesting:
+            TopNestingView()
         case .notificationPlayground:
             NotificationPlaygroundView(viewModel: .default(router: self.router))
         }

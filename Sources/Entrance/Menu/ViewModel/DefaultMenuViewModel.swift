@@ -19,6 +19,9 @@ import Observation
     let navigateToLegacyCounterTitle: String = .init(
         localized: .Menu.legacyCounterItem
     )
+    let navigateToNestingTitle: String = .init(
+        localized: .Menu.nestingItem
+    )
     let navigateToNotificationPlaygroundTitle: String = .init(
         localized: .Menu.notificationPlaygroundItem
     )
@@ -55,6 +58,10 @@ import Observation
 
     func navigateToLegacyCounter() {
         self.router.navigate(to: .legacyCounter(id: 25))
+    }
+
+    func navigateToNesting() {
+        self.router.navigate(to: .nesting)
     }
 
     func navigateToNotificationPlayground() {

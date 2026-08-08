@@ -13,7 +13,8 @@ protocol Logger: Sendable {
 final class DefaultLogger: Logger {
 
     private enum Constant {
-        static let subsystem: String = Bundle.main.bundleIdentifier!
+        static let subsystem: String
+        = Bundle.main.bundleIdentifier ?? "UnknownBundleIdentifier"
     }
 
     private let osLogger: os.Logger

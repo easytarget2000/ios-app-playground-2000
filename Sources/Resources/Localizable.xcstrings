@@ -10,9 +10,6 @@
     "Alert Title!" : {
 
     },
-    "And Goodbye!" : {
-
-    },
     "counter.addToGlobalCounterButton" : {
       "localizations" : {
         "en" : {
@@ -46,9 +43,6 @@
     "Hello" : {
 
     },
-    "Increment: %lld" : {
-
-    },
     "menu.counterItem" : {
       "localizations" : {
         "en" : {
@@ -65,6 +59,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Legacy Counter"
+          }
+        }
+      }
+    },
+    "menu.nestingItem" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nesting"
           }
         }
       }

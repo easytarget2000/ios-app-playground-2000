@@ -1,7 +1,5 @@
 #warning("TODO: Replace localizations with manually-managed items with generated Swift symbols.")
 
-// Use string literals directly, not initializers of LocalizationValue.
-
 extension String.LocalizationValue {
 
     enum Menu {
@@ -10,9 +8,10 @@ extension String.LocalizationValue {
         = "menu.counterItem"
         static let legacyCounterItem: String.LocalizationValue
         = "menu.legacyCounterItem"
+        static let nestingItem: String.LocalizationValue
+        = "menu.nestingItem"
         static let notificationPlaygroundItem: String.LocalizationValue
         = "menu.notificationPlaygroundItem"
-
     }
 
 }

@@ -13,6 +13,7 @@ import SwiftUI
 enum NavigationItem: Hashable {
     case counter(id: Int)
     case legacyCounter(id: Int)
+    case nesting
     case notificationPlayground
 }
 
