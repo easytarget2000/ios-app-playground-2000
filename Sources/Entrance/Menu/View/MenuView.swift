@@ -14,6 +14,9 @@ struct MenuView: View {
             Button(self.viewModel.navigateToLegacyCounterTitle) {
                 self.viewModel.navigateToLegacyCounter()
             }
+            Button(self.viewModel.navigateToNestingTitle) {
+                self.viewModel.navigateToNesting()
+            }
             Button(self.viewModel.navigateToNotificationPlaygroundTitle) {
                 self.viewModel.navigateToNotificationPlayground()
             }

@@ -10,6 +10,9 @@
     "Alert Title!" : {
 
     },
+    "Count: %lld" : {
+
+    },
     "counter.addToGlobalCounterButton" : {
       "localizations" : {
         "en" : {
@@ -41,6 +44,9 @@
       }
     },
     "Hello" : {
+
+    },
+    "Increase count" : {
 
     },
     "menu.counterItem" : {

@@ -31,13 +31,22 @@ private struct NestingView2: View {
 
 private struct NestingView3: View {
 
+    @State private var count = 0
+
     init() {
         logger.debug("NestingView3: init()")
     }
 
     var body: some View {
         let _ = logger.debug("NestingView3: body()")
-        Text("Nesting Level 3")
+
+        VStack(spacing: 32) {
+            Text("Nesting Level 3") // Continue here, move to ViewModel
+            Button("Increase count") {
+                self.count += 1
+            }
+            Text("Count: \(count)")
+        }
     }
 }
 
