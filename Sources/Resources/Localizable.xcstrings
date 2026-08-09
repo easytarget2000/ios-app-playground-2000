@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lld" : {
+
+    },
     "Active" : {
 
     },
@@ -8,9 +11,6 @@
 
     },
     "Alert Title!" : {
-
-    },
-    "Count: %lld" : {
 
     },
     "counter.addToGlobalCounterButton" : {
@@ -44,9 +44,6 @@
       }
     },
     "Hello" : {
-
-    },
-    "Increase count" : {
 
     },
     "menu.counterItem" : {
@@ -100,8 +97,45 @@
         }
       }
     },
-    "Nesting Level 3" : {
-
+    "nesting.level3Header" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nesting Level 3"
+          }
+        }
+      }
+    },
+    "nesting.modelCounterValueLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encapsulated Value:"
+          }
+        }
+      }
+    },
+    "nesting.simpleCounterButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Increase Direct Value"
+          }
+        }
+      }
+    },
+    "nesting.simpleCounterValueLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Increase Direct Value"
+          }
+        }
+      }
     },
     "No Animation" : {
 
