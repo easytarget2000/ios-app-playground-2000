@@ -97,6 +97,9 @@
         }
       }
     },
+    "nesting.level2Header" : {
+
+    },
     "nesting.level3Header" : {
       "localizations" : {
         "en" : {
@@ -107,7 +110,14 @@
         }
       }
     },
+    "nesting.modelCounterButton" : {
+
+    },
+    "nesting.modelCounterValue" : {
+
+    },
     "nesting.modelCounterValueLabel" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -127,7 +137,11 @@
         }
       }
     },
+    "nesting.simpleCounterValue" : {
+
+    },
     "nesting.simpleCounterValueLabel" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

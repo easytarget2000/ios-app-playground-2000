@@ -41,7 +41,7 @@ private struct NestingView3: View {
     @State private var viewModel: any NestingViewModel3
 
     init() {
-        self.viewModel = DefaultNestingViewModel3()
+        self.viewModel = DefaultNestingViewModel3(lifecycleLogger: logger)
         logger.debug("NestingView3: init()")
     }
 
@@ -53,9 +53,12 @@ private struct NestingView3: View {
             Button("nesting.simpleCounterButton") {
                 self.simpleCounterValue += 1
             }
-            Text("nesting.simpleCounterValueLabel")
+            Text("nesting.simpleCounterValue")
             Text("\(simpleCounterValue)")
-            Text("nesting.modelCounterValueLabel")
+            Button("nesting.modelCounterButton") {
+                self.viewModel.increaseValue()
+            }
+            Text("nesting.modelCounterValue")
             Text("\(simpleCounterValue)")
         }
         .background(.orange)
