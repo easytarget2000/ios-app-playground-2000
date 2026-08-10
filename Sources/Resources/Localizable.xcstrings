@@ -117,15 +117,11 @@
         }
       }
     },
-    "nesting.modelCounterValueLabel" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Encapsulated Value:"
-          }
-        }
-      }
+    "nesting.modelCounterButton" : {
+
+    },
+    "nesting.modelCounterValue" : {
+
     },
     "nesting.simpleCounterButton" : {
       "localizations" : {
@@ -137,15 +133,8 @@
         }
       }
     },
-    "nesting.simpleCounterValueLabel" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Increase Direct Value"
-          }
-        }
-      }
+    "nesting.simpleCounterValue" : {
+
     },
     "No Animation" : {
 

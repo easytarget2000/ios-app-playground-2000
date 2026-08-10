@@ -11,7 +11,9 @@ protocol NestingViewModel3 {
 extension NestingViewModel3 where Self == DefaultNestingViewModel3 {
 
     static func `default`() -> Self {
-        Self.init()
+        Self.init(
+            lifecycleLogger: .default(subsystem: .nesting, category: .lifecycle)
+        )
     }
 
 }
@@ -20,6 +22,13 @@ extension NestingViewModel3 where Self == DefaultNestingViewModel3 {
 final class DefaultNestingViewModel3: NestingViewModel3 {
 
     private(set) var value: Int = 0
+
+    private let lifecycleLogger: any Logger
+
+    init(lifecycleLogger: some Logger) {
+        self.lifecycleLogger = lifecycleLogger
+        self.lifecycleLogger.debug("DefaultNestingViewModel3: init()")
+    }
 
     func increaseValue() {
         value += 1
