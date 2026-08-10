@@ -7,13 +7,13 @@ struct ImplicitAnimationDemo: View {
     var body: some View {
         VStack {
             VStack {
-                Text("Hello")
+                Text("animations.implicit.text1")
                     .font(.largeTitle)
                     .offset(x: isActive ? 200 : 0)
                     // Applies a .smooth animation when `isActive` changes
                     .animation(.smooth, value: isActive)
 
-                Text("World")
+                Text("animations.implicit.text2")
                     .font(.largeTitle)
                     .offset(x: isActive ? 200 : 0)
             }
@@ -21,10 +21,10 @@ struct ImplicitAnimationDemo: View {
             .animation(.linear.speed(0.1), value: isActive)
 
             // No animation applied
-            Text("No Animation")
+            Text("animations.implicite.activeLabel")
                 .offset(x: isActive ? 200 : 0)
 
-            Toggle("Active", isOn: $isActive)
+            Toggle("animations.implicit.toggle", isOn: $isActive)
                 .padding()
         }
     }
@@ -35,13 +35,13 @@ struct ExplicitAnimationDemo: View {
     var body: some View {
         VStack {
             VStack {
-                Text("Hello")
+                Text("animations.explicit.text1")
                     .font(.largeTitle)
                     .offset(x: isActive ? 200 : 0)
                     // Applies a .smooth animation when `isActive` changes
                     .animation(.smooth, value: isActive)
 
-                Text("World")
+                Text("animations.explicit.text2")
                     .font(.largeTitle)
                     .offset(x: isActive ? 200 : 0)
             }
@@ -49,10 +49,10 @@ struct ExplicitAnimationDemo: View {
             .animation(.linear.speed(0.5), value: isActive)
 
             // No implicit animation applied
-            Text("No Animation")
+            Text("animations.explicit.activeLabel")
                 .offset(x: isActive ? 200 : 0)
 
-            Button("Toggle") {
+            Button("animations.explicit.toggle") {
                 withAnimation(.spring) {
                     isActive.toggle()
                 }

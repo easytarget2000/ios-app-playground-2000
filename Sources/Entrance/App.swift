@@ -1,6 +1,3 @@
-#warning("TODO: Use String catalog.")
-#warning("TODO: Potentially replace String in view mdodels with localized strings.")
-
 import SwiftUI
 
 @main

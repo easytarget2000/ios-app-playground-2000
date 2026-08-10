@@ -55,16 +55,16 @@ private struct NestingView3: View {
         let _ = logger.debug("NestingView3: body()")
 
         VStack(spacing: 8) {
-            Text("nesting.level3Header")
-            Button("nesting.simpleCounterButton") {
+            Text("nesting.level3.Header")
+            Button("nesting.level3.simpleCounterButton") {
                 self.simpleCounterValue += 1
             }
-            Text("nesting.simpleCounterValue")
+            Text("nesting.level3.simpleCounterValue")
             Text("\(simpleCounterValue)")
-            Button("nesting.modelCounterButton") {
+            Button("nesting.level3.modelCounterButton") {
                 self.viewModel.increaseValue()
             }
-            Text("nesting.modelCounterValue")
+            Text("nesting.level3.modelCounterValue")
             Text("\(simpleCounterValue)")
         }
         .background(.orange)

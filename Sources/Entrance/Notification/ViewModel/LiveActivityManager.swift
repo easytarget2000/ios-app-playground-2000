@@ -47,8 +47,9 @@ final actor LiveActivityManager {
     }
 
     func update() async {
-        self.logger
-            .debug("Activity is now: \(String(describing: self.activity?.activityState))")
+        self.logger.debug(
+            "Activity is now: \(String(describing: self.activity?.activityState))"
+        )
 
         guard let activity else { return }
 
@@ -57,19 +58,24 @@ final actor LiveActivityManager {
             emoji: currentState.emoji,
             progress: currentState.progress + 0.1
         )
-        let newContent: ActivityContent<SampleActivityAttributes.ContentState> = .init(
+        let newContent: ActivityContent<SampleActivityAttributes.ContentState>
+        = .init(
             state: newState,
             staleDate: .init(timeIntervalSinceNow: 10),
         )
         let alertConfiguration: AlertConfiguration = .init(
-            title: "Alert Title!",
-            body: "Alert Body",
-            sound: .default
+            title: "notifications.liveActivity.updateAlertTitle",
+            body: "notifications.liveActivity.updateAlertBody",
+            sound: .default,
         )
 
         self.logger.debug("Updating activity with state: \(newState)")
 
-        await self.updateActivity(activity, with: newContent, alertConfiguration: alertConfiguration)
+        await self.updateActivity(
+            activity,
+            with: newContent,
+            alertConfiguration: alertConfiguration,
+        )
     }
 
     private func updateActivity<T>(

@@ -4,14 +4,85 @@
     "%lld" : {
 
     },
-    "Active" : {
-
+    "animations.explicit.activeLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Active"
+          }
+        }
+      }
     },
-    "Alert Body" : {
-
+    "animations.explicit.text1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello"
+          }
+        }
+      }
     },
-    "Alert Title!" : {
-
+    "animations.explicit.text2" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explicite"
+          }
+        }
+      }
+    },
+    "animations.explicit.toggle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toggle"
+          }
+        }
+      }
+    },
+    "animations.implicit.text1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello"
+          }
+        }
+      }
+    },
+    "animations.implicit.text2" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Implicit"
+          }
+        }
+      }
+    },
+    "animations.implicit.toggle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toggle"
+          }
+        }
+      }
+    },
+    "animations.implicite.activeLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Active"
+          }
+        }
+      }
     },
     "counter.addToGlobalCounterButton" : {
       "localizations" : {
@@ -42,9 +113,6 @@
           }
         }
       }
-    },
-    "Hello" : {
-
     },
     "menu.counterItem" : {
       "localizations" : {
@@ -98,13 +166,16 @@
       }
     },
     "nesting.level2.button" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toggle On Level 2"
+          }
+        }
+      }
     },
     "nesting.level2.header" : {
-
-    },
-    "nesting.level2Header" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -114,7 +185,7 @@
         }
       }
     },
-    "nesting.level3Header" : {
+    "nesting.level3.Header" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -124,13 +195,27 @@
         }
       }
     },
-    "nesting.modelCounterButton" : {
-
+    "nesting.level3.modelCounterButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Increase Encapsulated Value"
+          }
+        }
+      }
     },
-    "nesting.modelCounterValue" : {
-
+    "nesting.level3.modelCounterValue" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encapsulated Value:"
+          }
+        }
+      }
     },
-    "nesting.simpleCounterButton" : {
+    "nesting.level3.simpleCounterButton" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -140,10 +225,20 @@
         }
       }
     },
-    "nesting.simpleCounterValue" : {
+    "nesting.level3.simpleCounterValue" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direct Value:"
+          }
+        }
+      }
+    },
+    "notifications.liveActivity.updateAlertBody" : {
 
     },
-    "No Animation" : {
+    "notifications.liveActivity.updateAlertTitle" : {
 
     },
     "notifications.requestPermissionButton" : {
@@ -175,12 +270,6 @@
           }
         }
       }
-    },
-    "Toggle" : {
-
-    },
-    "World" : {
-
     }
   },
   "version" : "1.0"
