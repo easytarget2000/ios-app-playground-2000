@@ -27,7 +27,11 @@ final class DefaultNestingViewModel3: NestingViewModel3 {
 
     init(lifecycleLogger: some Logger) {
         self.lifecycleLogger = lifecycleLogger
-        self.lifecycleLogger.debug("DefaultNestingViewModel3: init()")
+        self.lifecycleLogger.debug("DefaultNestingViewModel3: init() +++")
+    }
+
+    deinit {
+        self.lifecycleLogger.debug("DefaultNestingViewModel3: deinit() ---")
     }
 
     func increaseValue() {
