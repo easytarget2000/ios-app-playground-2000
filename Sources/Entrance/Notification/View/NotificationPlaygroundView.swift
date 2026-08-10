@@ -6,17 +6,17 @@ struct NotificationPlaygroundView: View {
 
     var body: some View {
         VStack {
-            Button("Request Permission") {
+            Button("notifications.requestPermissionButton") {
                 Task {
                     await self.viewModel.requestPermission()
                 }
             }
-            Button("Start Live Activity") {
+            Button("notifications.startLiveActivityButton") {
                 Task {
                     await self.viewModel.startLiveActivity()
                 }
             }
-            Button("Update Live Activity") {
+            Button("notifications.updateLiveActivityButton") {
                 Task {
                     await self.viewModel.updateLiveActivity()
                 }

@@ -97,6 +97,16 @@
         }
       }
     },
+    "nesting.level2Header" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nesting Level 2"
+          }
+        }
+      }
+    },
     "nesting.level3Header" : {
       "localizations" : {
         "en" : {
@@ -140,16 +150,37 @@
     "No Animation" : {
 
     },
-    "Request Permission" : {
-
+    "notifications.requestPermissionButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request Permission"
+          }
+        }
+      }
     },
-    "Start Live Activity" : {
-
+    "notifications.startLiveActivityButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Live Activity"
+          }
+        }
+      }
+    },
+    "notifications.updateLiveActivityButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update Live Activity"
+          }
+        }
+      }
     },
     "Toggle" : {
-
-    },
-    "Update Live Activity" : {
 
     },
     "World" : {
