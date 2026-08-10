@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%lld" : {
-
-    },
     "animations.explicit.activeLabel" : {
       "localizations" : {
         "en" : {
@@ -205,12 +202,12 @@
         }
       }
     },
-    "nesting.level3.modelCounterValue" : {
+    "nesting.level3.modelCounterValue(%lld)" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Encapsulated Value:"
+            "value" : "Encapsulated Value: %1$lld"
           }
         }
       }
@@ -225,12 +222,12 @@
         }
       }
     },
-    "nesting.level3.simpleCounterValue" : {
+    "nesting.level3.simpleCounterValue(%lld)" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Direct Value:"
+            "value" : "Direct Value: %1$lld"
           }
         }
       }

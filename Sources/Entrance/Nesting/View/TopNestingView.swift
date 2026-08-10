@@ -59,13 +59,15 @@ private struct NestingView3: View {
             Button("nesting.level3.simpleCounterButton") {
                 self.simpleCounterValue += 1
             }
-            Text("nesting.level3.simpleCounterValue")
-            Text("\(simpleCounterValue)")
+            Text(
+                "nesting.level3.simpleCounterValue(\(self.simpleCounterValue))"
+            )
             Button("nesting.level3.modelCounterButton") {
                 self.viewModel.increaseValue()
             }
-            Text("nesting.level3.modelCounterValue")
-            Text("\(simpleCounterValue)")
+            Text(
+                "nesting.level3.modelCounterValue(\(self.viewModel.value))"
+            )
         }
         .background(.orange)
     }
