@@ -1,8 +1,19 @@
 import Observation
 
 protocol NestingViewModel3 {
+
     var value: Int { get }
+
     func increaseValue()
+
+}
+
+extension NestingViewModel3 where Self == DefaultNestingViewModel3 {
+
+    static func `default`() -> Self {
+        Self.init()
+    }
+
 }
 
 @Observable

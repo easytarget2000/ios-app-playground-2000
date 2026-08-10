@@ -21,6 +21,8 @@ struct TopNestingView: View {
 
 private struct NestingView2: View {
 
+    private let viewModel3: some NestingViewModel3 = .default()
+
     init() {
         logger.debug("NestingView2: init()")
     }
@@ -29,7 +31,7 @@ private struct NestingView2: View {
         let _ = logger.debug("NestingView2: body()")
         VStack(spacing: 8) {
             Text("nesting.level2Header")
-            NestingView3()
+            NestingView3(viewModel: viewModel3)
         }
         .background(.yellow)
     }
@@ -38,10 +40,10 @@ private struct NestingView2: View {
 private struct NestingView3: View {
 
     @State private var simpleCounterValue = 0
-    @State private var viewModel: any NestingViewModel3
+    private let viewModel: any NestingViewModel3
 
-    init() {
-        self.viewModel = DefaultNestingViewModel3()
+    init(viewModel: some NestingViewModel3) {
+        self.viewModel = viewModel
         logger.debug("NestingView3: init()")
     }
 
