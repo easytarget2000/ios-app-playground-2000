@@ -97,7 +97,14 @@
         }
       }
     },
+    "nesting.level2.button" : {
+
+    },
+    "nesting.level2.header" : {
+
+    },
     "nesting.level2Header" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

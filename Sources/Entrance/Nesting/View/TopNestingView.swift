@@ -21,6 +21,7 @@ struct TopNestingView: View {
 
 private struct NestingView2: View {
 
+    @State private var flag: Bool = false
     private let viewModel3: some NestingViewModel3 = .default()
 
     init() {
@@ -30,10 +31,13 @@ private struct NestingView2: View {
     var body: some View {
         let _ = logger.debug("NestingView2: body()")
         VStack(spacing: 8) {
-            Text("nesting.level2Header")
+            Text("nesting.level2.header")
+            Button("nesting.level2.button") {
+                self.flag = !self.flag
+            }
             NestingView3(viewModel: viewModel3)
         }
-        .background(.yellow)
+        .background(flag ? .yellow : .orange)
     }
 }
 
