@@ -64,6 +64,7 @@ import Observation
     // MARK: - Interaction
 
     func setup() async throws {
+        self.lifecycleLogger.debug("\(address(of: self)): setup()")
         self.shouldShowLoadingIndicator = true
         self.setLocalCounter(from: try await self.interactor.fetchLocal())
         self.setGlobalCounter(from: try await self.interactor.fetchGlobal())
