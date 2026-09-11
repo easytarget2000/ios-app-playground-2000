@@ -14,16 +14,16 @@ import Observation
     private let lifecycleLogger: any Logger
 
     let navigateToCounterTitle: String = .init(
-        localized: .Menu.counterItem
+        localized: .menuCounterItem
     )
     let navigateToLegacyCounterTitle: String = .init(
-        localized: .Menu.legacyCounterItem
+        localized: .menuLegacyCounterItem
     )
     let navigateToNestingTitle: String = .init(
-        localized: .Menu.nestingItem
+        localized: .menuNestingItem
     )
     let navigateToNotificationPlaygroundTitle: String = .init(
-        localized: .Menu.notificationPlaygroundItem
+        localized: .menuNotificationPlaygroundItem
     )
     let navigateToRBEditorTitle: String = .init(
         localized: .menuRbEditorItem

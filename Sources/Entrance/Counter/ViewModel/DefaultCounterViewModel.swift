@@ -21,13 +21,13 @@ import Observation
     }
 
     let addToLocalCounterButtonTitle: String = .init(
-        localized: .Counter.addToLocalCounterButton
+        localized: .counterAddToLocalCounterButton
     )
     let addToGlobalCounterButtonTitle: String = .init(
-        localized: .Counter.addToGlobalCounterButton
+        localized: .counterAddToGlobalCounterButton
     )
     let navigateToAnotherCounterTitle: String = .init(
-        localized: .Counter.navigateToAnotherCounterButton
+        localized: .counterNavigateToAnotherCounterButton
     )
 
     var shouldShowLoadingIndicator: Bool = false
